@@ -2,15 +2,28 @@ import { loadContent, loadManifest, DataLoadError } from "./dataLoader.js";
 import { renderImagePage, renderList, renderPost } from "./renderer.js";
 import { parseHash, startRouter } from "./router.js";
 import { hideStatus, showEmpty, showError, showLoading } from "./ui-states.js";
+import { latestAnnouncementDate, lawType, toBuddhistDate, withinDays } from "./utils.js";
 
 const status = document.querySelector("#status");
 const listing = document.querySelector("#listing");
 const cards = document.querySelector("#cards");
 const postView = document.querySelector("#post");
 const search = document.querySelector("#search");
+const typeFilters = document.querySelector("#typeFilters");
+const dateFilters = document.querySelector("#dateFilters");
+const resultCount = document.querySelector("#resultCount");
+
+const DATE_RANGES = [
+  ["all", "ทั้งหมด"],
+  ["7", "7 วัน"],
+  ["30", "30 วัน"],
+  ["90", "90 วัน"],
+];
 
 let posts = [];
 let query = "";
+let selectedType = "ทั้งหมด";
+let selectedDays = "all";
 let ready = false;
 
 async function loadAll() {
@@ -30,11 +43,41 @@ async function loadAll() {
   });
 }
 
+function buildFilters() {
+  const types = ["ทั้งหมด", ...new Set(posts.map((post) => lawType(post.title)))];
+  typeFilters.innerHTML = "";
+  for (const type of types) {
+    typeFilters.append(chip(type, type === selectedType, () => {
+      selectedType = type;
+      draw();
+    }));
+  }
+  dateFilters.innerHTML = "";
+  for (const [value, label] of DATE_RANGES) {
+    dateFilters.append(chip(label, value === selectedDays, () => {
+      selectedDays = value;
+      draw();
+    }));
+  }
+}
+
+function chip(label, active, onClick) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = active ? "chip active" : "chip";
+  button.textContent = label;
+  button.addEventListener("click", onClick);
+  return button;
+}
+
 function visiblePosts() {
   const needle = query.trim().toLocaleLowerCase("th");
-  if (!needle) return posts;
+  const reference = latestAnnouncementDate(posts);
   return posts.filter((post) => {
-    const haystack = `${post.title} ${(post.tags || []).join(" ")}`.toLocaleLowerCase("th");
+    if (selectedType !== "ทั้งหมด" && lawType(post.title) !== selectedType) return false;
+    if (!withinDays(post.announcement_date, selectedDays, reference)) return false;
+    if (!needle) return true;
+    const haystack = `${post.title} ${(post.tags || []).join(" ")} ${toBuddhistDate(post.announcement_date)}`.toLocaleLowerCase("th");
     return haystack.includes(needle);
   });
 }
@@ -66,9 +109,10 @@ function draw(route = parseHash()) {
   postView.hidden = true;
   listing.hidden = false;
   const shown = visiblePosts();
+  resultCount.textContent = `${shown.length} บทความ`;
+  buildFilters();
   if (!shown.length) {
-    cards.innerHTML = "";
-    showEmpty(status);
+    cards.innerHTML = `<p class="status empty">ไม่พบบทความตามตัวกรอง</p>`;
     return;
   }
   renderList(shown, cards, (post) => {
@@ -80,6 +124,7 @@ async function boot() {
   try {
     await loadAll();
     ready = true;
+    buildFilters();
     draw();
   } catch (error) {
     const message = error instanceof DataLoadError ? error.message : "โหลดเนื้อหาไม่สำเร็จ";

@@ -12,6 +12,36 @@ export function toBuddhistDate(iso) {
   return `${day}/${month}/${year}`;
 }
 
+const LAW_TYPES = [
+  ["ร่างกฎหมาย", /^ร่าง/],
+  ["พระราชบัญญัติ", /^(พรบ\.|พ\.ร\.บ\.|พระราชบัญญัติ)/],
+  ["พระราชกฤษฎีกา", /^(พรฎ\.|พ\.ร\.ฎ\.|พระราชกฤษฎีกา)/],
+  ["ระเบียบ", /^ระเบียบ/],
+  ["หลักเกณฑ์", /^(หลักเกณฑ์|ประกาศ)/],
+];
+
+export function lawType(title) {
+  const name = title || "";
+  const found = LAW_TYPES.find(([, pattern]) => pattern.test(name));
+  return found ? found[0] : "อื่น ๆ";
+}
+
+export function latestAnnouncementDate(posts) {
+  return posts.reduce((latest, post) => (
+    post.announcement_date > latest ? post.announcement_date : latest
+  ), "");
+}
+
+export function withinDays(iso, days, referenceIso) {
+  if (!days || days === "all") return true;
+  if (!iso || !referenceIso) return false;
+  const reference = Date.parse(`${referenceIso}T00:00:00Z`);
+  const current = Date.parse(`${iso}T00:00:00Z`);
+  if (Number.isNaN(reference) || Number.isNaN(current)) return false;
+  const elapsed = (reference - current) / 86400000;
+  return elapsed >= 0 && elapsed <= Number(days);
+}
+
 export function sortPosts(posts) {
   return [...posts].sort((a, b) => {
     if (a.announcement_date !== b.announcement_date) {

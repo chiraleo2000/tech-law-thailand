@@ -1,4 +1,4 @@
-import { assetUrl, sanitizeHtml, sortPosts, toBuddhistDate } from "./utils.js";
+import { assetUrl, lawType, sanitizeHtml, sortPosts, toBuddhistDate } from "./utils.js";
 
 export function renderList(posts, container, onOpen) {
   const visible = sortPosts(posts);
@@ -15,9 +15,12 @@ export function renderList(posts, container, onOpen) {
     const date = document.createElement("p");
     date.className = "card-date";
     date.textContent = toBuddhistDate(post.announcement_date);
+    const kind = document.createElement("span");
+    kind.className = "type-badge";
+    kind.textContent = lawType(post.title);
     const title = document.createElement("h2");
     title.textContent = post.title;
-    card.append(date, title);
+    card.append(date, kind, title);
     if (post.tags && post.tags.length) {
       const tags = document.createElement("p");
       tags.className = "tags";

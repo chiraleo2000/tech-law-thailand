@@ -17,10 +17,21 @@
   <main id="app">
     <div id="status" class="status" role="status">กำลังโหลดเนื้อหา</div>
     <section id="listing" class="listing" hidden>
-      <label class="search">
-        <span>ค้นหา</span>
-        <input id="search" type="search" placeholder="ชื่อกฎหมายหรือแท็ก" autocomplete="off">
-      </label>
+      <div class="filters">
+        <div class="filter-group">
+          <span class="filter-label">ประเภท</span>
+          <div id="typeFilters" class="chips"></div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">วันที่ประกาศ</span>
+          <div id="dateFilters" class="chips"></div>
+        </div>
+        <label class="search">
+          <span>ค้นหา</span>
+          <input id="search" type="search" placeholder="ชื่อกฎหมายหรือแท็ก" autocomplete="off">
+        </label>
+        <p id="resultCount" class="result-count"></p>
+      </div>
       <div id="cards" class="cards"></div>
     </section>
     <article id="post" class="post" hidden></article>

@@ -4,10 +4,10 @@ export function showLoading(status) {
   status.textContent = "กำลังโหลดเนื้อหา";
 }
 
-export function showEmpty(status) {
+export function showEmpty(status, message = "ยังไม่มีบทความ") {
   status.hidden = false;
   status.className = "status empty";
-  status.textContent = "ยังไม่มีบทความ";
+  status.textContent = message;
 }
 
 export function showError(status, message, onRetry) {

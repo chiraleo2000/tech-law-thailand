@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import fc from "fast-check";
-import { toBuddhistDate, sortPosts } from "../js/utils.js";
+import { lawType, latestAnnouncementDate, sortPosts, toBuddhistDate, withinDays } from "../js/utils.js";
 import { renderPost } from "../js/renderer.js";
 import { parseHash } from "../js/router.js";
 
@@ -103,6 +103,21 @@ describe("blog rendering", () => {
     expect(image.compareDocumentPosition(comments) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(root.querySelector(".comments h3").textContent).toBe("ความเห็น");
     expect(root.querySelector(".portrait a").getAttribute("href")).toContain("/image/infographic");
+  });
+
+  it("classifies law type and keeps announcements inside the selected date window", () => {
+    expect(lawType("พรบ.อำนวยความสะดวก")).toBe("พระราชบัญญัติ");
+    expect(lawType("ร่างพรฎ.แพลตฟอร์ม")).toBe("ร่างกฎหมาย");
+    expect(lawType("ระเบียบแบ่งปันข้อมูล")).toBe("ระเบียบ");
+    expect(lawType("หลักเกณฑ์ส่งข้อมูล")).toBe("หลักเกณฑ์");
+    const posts = [
+      { announcement_date: "2026-09-28" },
+      { announcement_date: "2026-07-08" },
+    ];
+    expect(latestAnnouncementDate(posts)).toBe("2026-09-28");
+    expect(withinDays("2026-09-04", "30", "2026-09-28")).toBe(true);
+    expect(withinDays("2026-07-08", "30", "2026-09-28")).toBe(false);
+    expect(withinDays("2026-07-08", "all", "2026-09-28")).toBe(true);
   });
 
   it("opens an image route without treating it as the post id", () => {
