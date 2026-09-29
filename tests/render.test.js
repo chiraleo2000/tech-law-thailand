@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import fc from "fast-check";
-import { lawType, latestAnnouncementDate, sortPosts, toBuddhistDate, withinDays } from "../js/utils.js";
+import { firstSectionExcerpt, lawType, latestAnnouncementDate, sortPosts, toBuddhistDate, withinDays } from "../js/utils.js";
 import { renderPost } from "../js/renderer.js";
 import { parseHash } from "../js/router.js";
 
@@ -118,6 +118,13 @@ describe("blog rendering", () => {
     expect(withinDays("2026-09-04", "30", "2026-09-28")).toBe(true);
     expect(withinDays("2026-07-08", "30", "2026-09-28")).toBe(false);
     expect(withinDays("2026-07-08", "all", "2026-09-28")).toBe(true);
+  });
+
+  it("uses the first section as the homepage excerpt", () => {
+    const excerpt = firstSectionExcerpt(
+      "<p>เอกสารสรุป</p><h1>1. วัตถุประสงค์และเหตุผลความจำเป็น</h1><p>ยกเลิกกฎหมายเดิมเพื่อขยายบริการดิจิทัล</p><h1>2. ตาราง</h1><p>เปรียบเทียบ</p>",
+    );
+    expect(excerpt).toBe("ยกเลิกกฎหมายเดิมเพื่อขยายบริการดิจิทัล");
   });
 
   it("opens an image route without treating it as the post id", () => {

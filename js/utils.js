@@ -42,6 +42,17 @@ export function withinDays(iso, days, referenceIso) {
   return elapsed >= 0 && elapsed <= Number(days);
 }
 
+export function firstSectionExcerpt(html, limit = 220) {
+  const doc = new DOMParser().parseFromString(`<div>${html || ""}</div>`, "text/html");
+  const headings = [...doc.body.querySelectorAll("h1, h2, h3")];
+  const heading = headings.find((item) => /วัตถุประสงค์/.test(item.textContent || "")) || headings[0];
+  let node = heading ? heading.nextElementSibling : doc.body.querySelector("p");
+  while (node && !(node.textContent || "").trim()) node = node.nextElementSibling;
+  let text = (node?.textContent || "").replace(/\s+/g, " ").trim();
+  if (text.length > limit) text = `${text.slice(0, limit).trim()}…`;
+  return text;
+}
+
 export function sortPosts(posts) {
   return [...posts].sort((a, b) => {
     if (a.announcement_date !== b.announcement_date) {

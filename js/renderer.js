@@ -1,4 +1,4 @@
-import { assetUrl, lawType, sanitizeHtml, sortPosts, toBuddhistDate } from "./utils.js";
+import { assetUrl, firstSectionExcerpt, lawType, sanitizeHtml, sortPosts, toBuddhistDate } from "./utils.js";
 
 export function renderList(posts, container, onOpen) {
   const visible = sortPosts(posts);
@@ -21,6 +21,13 @@ export function renderList(posts, container, onOpen) {
     const title = document.createElement("h2");
     title.textContent = post.title;
     card.append(date, kind, title);
+    const excerpt = firstSectionExcerpt(post.content_html);
+    if (excerpt) {
+      const summary = document.createElement("p");
+      summary.className = "excerpt";
+      summary.textContent = excerpt;
+      card.append(summary);
+    }
     if (post.tags && post.tags.length) {
       const tags = document.createElement("p");
       tags.className = "tags";
