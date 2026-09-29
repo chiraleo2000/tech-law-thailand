@@ -1,0 +1,13 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="พรฎ.จัดตั้งสำนักงานพัฒนารัฐบาลดิจิทัล_ฉบับที่2_2569" id="law">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1080" pageHeight="1920" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="2" value="พรฎ.จัดตั้งสำนักงานพัฒนารัฐบาลดิจิทัล_ฉบับที่2_2569" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B2545;fontColor=#ffffff;strokeColor=#FF6600;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="640" height="80" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
