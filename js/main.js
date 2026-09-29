@@ -1,5 +1,5 @@
 import { loadContent, loadManifest, DataLoadError } from "./dataLoader.js";
-import { renderList, renderPost } from "./renderer.js";
+import { renderImagePage, renderList, renderPost } from "./renderer.js";
 import { parseHash, startRouter } from "./router.js";
 import { hideStatus, showEmpty, showError, showLoading } from "./ui-states.js";
 
@@ -47,7 +47,7 @@ function draw(route = parseHash()) {
     showEmpty(status);
     return;
   }
-  if (route.view === "post") {
+  if (route.view === "post" || route.view === "image") {
     const post = posts.find((item) => item.roundDate === route.date && item.id === route.id);
     listing.hidden = true;
     if (!post) {
@@ -56,10 +56,13 @@ function draw(route = parseHash()) {
       return;
     }
     postView.hidden = false;
-    renderPost(post, postView);
+    postView.className = "post";
+    if (route.view === "image") renderImagePage(post, route.kind, postView);
+    else renderPost(post, postView);
     window.scrollTo(0, 0);
     return;
   }
+  postView.className = "post";
   postView.hidden = true;
   listing.hidden = false;
   const shown = visiblePosts();

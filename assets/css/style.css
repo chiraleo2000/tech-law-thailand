@@ -45,7 +45,7 @@ body {
 .header-inner,
 main,
 .site-footer {
-  width: min(980px, calc(100% - 2rem));
+  width: min(1120px, calc(100% - 2rem));
   margin-inline: auto;
 }
 
@@ -157,9 +157,26 @@ main { padding: 1.2rem 0 2.5rem; }
   border: 1px solid var(--line);
 }
 
-.figures .portrait { max-width: 420px; margin-inline: auto; }
+.figure-link { display: block; color: inherit; }
+
+.figures .portrait { max-width: 680px; margin-inline: auto; }
+
+.figures .wide { max-width: 100%; }
 
 .figures figcaption { color: #4b5563; font-size: 0.95rem; }
+
+.image-page { max-width: none; background: transparent; padding: 0; }
+
+.image-page img {
+  display: block;
+  width: min(96vw, 1400px);
+  height: auto;
+  margin: 0.6rem auto 0;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+
+.image-page.portrait img { width: min(92vw, 860px); }
 
 .comments {
   margin-top: 1.4rem;

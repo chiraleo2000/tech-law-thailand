@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import fc from "fast-check";
 import { toBuddhistDate, sortPosts } from "../js/utils.js";
 import { renderPost } from "../js/renderer.js";
+import { parseHash } from "../js/router.js";
 
 const isoDate = fc
   .record({
@@ -101,5 +102,11 @@ describe("blog rendering", () => {
     expect(content.compareDocumentPosition(image) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(image.compareDocumentPosition(comments) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(root.querySelector(".comments h3").textContent).toBe("ความเห็น");
+    expect(root.querySelector(".portrait a").getAttribute("href")).toContain("/image/infographic");
+  });
+
+  it("opens an image route without treating it as the post id", () => {
+    const route = parseHash("#/post/2026-09-28/01-%E0%B8%9E%E0%B8%A3%E0%B8%9A/image/infographic");
+    expect(route).toEqual({ view: "image", date: "2026-09-28", id: "01-พรบ", kind: "infographic" });
   });
 });

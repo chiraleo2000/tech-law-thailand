@@ -1,11 +1,20 @@
 export function parseHash(hash = location.hash) {
   const value = hash || "#/";
-  const match = /^#\/post\/([^/]+)\/(.+)$/.exec(value);
-  if (!match) return { view: "list" };
+  const image = /^#\/post\/([^/]+)\/([^/]+)\/image\/(infographic|relationship)$/.exec(value);
+  if (image) {
+    return {
+      view: "image",
+      date: decodeURIComponent(image[1]),
+      id: decodeURIComponent(image[2]),
+      kind: image[3],
+    };
+  }
+  const post = /^#\/post\/([^/]+)\/([^/]+)$/.exec(value);
+  if (!post) return { view: "list" };
   return {
     view: "post",
-    date: decodeURIComponent(match[1]),
-    id: decodeURIComponent(match[2]),
+    date: decodeURIComponent(post[1]),
+    id: decodeURIComponent(post[2]),
   };
 }
 

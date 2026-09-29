@@ -57,17 +57,47 @@ export function renderPost(post, container) {
   appendComments(container, post.comments);
 }
 
+export function imageHref(post, kind) {
+  return `#/post/${encodeURIComponent(post.roundDate)}/${encodeURIComponent(post.id)}/image/${kind}`;
+}
+
+export function renderImagePage(post, kind, container) {
+  const relative = kind === "relationship" ? post.relationship_image : post.infographic_image;
+  const alt = kind === "relationship"
+    ? `แผนผังความสัมพันธ์ของ${post.title}`
+    : `อินโฟกราฟิกแนวตั้งของ${post.title}`;
+  container.innerHTML = "";
+  container.classList.add("image-page", kind === "relationship" ? "wide" : "portrait");
+  const back = document.createElement("a");
+  back.className = "back";
+  back.href = postHref(post);
+  back.textContent = "กลับสู่บทความ";
+  const title = document.createElement("h2");
+  title.textContent = alt;
+  container.append(back, title);
+  const src = assetUrl(post.contentPath, relative);
+  if (!src) return;
+  const image = document.createElement("img");
+  image.src = src;
+  image.alt = alt;
+  container.append(image);
+}
+
 function appendFigure(parent, post, relativePath, alt, kind) {
   const src = assetUrl(post.contentPath, relativePath);
   if (!src) return;
   const figure = document.createElement("figure");
   figure.className = kind;
+  const link = document.createElement("a");
+  link.href = imageHref(post, kind === "wide" ? "relationship" : "infographic");
+  link.className = "figure-link";
   const image = document.createElement("img");
   image.src = src;
   image.alt = alt;
+  link.append(image);
   const caption = document.createElement("figcaption");
-  caption.textContent = alt;
-  figure.append(image, caption);
+  caption.textContent = `${alt} · คลิกเพื่อดูภาพขนาดเต็ม`;
+  figure.append(link, caption);
   parent.append(figure);
 }
 
