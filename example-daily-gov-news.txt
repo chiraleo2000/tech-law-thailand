@@ -1,0 +1,99 @@
+Gov news master pipeline
+Instructions
+
+---
+description: >
+  Single-run skill merging gov-news-master-pipeline v11.0 (scrape, 109-agency
+  Official-First registry) + gov-news-publisher v8 (daily digest) into one pass.
+  ⛔ NO GIT — git add/commit/push are NOT part of this skill. File copies to a
+  local github-pages/data folder are fine; committing/pushing them is a separate,
+  explicit task the user has not asked for yet.
+trigger:
+  - "กวาดข่าวภาครัฐ"
+  - "scrape and publish gov news"
+  - "run gov news pipeline"
+---
+
+# SKILL: gov-news-pipeline-combined v1.0
+
+Merges **gov-news-master-pipeline v11.0** (scrape) and **gov-news-publisher v8** (publish)
+into a single run so article files don't need a second invocation to be read back.
+
+## Run params
+`RUN_DATE` / `TARGET_DATE` = today, Asia/Bangkok. Window = 24h before RUN_DATE.
+
+## Global rules (apply everywhere)
+- ⛔ Never run `git add` / `git commit` / `git push`, and never write a deploy/push script. Copying finished files into a local `github-pages/data/` folder is allowed (it's just a file copy); actually publishing that repo is a separate task, not run here.
+- Fetch order: **official** `.go.th`/`.or.th` URL (`truncated` mode → retry `rendered` if body <300 chars) → Tier-1 aggregator (list below) → social media is **reference only, never fetched** (store the Facebook/social URL if known, don't visit it). Caps: ≤2 `web_search`, ≤12 `web_fetch` per batch. Never re-fetch a URL already used; skip an agency with nothing new and report `no_news_today`.
+- Keep only items published inside the 24h window; if no date is visible, keep only if it's top-3 on a "latest" listing page, else skip.
+- `summary_1`: 80–150 Thai words, single paragraph, no bullets/headers. `source.url` must be the article permalink, never a homepage/listing page. A "pass" = HTTP 200 + title + body ≥300 chars.
+- `bd_insights` on every article: if the news has real economic/policy/innovation significance → `opportunity`, `actions_sme` (2), `actions_si` (2), `urgency`; otherwise `opportunity: "N/A"`, `urgency: "low"`.
+- Same-day rerun: dedupe by `source.url` and by title similarity ≥90%. **Add-only** — never delete/overwrite existing articles or manifest entries. Before reporting "completed," re-scan the target-date folder and remove any duplicate you just created (keep the older one).
+- PDF generation is mandatory — never report it as skipped. Try in order: weasyprint → playwright → wkhtmltopdf → headless chrome/edge `--print-to-pdf`. PDF must embed the THSarabun font (Regular/Bold/Italic/Bold-Italic) so Thai text doesn't render as boxes.
+
+## Pipeline — one run, 8 steps
+
+**Scrape**
+1. Batch A — highest-priority agencies (30, see registry) → `News/Articles/{Parent}/{Agency}/{DATE}/{Slug}/`
+2. Batch B — mid-priority agencies + state/private media + parties (50)
+3. Batch C — supplementary agencies, open data, procurement, remaining media/parties (29)
+
+   Every article gets both `article.json` (schema below) and `article.md`.
+
+**Publish (same run, immediately after)**
+
+4. Glob `News/Articles/**/{TARGET_DATE}/**/article.json`, keep `fetch.status == "pass"`.
+5. Build `Document/{DATE}_News/{DATE}_news.json` (GitHub-Pages-ready `posts` array, schema below), `_index.json` (manifest + stats), `_by_agency.json` (grouped), `_bd_summary.json` (BD opportunities rollup).
+6. Copy THSarabun `.ttf` files into `Document/{DATE}_News/fonts/`; build `{DATE}_news.html` (Gov Briefing style, `@font-face` → `./fonts/`); render `{DATE}_news.pdf` from it.
+7. Update `Document/manifest.json` (prepend, add-only); mark each article's `meta.status = "published"`. Optionally copy `{DATE}_news.json` + `manifest.json` into `github-pages/data/` (file copy only).
+8. Verify all 8 outputs exist and are non-empty (json parses, html >10KB, pdf >0 bytes), then print the Completion Report. **Stop — no git push.**
+
+## article.json (per-article, from scrape)
+```json
+{
+  "article_id": "", "agency": {"parent": "", "name": "", "registry_key": "", "official_url": ""},
+  "source": {"url": "", "type": "official|aggregator", "fetch_priority_used": "1_official|2_aggregator"},
+  "fetch": {"status": "pass|fail", "http_status": 200, "fetched_at": "", "fetch_mode": "truncated|rendered"},
+  "meta": {"published_at": "", "target_date": "", "within_24h": true, "status": "scraped|published", "batch": "A|B|C", "category_label": "", "news_type": "", "tags": []},
+  "content": {"title": "", "slug": "", "summary_1": "", "language": "th"},
+  "bd_insights": {"opportunity": "", "actions_sme": ["", ""], "actions_si": ["", ""], "urgency": "high|medium|low", "related_sectors": [], "tender_potential": false},
+  "social_media": {"agency_facebook": ""}
+}
+```
+
+## {DATE}_news.json (publish artifact, GitHub-Pages schema)
+```json
+{
+  "date": "", "generated_at": "",
+  "stats": {"total": 0, "direct": 0, "indirect": 0, "priority_A": 0, "priority_B": 0, "priority_C": 0},
+  "posts": [{"id": "", "slug": "", "title": "", "topic": "ชื่อหมวดหมู่ภาษาไทยเต็ม", "agency": "Parent > Name", "origin": "direct|indirect", "priority": "A|B|C", "urgency": "", "content": "≥350 คำ ภาษาไทย เนื้อหาเต็ม (ห้ามมี field summary แยก)", "source_url": "", "bd_opportunity": "", "tags": [], "category_label": "", "published_at": ""}]
+}
+```
+Field mapping `post ← article`: `id←article_id`, `slug/title←content.*`, `topic/category_label←meta.category_label` (Thai name only, never an English code), `agency←agency.parent + " > " + agency.name`, `origin←source.origin`, `priority←meta.priority`, `urgency/bd_opportunity←bd_insights.*`, `content←content.summary_1` expanded to ≥350 words, `source_url←source.url`, `tags←meta.tags`, `published_at←meta.published_at`.
+
+## Document output tree
+```
+Document/{DATE}_News/
+  {DATE}_news.{json,html,pdf}
+  _index.json, _by_agency.json, _bd_summary.json
+  fonts/THSarabun{,.Bold,.Italic,.BoldItalic}.ttf
+Document/manifest.json                    (prepend, add-only)
+github-pages/data/{DATE}_news.json, manifest.json   (copy and update for push)
+```
+
+## Completion Report
+```json
+{
+  "run_date": "", "target_date": "", "pipeline": "gov-news-combined-1.0",
+  "batches": {"A": {"attempted": 30, "created": 0}, "B": {"attempted": 50, "created": 0}, "C": {"attempted": 29, "created": 0}},
+  "articles_total": 0, "articles_skipped_duplicate": 0, "skipped_older_than_24h": 0,
+  "official_fetch_success": 0, "aggregator_fallback_used": 0,
+  "files_created": ["{DATE}_news.json", "{DATE}_news.html", "{DATE}_news.pdf", "_index.json", "_by_agency.json", "_bd_summary.json", "fonts/", "Document/manifest.json"],
+  "github_pages_copied": false,
+  "git_push": "NOT PERFORMED — no git task run",
+  "status": "complete"
+}
+```
+
+## Tier-1 aggregators (fallback only)
+Nation Thailand — nationthailand.com | Bangkok Post — bangkokpost.com | Thai Rath English — en.thairath.co.th | Thailand Business News — thailand-business-news.com | OpenGov Asia — opengovasia.com | Kaohoon International — kaohooninternational.com | ryt9.com — ryt9.com/en (truncated mode) | Pattaya Mail — pattayamail.com

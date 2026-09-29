@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>บล็อกกฎหมายเทคโนโลยี</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="eyebrow">เนื้อหากฎหมายเทคโนโลยีสารสนเทศ</p>
+      <h1>บล็อกกฎหมายเทคโนโลยี</h1>
+      <p class="lede">หนึ่งบทความต่อหนึ่งพระราชบัญญัติ กฎหมาย กฎระเบียบ หรือมาตรฐาน</p>
+    </div>
+  </header>
+  <main id="app">
+    <div id="status" class="status" role="status">กำลังโหลดเนื้อหา</div>
+    <section id="listing" class="listing" hidden>
+      <label class="search">
+        <span>ค้นหา</span>
+        <input id="search" type="search" placeholder="ชื่อกฎหมายหรือแท็ก" autocomplete="off">
+      </label>
+      <div id="cards" class="cards"></div>
+    </section>
+    <article id="post" class="post" hidden></article>
+  </main>
+  <footer class="site-footer">บล็อกเนื้อหากฎหมายเทคโนโลยี เผยแพร่จากรอบวันที่ที่พบฉบับใหม่</footer>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

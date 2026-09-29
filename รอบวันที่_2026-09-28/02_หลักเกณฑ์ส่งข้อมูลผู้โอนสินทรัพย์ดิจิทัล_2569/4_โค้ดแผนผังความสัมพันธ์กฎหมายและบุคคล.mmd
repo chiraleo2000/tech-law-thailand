@@ -1,0 +1,47 @@
+%%{init: {"flowchart": {"htmlLabels": true, "curve": "basis"}} }%%
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+%% แผนผังความสัมพันธ์เชิงโครงสร้าง (Detailed Relational Ecosystem Diagram)
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:14px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:12px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:12px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:12px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:12px;
+
+    CenterLaw["📜 เกณฑ์ Travel Rule สินทรัพย์ดิจิทัล 2569<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        Law1["พระราชกำหนดการประกอบธุรกิจสินทรัพย์ดิจิทัล พ.ศ. 2561 (แก้ไขเพิ่มเติมฉบับที่ 2 พ.ศ. 2568)"]:::otherLaws
+        Law2["พระราชบัญญัติป้องกันและปราบปรามการฟอกเงิน พ.ศ. 2542 (แก้ไขเพิ่มเติม)"]:::otherLaws
+        Law3["มาตรฐานสากล FATF Recommendation 16 (Travel Rule)"]:::otherLaws
+        Law4["ประกาศ/มาตรการเพดานถอนเงินสดของธนาคารแห่งประเทศไทย (มีผล 1 เม.ย. 2569) ภายใต้กรอบ พ.ร.ก. อาชญากรรมทางเทคโนโลยี"]:::otherLaws
+    end
+
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        TechDev["Exchange/VASP ต้องพัฒนาโมดูล Travel Rule เชื่อมต่อคู่ธุรกรรมทั้งในและต่างประเทศ"]:::techSide
+        TechChecklist["✅ จัดทำนโยบายบริหารความเสี่ยงด้านการโอน/รับโอนสินทรัพย์ดิจิทัลตามบทบาท Ordering/Beneficiary/Intermediary"]:::techSide
+    end
+
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้บริการ"]
+        User["นักลงทุน/ผู้ใช้คริปโตได้รับความคุ้มครองจากการฟอกเงินมากขึ้น แต่ต้องเตรียมพิสูจน์ความเป็นเจ้าของ wallet เอง"]:::citizenSide
+    end
+
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแลตามกฎหมาย"]
+        Regulator["สำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์ (ก.ล.ต.)"]:::regulatorSide
+    end
+
+    CenterLaw -->|กฎหมายแม่ที่ให้อำนาจ ก.ล.ต. ออกหลักเกณฑ์นี้ตามมาตรา 30| Law1
+    CenterLaw -->|VASP ถูกจัดเป็น 'สถาบันการเงิน'/ผู้มีหน้าที่รายงานภายใต้ก...| Law2
+    CenterLaw -->|~83% ของประเทศสมาชิก FATF บังคับใช้แล้ว ไทยเตรียมรับการปร...| Law3
+    CenterLaw -->|ล้อกับร่างเพดานโอน stablecoin ที่เสนอคู่ขนาน| Law4
+
+    CenterLaw ==>|กำหนดหน้าที่ปฏิบัติใหม่| TechDev
+    CenterLaw ==>|กำหนดรายการตรวจสอบการปฏิบัติตาม| TechChecklist
+    CenterLaw ==>|ยกระดับสิทธิและการคุ้มครอง| User
+
+    TechDev -->|ให้บริการตามเกณฑ์ที่กำหนด| User
+    User -->|ใช้สิทธิเข้าถึง/ร้องเรียน| TechDev
+
+    TechDev -.->|นำส่งรายงานความสอดคล้องตามรอบเวลา| Regulator
+    Regulator -.->|ตรวจสอบและบังคับใช้บทลงโทษ| TechDev
+    User -.->|ยื่นเรื่องร้องเรียนกรณีถูกละเมิดสิทธิ| Regulator

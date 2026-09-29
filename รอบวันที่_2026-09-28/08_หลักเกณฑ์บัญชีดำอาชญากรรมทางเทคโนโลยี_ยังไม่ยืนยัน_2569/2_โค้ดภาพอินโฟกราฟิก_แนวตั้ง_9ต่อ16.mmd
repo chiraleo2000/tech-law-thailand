@@ -1,0 +1,40 @@
+%%{init: {"flowchart": {"htmlLabels": true, "curve": "basis"}} }%%
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+%% สไตล์ Minimalist โทนสว่าง ส้ม-น้ำเงิน-ขาว-เทา-ดำ อัตราส่วนแนวตั้ง 9:16
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:16px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:13px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:12px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:12px;
+    classDef entityTech fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:12px;
+    classDef entityUser fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:12px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:12px,font-weight:bold;
+
+    subgraph HEADER ["📢 TECH LAW UPDATE : CYBERCRIME / AML (ยืนยันไม่ได้)"]
+        TitleNode["📜 หลักเกณฑ์บัญชีดำอาชญากรรมทางเทคโนโลยี (ยังไม่ยืนยัน)<br/>สถานะ: บังคับใช้แล้ว<br/>มีผลบังคับใช้: ไม่ทราบ/ไม่สามารถยืนยัน"]:::headerClass
+    end
+
+    subgraph CORE ["💡 สาระสำคัญที่คนไอทีและประชาชนต้องรู้"]
+        CoreEssence["เอกสารที่บัญชีกฎหมายต้นทางระบุว่าเป็น 'หลักเกณฑ์การขึ้นบัญชีดำผู้กระทำความผิดเกี่ยวกับอาชญากรรมทางเทคโนโลยี พ.ศ. 2569..."]:::essenceClass
+    end
+
+    subgraph COMPARISON ["⚖️ เปรียบเทียบข้อแตกต่าง (เดิม vs ใหม่)"]
+        OldRule["🏛️ กฎหมาย/หลักเกณฑ์เดิม<br/>ไม่มีระบบจัดชั้นบัญชีต้องสงสัยแบบรวมศูนย์ระดับประเทศก่อน พ.ร.ก. 2566 และ Central Fraud Registry"]:::oldLawClass
+        NewRule["🚀 กฎหมาย/หลักเกณฑ์ใหม่<br/>ระบบจัดชั้นบัญชีม้า 5 ระดับ (ดำ/เทาเข้ม/เทาอ่อน/น้ำตาลเข้ม/น้ำตาลอ่อน) ของ ธปท. — กลไกที่ยืนยันได้จริง"]:::newLawClass
+    end
+
+    subgraph STAKEHOLDERS ["👥 ผลกระทบและการเชื่อมโยงการปฏิบัติ"]
+        TechCompany["🏢 บริษัทไอที / ผู้พัฒนา<br/>ธนาคาร/ฟินเทค/ค่ายมือถือ/แพลตฟอร์มต้องเชื่อมต่อกับ Central Fraud Registry ของ ธปท."]:::entityTech
+        EndUser["👤 ประชาชน / ผู้ใช้งานทั่วไป<br/>มีสิทธิอุทธรณ์หากถูกขึ้นบัญชีผิดพลาด (สายด่วน 1441 กด 2) ปลดล็อกเร็วสุดภายใน 4 ชั่วโมง"]:::entityUser
+    end
+
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["🚨 ตาม พ.ร.ก.2566 ที่ยืนยันได้: ระงับธุรกรรม 7 วัน / รายงานตำรวจ 72 ชม. | แหล่งที่มา: ราชกิจจานุเบกษา"]:::penaltyClass
+    end
+
+    TitleNode -->|ประกาศ/สถานะตามกฎหมาย| CoreEssence
+    CoreEssence -->|เทียบกับกลไกเดิม| OldRule
+    OldRule -->|แทนที่ด้วยกลไกกำกับดูแลใหม่| NewRule
+    NewRule -->|1. กำหนดหน้าที่ปฏิบัติใหม่| TechCompany
+    TechCompany -->|2. ส่งมอบบริการที่ปลอดภัยตามเกณฑ์| EndUser
+    EndUser -.->|หากปล่อยปละละเลยไม่ปฏิบัติตาม| PenaltyNode

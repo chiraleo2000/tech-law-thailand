@@ -1,0 +1,40 @@
+%%{init: {"flowchart": {"htmlLabels": true, "curve": "basis"}} }%%
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+%% สไตล์ Minimalist โทนสว่าง ส้ม-น้ำเงิน-ขาว-เทา-ดำ อัตราส่วนแนวตั้ง 9:16
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:16px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:13px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:12px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:12px;
+    classDef entityTech fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:12px;
+    classDef entityUser fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:12px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:12px,font-weight:bold;
+
+    subgraph HEADER ["📢 TECH LAW UPDATE : INSTITUTIONAL / GOVTECH"]
+        TitleNode["📜 พ.ร.ฎ. จัดตั้ง DGA ฉบับที่ 2<br/>สถานะ: บังคับใช้แล้ว<br/>มีผลบังคับใช้: 7 สิงหาคม 2569 (วันประกาศในราชกิจจานุเบกษา)"]:::headerClass
+    end
+
+    subgraph CORE ["💡 สาระสำคัญที่คนไอทีและประชาชนต้องรู้"]
+        CoreEssence["แก้ไขพระราชกฤษฎีกาจัดตั้ง DGA พ.ศ. 2561 เฉพาะประเด็นเดียว (single-issue amendment) คือเปลี่ยนรัฐมนตรีผู้รักษาการจาก '..."]:::essenceClass
+    end
+
+    subgraph COMPARISON ["⚖️ เปรียบเทียบข้อแตกต่าง (เดิม vs ใหม่)"]
+        OldRule["🏛️ กฎหมาย/หลักเกณฑ์เดิม<br/>นายกรัฐมนตรีเป็นผู้รักษาการตาม พ.ร.ฎ.จัดตั้ง DGA พ.ศ. 2561 ทำให้การกำกับดูแลแยกจากภารกิจกระทรวงดีอี"]:::oldLawClass
+        NewRule["🚀 กฎหมาย/หลักเกณฑ์ใหม่<br/>กระทรวงดีอีเป็นผู้รักษาการ/กำกับดูแล DGA โดยตรง ทำให้นโยบายรัฐบาลดิจิทัลเป็นเอกภาพมากขึ้น"]:::newLawClass
+    end
+
+    subgraph STAKEHOLDERS ["👥 ผลกระทบและการเชื่อมโยงการปฏิบัติ"]
+        TechCompany["🏢 บริษัทไอที / ผู้พัฒนา<br/>คู่ค้า/ผู้รับจ้างพัฒนาระบบของ DGA ควรติดตามทิศทางนโยบายใหม่จากกระทรวงดีอี"]:::entityTech
+        EndUser["👤 ประชาชน / ผู้ใช้งานทั่วไป<br/>ไม่กระทบโดยตรงในระยะสั้น แต่แอป 'ทางรัฐ' และบริการ Open Data อาจมีทิศทางชัดเจนขึ้นระยะยาว"]:::entityUser
+    end
+
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["🚨 ไม่มีบทกำหนดโทษ — แก้ไขเชิงสถาบัน | แหล่งที่มา: ราชกิจจานุเบกษา"]:::penaltyClass
+    end
+
+    TitleNode -->|ประกาศ/สถานะตามกฎหมาย| CoreEssence
+    CoreEssence -->|เทียบกับกลไกเดิม| OldRule
+    OldRule -->|แทนที่ด้วยกลไกกำกับดูแลใหม่| NewRule
+    NewRule -->|1. กำหนดหน้าที่ปฏิบัติใหม่| TechCompany
+    TechCompany -->|2. ส่งมอบบริการที่ปลอดภัยตามเกณฑ์| EndUser
+    EndUser -.->|หากปล่อยปละละเลยไม่ปฏิบัติตาม| PenaltyNode

@@ -1,0 +1,47 @@
+%%{init: {"flowchart": {"htmlLabels": true, "curve": "basis"}} }%%
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+%% แผนผังความสัมพันธ์เชิงโครงสร้าง (Detailed Relational Ecosystem Diagram)
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:14px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:12px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:12px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:12px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:12px;
+
+    CenterLaw["📜 ร่าง พ.ร.บ. AI ฉบับแรกของไทย<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        Law1["พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562"]:::otherLaws
+        Law2["พระราชบัญญัติว่าด้วยการกระทำความผิดเกี่ยวกับคอมพิวเตอร์ พ.ศ. 2560"]:::otherLaws
+        Law3["(ร่าง) พระราชกฤษฎีกาการประกอบธุรกิจที่ใช้ระบบ AI (ONDE, เดิม พ.ศ. 2565)"]:::otherLaws
+        Law4["EU AI Act"]:::otherLaws
+    end
+
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        TechDev["ผู้พัฒนา/ผู้ให้บริการ AI ต้องประเมินความเสี่ยงล่วงหน้า เตรียม human oversight และเก็บ log ย้อนหลัง"]:::techSide
+        TechChecklist["✅ จัดทำ inventory ระบบ AI ที่ใช้งานอยู่ พร้อมประเมินระดับความเสี่ยงเบื้องต้นตามกรอบ 3 ระดับ"]:::techSide
+    end
+
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้บริการ"]
+        User["คุ้มครองจาก AI เลือกปฏิบัติ ตรวจสอบที่มาเนื้อหา AI ได้ผ่านระบบติดป้าย 4 ระดับ"]:::citizenSide
+    end
+
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแลตามกฎหมาย"]
+        Regulator["สำนักงานพัฒนาธุรกรรมทางอิเล็กทรอนิกส์ (ETDA) เป็นผู้ประสานงานกลาง (ยังไม่ตั้งหน่วยงานกำกับ AI เฉพาะ)"]:::regulatorSide
+    end
+
+    CenterLaw -->|lawful basis/purpose limitation/data subject rights ตลอดว...| Law1
+    CenterLaw -->|จำกัดเนื้อหาที่สร้างโดย AI ที่เป็นอันตราย/เท็จ/หมิ่นประมา...| Law2
+    CenterLaw -->|แทร็กคู่ขนานที่กำลังถูกรวม/ประสานเป็นกรอบเดียวกับ พ.ร.บ. ...| Law3
+    CenterLaw -->|ต้นแบบเชิงโครงสร้าง risk-based แต่ไทยมี 3 จุดที่ 'เกินกว่...| Law4
+
+    CenterLaw ==>|กำหนดหน้าที่ปฏิบัติใหม่| TechDev
+    CenterLaw ==>|กำหนดรายการตรวจสอบการปฏิบัติตาม| TechChecklist
+    CenterLaw ==>|ยกระดับสิทธิและการคุ้มครอง| User
+
+    TechDev -->|ให้บริการตามเกณฑ์ที่กำหนด| User
+    User -->|ใช้สิทธิเข้าถึง/ร้องเรียน| TechDev
+
+    TechDev -.->|นำส่งรายงานความสอดคล้องตามรอบเวลา| Regulator
+    Regulator -.->|ตรวจสอบและบังคับใช้บทลงโทษ| TechDev
+    User -.->|ยื่นเรื่องร้องเรียนกรณีถูกละเมิดสิทธิ| Regulator

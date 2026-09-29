@@ -1,0 +1,40 @@
+%%{init: {"flowchart": {"htmlLabels": true, "curve": "basis"}} }%%
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+%% สไตล์ Minimalist โทนสว่าง ส้ม-น้ำเงิน-ขาว-เทา-ดำ อัตราส่วนแนวตั้ง 9:16
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:16px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:13px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:12px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:12px;
+    classDef entityTech fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:12px;
+    classDef entityUser fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:12px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:12px,font-weight:bold;
+
+    subgraph HEADER ["📢 TECH LAW UPDATE : DIGITAL GOVERNMENT"]
+        TitleNode["📜 พ.ร.บ. อำนวยความสะดวกฯ 2569<br/>สถานะ: บังคับใช้แล้ว<br/>มีผลบังคับใช้: หมวด 1 (บททั่วไป) และมาตรา 38 วรรคสอง มีผลทันทีตั้งแต่วันประกาศ 9 กรกฎาคม 2569; บทบัญญัติที่เหลือทั้งฉบับมีผลเมื่อพ้น..."]:::headerClass
+    end
+
+    subgraph CORE ["💡 สาระสำคัญที่คนไอทีและประชาชนต้องรู้"]
+        CoreEssence["ยกเลิก พ.ร.บ. อำนวยความสะดวกฯ 2558 ทั้งฉบับ แทนที่ด้วยกฎหมายใหม่ 40 มาตราที่ขยายขอบเขตครอบคลุมทั้ง 'การพิจารณาอนุญาต'..."]:::essenceClass
+    end
+
+    subgraph COMPARISON ["⚖️ เปรียบเทียบข้อแตกต่าง (เดิม vs ใหม่)"]
+        OldRule["🏛️ กฎหมาย/หลักเกณฑ์เดิม<br/>ต้องยื่นเอกสารซ้ำทุกครั้งที่ขอใบอนุญาต แม้ราชการจะมีข้อมูลอยู่แล้ว พิจารณาช้าไม่มีกรอบเวลาชัดเจน"]:::oldLawClass
+        NewRule["🚀 กฎหมาย/หลักเกณฑ์ใหม่<br/>ระบบ 'อนุญาตโดยปริยาย' (ม.19) — พิจารณาช้าเกินกำหนดถือว่าได้รับอนุญาตแล้วสำหรับกิจการเสี่ยงต่ำ"]:::newLawClass
+    end
+
+    subgraph STAKEHOLDERS ["👥 ผลกระทบและการเชื่อมโยงการปฏิบัติ"]
+        TechCompany["🏢 บริษัทไอที / ผู้พัฒนา<br/>ผู้พัฒนา GovTech ต้องออกแบบ API เชื่อมข้อมูลข้ามหน่วยงาน (ม.11) และระบบ e-filing (ม.16)"]:::entityTech
+        EndUser["👤 ประชาชน / ผู้ใช้งานทั่วไป<br/>ไม่ต้องยื่นเอกสารซ้ำ ได้ใบอนุญาตหลัก-รองพร้อมกัน และมีสิทธิช่องทางเร่งด่วน (ม.35)"]:::entityUser
+    end
+
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["🚨 ไม่มีโทษอาญา — เน้นกลไกทางปกครอง/วินัยเจ้าหน้าที่ | แหล่งที่มา: ราชกิจจานุเบกษา"]:::penaltyClass
+    end
+
+    TitleNode -->|ประกาศ/สถานะตามกฎหมาย| CoreEssence
+    CoreEssence -->|เทียบกับกลไกเดิม| OldRule
+    OldRule -->|แทนที่ด้วยกลไกกำกับดูแลใหม่| NewRule
+    NewRule -->|1. กำหนดหน้าที่ปฏิบัติใหม่| TechCompany
+    TechCompany -->|2. ส่งมอบบริการที่ปลอดภัยตามเกณฑ์| EndUser
+    EndUser -.->|หากปล่อยปละละเลยไม่ปฏิบัติตาม| PenaltyNode

@@ -1,0 +1,47 @@
+%%{init: {"flowchart": {"htmlLabels": true, "curve": "basis"}} }%%
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+%% แผนผังความสัมพันธ์เชิงโครงสร้าง (Detailed Relational Ecosystem Diagram)
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:14px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:12px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:12px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:12px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:12px;
+
+    CenterLaw["📜 พ.ร.บ. อำนวยความสะดวกฯ 2569<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        Law1["พระราชบัญญัติการบริหารงานและการให้บริการภาครัฐผ่านระบบดิจิทัล พ.ศ. 2562"]:::otherLaws
+        Law2["ระเบียบสำนักนายกรัฐมนตรีว่าด้วยการแบ่งปันข้อมูลดิจิทัล พ.ศ. 2569 (4 ก.ย. 2569)"]:::otherLaws
+        Law3["พระราชกฤษฎีกาจัดตั้ง DGA (ฉบับที่ 2) พ.ศ. 2569 (7 ส.ค. 2569)"]:::otherLaws
+        Law4["พระราชบัญญัติวิธีปฏิบัติราชการทางปกครอง พ.ศ. 2539"]:::otherLaws
+    end
+
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        TechDev["ผู้พัฒนา GovTech ต้องออกแบบ API เชื่อมข้อมูลข้ามหน่วยงาน (ม.11) และระบบ e-filing (ม.16)"]:::techSide
+        TechChecklist["✅ ประเมินว่ากิจการ/ใบอนุญาตที่เกี่ยวข้องอยู่ในกลุ่มที่จะถูกกำหนดให้ใช้ระบบอนุญาตโดยปริยาย (ม.19) หรือใบอนุญาตหลัก-รอง (..."]:::techSide
+    end
+
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้บริการ"]
+        User["ไม่ต้องยื่นเอกสารซ้ำ ได้ใบอนุญาตหลัก-รองพร้อมกัน และมีสิทธิช่องทางเร่งด่วน (ม.35)"]:::citizenSide
+    end
+
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแลตามกฎหมาย"]
+        Regulator["สำนักงาน ก.พ.ร. (คณะกรรมการพัฒนาระบบราชการ) ร่วมกับหน่วยงานผู้อนุญาตทุกกระทรวง/ทบวง/กรม"]:::regulatorSide
+    end
+
+    CenterLaw -->|นิยาม 'ศูนย์แลกเปลี่ยนข้อมูลกลาง' ที่มาตรา 11 ของกฎหมายนี...| Law1
+    CenterLaw -->|กลไกเสริมทำให้หลักการห้ามเรียกเอกสารซ้ำ ม.11 เป็นจริงในทา...| Law2
+    CenterLaw -->|DGA เป็นหน่วยงานหลักที่สนับสนุนโครงสร้างพื้นฐานดิจิทัลที่...| Law3
+    CenterLaw -->|มาตรา 26 ของกฎหมายนี้ถูกอ้างอิงในมาตรา 36 ของ พ.ร.บ. ฉบับ...| Law4
+
+    CenterLaw ==>|กำหนดหน้าที่ปฏิบัติใหม่| TechDev
+    CenterLaw ==>|กำหนดรายการตรวจสอบการปฏิบัติตาม| TechChecklist
+    CenterLaw ==>|ยกระดับสิทธิและการคุ้มครอง| User
+
+    TechDev -->|ให้บริการตามเกณฑ์ที่กำหนด| User
+    User -->|ใช้สิทธิเข้าถึง/ร้องเรียน| TechDev
+
+    TechDev -.->|นำส่งรายงานความสอดคล้องตามรอบเวลา| Regulator
+    Regulator -.->|ตรวจสอบและบังคับใช้บทลงโทษ| TechDev
+    User -.->|ยื่นเรื่องร้องเรียนกรณีถูกละเมิดสิทธิ| Regulator

@@ -1,0 +1,47 @@
+%%{init: {"flowchart": {"htmlLabels": true, "curve": "basis"}} }%%
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+%% แผนผังความสัมพันธ์เชิงโครงสร้าง (Detailed Relational Ecosystem Diagram)
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:14px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:12px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:12px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:12px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:12px;
+
+    CenterLaw["📜 หลักเกณฑ์บัญชีดำอาชญากรรมทางเทคโนโลยี (ยังไม่ยืนยัน)<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        Law1["พระราชกำหนดมาตรการป้องกันและปราบปรามอาชญากรรมทางเทคโนโลยี พ.ศ. 2566 (แก้ไขเพิ่มเติมฉบับที่ 2 พ.ศ. 2568)"]:::otherLaws
+        Law2["พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562"]:::otherLaws
+        Law3["พระราชบัญญัติป้องกันและปราบปรามการฟอกเงิน"]:::otherLaws
+        Law4["ประกาศ/มาตรการธนาคารแห่งประเทศไทย (Central Fraud Registry, เม.ย. 2568; เพดานถอนเงินสด 1 เม.ย. 2569)"]:::otherLaws
+    end
+
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        TechDev["ธนาคาร/ฟินเทค/ค่ายมือถือ/แพลตฟอร์มต้องเชื่อมต่อกับ Central Fraud Registry ของ ธปท."]:::techSide
+        TechChecklist["✅ ตรวจสอบกับ ปปง./กระทรวงดีอี/ราชกิจจานุเบกษาโดยตรงเพื่อยืนยันการมีอยู่จริงของเอกสารนี้ก่อนใช้อ้างอิงในรายงาน compliance"]:::techSide
+    end
+
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้บริการ"]
+        User["มีสิทธิอุทธรณ์หากถูกขึ้นบัญชีผิดพลาด (สายด่วน 1441 กด 2) ปลดล็อกเร็วสุดภายใน 4 ชั่วโมง"]:::citizenSide
+    end
+
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแลตามกฎหมาย"]
+        Regulator["ธนาคารแห่งประเทศไทย (ธปท.) / ปปง. — ภายใต้ พ.ร.ก. 2566 (เอกสารบัญชีดำที่อ้างถึงยังไม่สามารถยืนยันได้)"]:::regulatorSide
+    end
+
+    CenterLaw -->|ฐานอำนาจที่ยืนยันได้จริงใกล้เคียงที่สุด| Law1
+    CenterLaw -->|มาตรา 12 ของ พ.ร.ก. 2566 ยกเว้นการเปิดเผยข้อมูลจาก PDPA เ...| Law2
+    CenterLaw -->|ฐานอำนาจ ปปง. ที่ทำงานคู่ขนาน| Law3
+    CenterLaw -->|กฎหมายที่บูรณาการร่วมกัน| Law4
+
+    CenterLaw ==>|กำหนดหน้าที่ปฏิบัติใหม่| TechDev
+    CenterLaw ==>|กำหนดรายการตรวจสอบการปฏิบัติตาม| TechChecklist
+    CenterLaw ==>|ยกระดับสิทธิและการคุ้มครอง| User
+
+    TechDev -->|ให้บริการตามเกณฑ์ที่กำหนด| User
+    User -->|ใช้สิทธิเข้าถึง/ร้องเรียน| TechDev
+
+    TechDev -.->|นำส่งรายงานความสอดคล้องตามรอบเวลา| Regulator
+    Regulator -.->|ตรวจสอบและบังคับใช้บทลงโทษ| TechDev
+    User -.->|ยื่นเรื่องร้องเรียนกรณีถูกละเมิดสิทธิ| Regulator

@@ -1,0 +1,40 @@
+%%{init: {"flowchart": {"htmlLabels": true, "curve": "basis"}} }%%
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+%% สไตล์ Minimalist โทนสว่าง ส้ม-น้ำเงิน-ขาว-เทา-ดำ อัตราส่วนแนวตั้ง 9:16
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:16px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:13px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:12px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:12px;
+    classDef entityTech fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:12px;
+    classDef entityUser fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:12px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:12px,font-weight:bold;
+
+    subgraph HEADER ["📢 TECH LAW UPDATE : AI GOVERNANCE (DRAFT)"]
+        TitleNode["📜 ร่าง พ.ร.บ. AI ฉบับแรกของไทย<br/>สถานะ: ร่าง (ยังไม่ประกาศใช้)<br/>มีผลบังคับใช้: ยังไม่มีวันบังคับใช้ที่แน่นอน — รัฐบาลตั้งเป้าผ่านกฎหมายภายในเดือนกันยายน 2569 แต่ ณ วันที่จัดทำรายงาน (25 ก.ย. 2569)..."]:::headerClass
+    end
+
+    subgraph CORE ["💡 สาระสำคัญที่คนไอทีและประชาชนต้องรู้"]
+        CoreEssence["วางกรอบกำกับดูแล AI แบบอิงความเสี่ยง (risk-based) คล้าย EU AI Act แบ่งเป็น AI ต้องห้าม/AI ความเสี่ยงสูง/ระบบที่ถูกกำห..."]:::essenceClass
+    end
+
+    subgraph COMPARISON ["⚖️ เปรียบเทียบข้อแตกต่าง (เดิม vs ใหม่)"]
+        OldRule["🏛️ กฎหมาย/หลักเกณฑ์เดิม<br/>ไทยยังไม่มีกฎหมายกำกับดูแล AI โดยเฉพาะ ใช้เพียงแนวปฏิบัติ/PDPA ที่ไม่ครอบคลุมความเสี่ยงเฉพาะของ AI"]:::oldLawClass
+        NewRule["🚀 กฎหมาย/หลักเกณฑ์ใหม่<br/>กรอบความเสี่ยง 3 ระดับ + ระบบติดป้ายเนื้อหา AI 4 ระดับ + ผู้ให้บริการต่างชาติต้องมีตัวแทนในประเทศ"]:::newLawClass
+    end
+
+    subgraph STAKEHOLDERS ["👥 ผลกระทบและการเชื่อมโยงการปฏิบัติ"]
+        TechCompany["🏢 บริษัทไอที / ผู้พัฒนา<br/>ผู้พัฒนา/ผู้ให้บริการ AI ต้องประเมินความเสี่ยงล่วงหน้า เตรียม human oversight และเก็บ log ย้อนหลัง"]:::entityTech
+        EndUser["👤 ประชาชน / ผู้ใช้งานทั่วไป<br/>คุ้มครองจาก AI เลือกปฏิบัติ ตรวจสอบที่มาเนื้อหา AI ได้ผ่านระบบติดป้าย 4 ระดับ"]:::entityUser
+    end
+
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["🚨 (ร่าง) ปรับปกครอง 1-5 ล้านบาท — รูปแบบยังไม่สรุป | แหล่งที่มา: ราชกิจจานุเบกษา"]:::penaltyClass
+    end
+
+    TitleNode -->|ประกาศ/สถานะตามกฎหมาย| CoreEssence
+    CoreEssence -->|เทียบกับกลไกเดิม| OldRule
+    OldRule -->|แทนที่ด้วยกลไกกำกับดูแลใหม่| NewRule
+    NewRule -->|1. กำหนดหน้าที่ปฏิบัติใหม่| TechCompany
+    TechCompany -->|2. ส่งมอบบริการที่ปลอดภัยตามเกณฑ์| EndUser
+    EndUser -.->|หากปล่อยปละละเลยไม่ปฏิบัติตาม| PenaltyNode

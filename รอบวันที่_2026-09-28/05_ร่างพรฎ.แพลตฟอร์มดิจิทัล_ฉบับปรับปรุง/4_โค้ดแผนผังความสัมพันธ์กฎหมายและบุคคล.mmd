@@ -1,0 +1,47 @@
+%%{init: {"flowchart": {"htmlLabels": true, "curve": "basis"}} }%%
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+%% แผนผังความสัมพันธ์เชิงโครงสร้าง (Detailed Relational Ecosystem Diagram)
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:14px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:12px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:12px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:12px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:12px;
+
+    CenterLaw["📜 ร่าง พ.ร.ฎ. แพลตฟอร์มดิจิทัล (ปรับปรุง)<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        Law1["พระราชกฤษฎีกาการประกอบธุรกิจบริการแพลตฟอร์มดิจิทัลที่ต้องแจ้งให้ทราบ พ.ศ. 2565 (ฉบับเดิมที่กำลังแก้ไข)"]:::otherLaws
+        Law2["(ร่าง) พระราชบัญญัติเศรษฐกิจแพลตฟอร์มดิจิทัล"]:::otherLaws
+        Law3["กฎหมายว่าด้วยการแข่งขันทางการค้า (กขค.)"]:::otherLaws
+        Law4["พระราชบัญญัติว่าด้วยการกระทำความผิดเกี่ยวกับคอมพิวเตอร์ พ.ศ. 2560"]:::otherLaws
+    end
+
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        TechDev["แพลตฟอร์มอีคอมเมิร์ซ/โซเชียลต้องเตรียมระบบ content moderation และ notice-and-takedown"]:::techSide
+        TechChecklist["✅ ประเมินว่าธุรกิจเข้าเกณฑ์ 15 ประเภทบริการและเกณฑ์รายได้/ผู้ใช้ตาม พ.ร.ฎ.2565 หรือไม่"]:::techSide
+    end
+
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้บริการ"]
+        User["คุ้มครองจากเนื้อหาผิดกฎหมาย/สินค้าปลอมมากขึ้น ผ่านระบบยืนยันตัวตนผู้ขายที่เข้มงวดขึ้น"]:::citizenSide
+    end
+
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแลตามกฎหมาย"]
+        Regulator["สำนักงานพัฒนาธุรกรรมทางอิเล็กทรอนิกส์ (ETDA) และกระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม (MDES)"]:::regulatorSide
+    end
+
+    CenterLaw -->|ออกตามพระราชบัญญัติว่าด้วยธุรกรรมทางอิเล็กทรอนิกส์ พ.ศ. 2544| Law1
+    CenterLaw -->|แทร็กคู่ขนานระดับ พ.ร.บ. ต้องผ่านสภาผู้แทนราษฎร+รับฟังควา...| Law2
+    CenterLaw -->|กำกับส่วนตลาด/โลจิสติกส์ที่ถูกตัดออกจาก พ.ร.ฎ.ฉบับนี้| Law3
+    CenterLaw -->|กลไก notice-and-takedown ที่มีอยู่เดิมทำงานคู่ขนาน| Law4
+
+    CenterLaw ==>|กำหนดหน้าที่ปฏิบัติใหม่| TechDev
+    CenterLaw ==>|กำหนดรายการตรวจสอบการปฏิบัติตาม| TechChecklist
+    CenterLaw ==>|ยกระดับสิทธิและการคุ้มครอง| User
+
+    TechDev -->|ให้บริการตามเกณฑ์ที่กำหนด| User
+    User -->|ใช้สิทธิเข้าถึง/ร้องเรียน| TechDev
+
+    TechDev -.->|นำส่งรายงานความสอดคล้องตามรอบเวลา| Regulator
+    Regulator -.->|ตรวจสอบและบังคับใช้บทลงโทษ| TechDev
+    User -.->|ยื่นเรื่องร้องเรียนกรณีถูกละเมิดสิทธิ| Regulator

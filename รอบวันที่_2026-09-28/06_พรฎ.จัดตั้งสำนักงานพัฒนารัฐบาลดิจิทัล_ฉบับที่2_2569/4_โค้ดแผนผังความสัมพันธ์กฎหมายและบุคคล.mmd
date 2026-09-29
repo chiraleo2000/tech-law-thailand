@@ -1,0 +1,45 @@
+%%{init: {"flowchart": {"htmlLabels": true, "curve": "basis"}} }%%
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+%% แผนผังความสัมพันธ์เชิงโครงสร้าง (Detailed Relational Ecosystem Diagram)
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:14px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:12px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:12px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:12px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:12px;
+
+    CenterLaw["📜 พ.ร.ฎ. จัดตั้ง DGA ฉบับที่ 2<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        Law1["พระราชกฤษฎีกาจัดตั้งสำนักงานพัฒนารัฐบาลดิจิทัล (องค์การมหาชน) พ.ศ. 2561 (ฉบับที่ถูกแก้ไข)"]:::otherLaws
+        Law2["พระราชบัญญัติองค์การมหาชน พ.ศ. 2542"]:::otherLaws
+        Law3["ระเบียบสำนักนายกรัฐมนตรีว่าด้วยการแบ่งปันข้อมูลดิจิทัล พ.ศ. 2569 และ พ.ร.บ.การอำนวยความสะดวกฯ 2569"]:::otherLaws
+    end
+
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        TechDev["คู่ค้า/ผู้รับจ้างพัฒนาระบบของ DGA ควรติดตามทิศทางนโยบายใหม่จากกระทรวงดีอี"]:::techSide
+        TechChecklist["✅ คู่ค้า/ผู้รับจ้างพัฒนาระบบของ DGA: ติดตามการเปลี่ยนแปลงนโยบายที่อาจตามมาจากการที่กระทรวงดีอีกำกับดูแลโดยตรง"]:::techSide
+    end
+
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้บริการ"]
+        User["ไม่กระทบโดยตรงในระยะสั้น แต่แอป 'ทางรัฐ' และบริการ Open Data อาจมีทิศทางชัดเจนขึ้นระยะยาว"]:::citizenSide
+    end
+
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแลตามกฎหมาย"]
+        Regulator["กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม (แทนที่นายกรัฐมนตรี)"]:::regulatorSide
+    end
+
+    CenterLaw -->|กฎหมายที่บูรณาการร่วมกัน| Law1
+    CenterLaw -->|กฎหมายแม่บทที่ให้อำนาจออกพระราชกฤษฎีกาจัดตั้งองค์การมหาชน| Law2
+    CenterLaw -->|DGA เป็นหน่วยงานสนับสนุนโครงสร้างพื้นฐานดิจิทัลที่ทั้งสอง...| Law3
+
+    CenterLaw ==>|กำหนดหน้าที่ปฏิบัติใหม่| TechDev
+    CenterLaw ==>|กำหนดรายการตรวจสอบการปฏิบัติตาม| TechChecklist
+    CenterLaw ==>|ยกระดับสิทธิและการคุ้มครอง| User
+
+    TechDev -->|ให้บริการตามเกณฑ์ที่กำหนด| User
+    User -->|ใช้สิทธิเข้าถึง/ร้องเรียน| TechDev
+
+    TechDev -.->|นำส่งรายงานความสอดคล้องตามรอบเวลา| Regulator
+    Regulator -.->|ตรวจสอบและบังคับใช้บทลงโทษ| TechDev
+    User -.->|ยื่นเรื่องร้องเรียนกรณีถูกละเมิดสิทธิ| Regulator
