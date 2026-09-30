@@ -1,0 +1,50 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:13px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:11px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:11px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:11px;
+
+    CenterLaw["📜 ร่าง พ.ร.บ.ว่าด้วยธุรกรรมทางอิเล็กทรอนิกส์<br/>(ฉบับปรับปรุงใหญ่ พ.ศ. ....)<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        PDPA["พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล<br/>(PDPA พ.ศ. 2562)"]:::otherLaws
+        CompLaw["พ.ร.บ. คอมพิวเตอร์ฯ<br/>(พ.ศ. 2550 และแก้ไขเพิ่มเติม)"]:::otherLaws
+        OldETA["พ.ร.บ.ธุรกรรมอิเล็กทรอนิกส์ฉบับที่ 3<br/>(พิสูจน์ยืนยันตัวตนดิจิทัล 2562)"]:::otherLaws
+        CivilCode["ประมวลกฎหมายแพ่งและพาณิชย์<br/>(ลักษณะตั๋วเงิน)"]:::otherLaws
+        PlatformLaw["ร่างกฎหมายกำกับแพลตฟอร์มดิจิทัล<br/>(ฉบับแยกต่างหาก)"]:::otherLaws
+    end
+
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้ให้บริการ 7 ประเภท"]
+        TechDev["ผู้ให้บริการยืนยันตัวตน/ลายมือชื่ออิเล็กทรอนิกส์"]:::techSide
+        TechInfra["ผู้ให้บริการรับ-ส่ง-เก็บข้อมูล/โดเมน/ตั๋วเงินอิเล็กทรอนิกส์"]:::techSide
+    end
+
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้งานทั่วไป"]
+        User["ผู้ทำธุรกรรมออนไลน์ / เจ้าของข้อมูล"]:::citizenSide
+        Bank["สถาบันการเงิน / ผู้ใช้ตั๋วเงินอิเล็กทรอนิกส์"]:::citizenSide
+    end
+
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        Regulator["สพธอ. (ETDA) / กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม"]:::regulatorSide
+    end
+
+    CenterLaw -->|1. กำหนดเกณฑ์คุ้มครองข้อมูลส่วนบุคคลของผู้ให้บริการ| PDPA
+    CenterLaw -->|2. เชื่อมโยงหน้าที่เก็บรักษาข้อมูลจราจรทางคอมพิวเตอร์| CompLaw
+    CenterLaw -->|3. ยกเลิกและรวบรวมกรอบยืนยันตัวตนดิจิทัลเดิมเข้าด้วยกัน| OldETA
+    CenterLaw -->|4. ปรับความสอดคล้องเรื่องตั๋วเงินอิเล็กทรอนิกส์| CivilCode
+    CenterLaw -->|5. เชื่อมบทเฉพาะกาลกับวันบังคับใช้กฎหมายแพลตฟอร์มดิจิทัล| PlatformLaw
+
+    CenterLaw ==>|6. กำหนดเกณฑ์ขึ้นทะเบียน/ใบอนุญาตตามความเสี่ยง| TechDev
+    CenterLaw ==>|7. กำหนดมาตรฐานความน่าเชื่อถือของระบบและข้อมูล| TechInfra
+
+    TechDev -->|8. ให้บริการยืนยันตัวตนที่น่าเชื่อถือแก่ผู้ใช้งาน| User
+    TechInfra -->|9. รองรับเช็ค/ตั๋วแลกเงินอิเล็กทรอนิกส์ให้สถาบันการเงิน| Bank
+
+    User -->|10. ใช้สิทธิทำธุรกรรมดิจิทัลแทนเอกสารกระดาษ| TechDev
+    Bank -->|11. นำหลักฐานอิเล็กทรอนิกส์ไปใช้ในกระบวนการทางกฎหมาย| TechInfra
+
+    TechDev -.->|12. นำส่งรายงานความสอดคล้องตามกฎหมายลูก| Regulator
+    TechInfra -.->|13. รายงานเหตุขัดข้องของระบบต่อหน่วยงานกำกับ| Regulator
+    Regulator -.->|14. ตรวจสอบและบังคับใช้กฎหมายลูก 26 ฉบับเมื่อประกาศใช้| CenterLaw

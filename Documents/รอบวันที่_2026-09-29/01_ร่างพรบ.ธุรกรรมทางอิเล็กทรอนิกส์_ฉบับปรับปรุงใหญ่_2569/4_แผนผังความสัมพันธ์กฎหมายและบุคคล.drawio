@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="แผนผังความสัมพันธ์" id="relationship-map">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c_law" value="📜 ร่าง พ.ร.บ.ว่าด้วยธุรกรรมทางอิเล็กทรอนิกส์&#10;(ฉบับปรับปรุงใหญ่ พ.ศ. ....)&#10;(ศูนย์กลางการบังคับใช้)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B2545;strokeColor=#FF6600;fontColor=#FFFFFF;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="460" width="260" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="l_pdpa" value="พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล&#10;(PDPA พ.ศ. 2562)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#111827;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="400" y="60" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="l_comp" value="พ.ร.บ. คอมพิวเตอร์ฯ&#10;(พ.ศ. 2550 และแก้ไขเพิ่มเติม)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#111827;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="400" y="160" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="l_old" value="พ.ร.บ.ธุรกรรมอิเล็กทรอนิกส์ฉบับที่ 3&#10;(พิสูจน์ยืนยันตัวตนดิจิทัล 2562)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#111827;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="400" y="260" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="l_civil" value="ประมวลกฎหมายแพ่งและพาณิชย์&#10;(ลักษณะตั๋วเงิน)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#111827;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="400" y="360" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="l_platform" value="ร่างกฎหมายกำกับแพลตฟอร์มดิจิทัล&#10;(ฉบับแยกต่างหาก)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#111827;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="400" y="460" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="t_dev" value="ผู้ให้บริการยืนยันตัวตน/ลายมือชื่ออิเล็กทรอนิกส์" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5EB;strokeColor=#FF6600;fontColor=#111827;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="560" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="t_infra" value="ผู้ให้บริการรับ-ส่ง-เก็บข้อมูล/โดเมน/ตั๋วเงินอิเล็กทรอนิกส์" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5EB;strokeColor=#FF6600;fontColor=#111827;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="660" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="u_user" value="ผู้ทำธุรกรรมออนไลน์ / เจ้าของข้อมูล" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#16A34A;fontColor=#111827;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="560" width="240" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="u_bank" value="สถาบันการเงิน / ผู้ใช้ตั๋วเงินอิเล็กทรอนิกส์" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#16A34A;fontColor=#111827;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="660" width="240" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="r_reg" value="สพธอ. (ETDA) / กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontColor=#111827;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="380" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" value="1. กำหนดเกณฑ์คุ้มครองข้อมูลส่วนบุคคลของผู้ให้บริการ" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;strokeColor=#4B5563;" edge="1" parent="1" source="c_law" target="l_pdpa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" value="2. เชื่อมโยงหน้าที่เก็บรักษาข้อมูลจราจรทางคอมพิวเตอร์" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;strokeColor=#4B5563;" edge="1" parent="1" source="c_law" target="l_comp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" value="3. ยกเลิกและรวบรวมกรอบยืนยันตัวตนดิจิทัลเดิมเข้าด้วยกัน" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;strokeColor=#4B5563;" edge="1" parent="1" source="c_law" target="l_old">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" value="4. ปรับความสอดคล้องเรื่องตั๋วเงินอิเล็กทรอนิกส์" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;strokeColor=#4B5563;" edge="1" parent="1" source="c_law" target="l_civil">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f5" value="5. เชื่อมบทเฉพาะกาลกับวันบังคับใช้กฎหมายแพลตฟอร์มดิจิทัล" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;strokeColor=#4B5563;" edge="1" parent="1" source="c_law" target="l_platform">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f6" value="6. กำหนดเกณฑ์ขึ้นทะเบียน/ใบอนุญาตตามความเสี่ยง" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;strokeColor=#0B2545;" edge="1" parent="1" source="c_law" target="t_dev">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f7" value="7. กำหนดมาตรฐานความน่าเชื่อถือของระบบและข้อมูล" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;strokeColor=#0B2545;" edge="1" parent="1" source="c_law" target="t_infra">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f8" value="8. ให้บริการยืนยันตัวตนที่น่าเชื่อถือแก่ผู้ใช้งาน" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;strokeColor=#4B5563;" edge="1" parent="1" source="t_dev" target="u_user">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f9" value="9. รองรับเช็ค/ตั๋วแลกเงินอิเล็กทรอนิกส์ให้สถาบันการเงิน" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;strokeColor=#4B5563;" edge="1" parent="1" source="t_infra" target="u_bank">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f10" value="10. ใช้สิทธิทำธุรกรรมดิจิทัลแทนเอกสารกระดาษ" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;strokeColor=#4B5563;" edge="1" parent="1" source="u_user" target="t_dev">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f11" value="11. นำหลักฐานอิเล็กทรอนิกส์ไปใช้ในกระบวนการทางกฎหมาย" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;strokeColor=#4B5563;" edge="1" parent="1" source="u_bank" target="t_infra">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f12" value="12. นำส่งรายงานความสอดคล้องตามกฎหมายลูก" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;strokeColor=#DC2626;dashed=1;" edge="1" parent="1" source="t_dev" target="r_reg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f13" value="13. รายงานเหตุขัดข้องของระบบต่อหน่วยงานกำกับ" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;strokeColor=#DC2626;dashed=1;" edge="1" parent="1" source="t_infra" target="r_reg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f14" value="14. ตรวจสอบและบังคับใช้กฎหมายลูก 26 ฉบับเมื่อประกาศใช้" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;strokeColor=#DC2626;dashed=1;" edge="1" parent="1" source="r_reg" target="c_law">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

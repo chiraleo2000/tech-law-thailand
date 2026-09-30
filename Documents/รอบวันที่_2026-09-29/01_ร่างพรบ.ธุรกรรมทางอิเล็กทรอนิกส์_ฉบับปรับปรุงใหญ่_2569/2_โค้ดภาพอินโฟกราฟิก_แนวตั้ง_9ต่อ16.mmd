@@ -1,0 +1,54 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:15px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:12px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:11px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:11px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:11px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:11px,font-weight:bold;
+
+    subgraph HEADER ["📢 สรุปกฎหมายไอทีฉบับใหม่"]
+        TitleNode["📜 ร่าง พ.ร.บ.ว่าด้วยธุรกรรมทางอิเล็กทรอนิกส์ (ฉบับปรับปรุงใหญ่)<br/>ครม. พิจารณา 29 ก.ย. 2569"]:::headerClass
+    end
+
+    subgraph CORE ["💡 สาระสำคัญที่ต้องรู้"]
+        CoreEssence["ยกเครื่อง พ.ร.บ.ธุรกรรมอิเล็กทรอนิกส์ 2544 ให้ดิจิทัลเป็นช่องทางหลัก รองรับสัญญาอัตโนมัติและตั๋วเงินอิเล็กทรอนิกส์"]:::essenceClass
+    end
+
+    subgraph COMPARISON ["⚖️ เปรียบเทียบจุดเปลี่ยนสำคัญ (เดิม vs ใหม่)"]
+        OldRule["🏛️ กฎหมายฉบับเดิม (2544 และแก้ไข)<br/>• ไม่รองรับสัญญาอัตโนมัติ/AI<br/>• ไม่ครอบคลุมตั๋วเงินอิเล็กทรอนิกส์<br/>• กำกับผู้ให้บริการวงจำกัด"]:::oldLawClass
+        NewRule["🚀 ร่างกฎหมายใหม่ 2569<br/>• รับรองสัญญาอัตโนมัติ/Smart Contract<br/>• รองรับเช็ค/ตั๋วแลกเงินอิเล็กทรอนิกส์<br/>• กำกับผู้ให้บริการ 7 ประเภทตามความเสี่ยง"]:::newLawClass
+    end
+
+    subgraph STAKEHOLDERS ["👥 ผู้เกี่ยวข้องและหน้าที่ตามกฎหมาย"]
+        TechCompany["🏢 ผู้ให้บริการ 7 ประเภท<br/>(ยืนยันตัวตน/ลายมือชื่อ/ประทับเวลา/เก็บข้อมูล/โดเมน/ตั๋วเงิน)"]:::techSide
+        EndUser["👤 ประชาชน / ผู้ทำธุรกรรมออนไลน์"]:::userSide
+    end
+
+    subgraph TIMELINE ["🗓️ ขั้นตอนถัดไปของร่างกฎหมาย"]
+        StepKrisdika["1️⃣ ตรวจพิจารณาโดยสำนักงานคณะกรรมการกฤษฎีกาอย่างเป็นทางการ"]:::oldLawClass
+        StepParliament["2️⃣ เสนอเข้าสู่กระบวนการพิจารณาของรัฐสภา"]:::newLawClass
+        StepEnact["3️⃣ ประกาศในราชกิจจานุเบกษา แล้วมีผล 180 วันถัดไป"]:::techSide
+    end
+
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["🚨 รายละเอียดบทลงโทษรอกฎหมายลูก 26 ฉบับ (พ.ร.ฎ. 2, กฎกระทรวง 3, ประกาศ 21)<br/>แหล่งอ้างอิง: prd.go.th (แถลงข่าว ครม. 29 ก.ย. 2569)"]:::penaltyClass
+    end
+
+    TitleNode -->|คณะรัฐมนตรีพิจารณาเห็นชอบในหลักการ| CoreEssence
+    CoreEssence -->|ยกเลิกและรวบรวมข้อกำหนดเดิมที่กระจัดกระจาย| OldRule
+    CoreEssence -->|บังคับใช้กรอบกำกับดูแลใหม่ตามความเสี่ยง| NewRule
+
+    NewRule -->|1. กำหนดให้ขึ้นทะเบียน/ขอใบอนุญาตตาม 7 ประเภทบริการ| TechCompany
+    NewRule -->|2. มอบสิทธิใช้ธุรกรรมดิจิทัลเป็นช่องทางหลักโดยไม่ตัดสิทธิใช้กระดาษ| EndUser
+
+    TechCompany -->|3. ให้บริการที่น่าเชื่อถือและเก็บรักษาข้อมูลตามเกณฑ์| EndUser
+    EndUser -->|4. ใช้สิทธิโต้แย้ง/ฟ้องร้องโดยอาศัยหลักฐานอิเล็กทรอนิกส์| TechCompany
+
+    EndUser -->|5. รอความคืบหน้าเข้าสู่กระบวนการนิติบัญญัติ| StepKrisdika
+    StepKrisdika -->|6. ผ่านการตรวจร่างแล้วส่งต่อ| StepParliament
+    StepParliament -->|7. รัฐสภาให้ความเห็นชอบแล้วนำขึ้นทูลเกล้าฯ| StepEnact
+
+    StepEnact -.->|หากผู้ให้บริการไม่ปฏิบัติตามเกณฑ์กำกับความเสี่ยงที่จะกำหนดในกฎหมายลูก| PenaltyNode
+    OldRule -.->|ถูกยกเลิก/รวบรวมเข้ากรอบใหม่เมื่อกฎหมายมีผลบังคับใช้| PenaltyNode
