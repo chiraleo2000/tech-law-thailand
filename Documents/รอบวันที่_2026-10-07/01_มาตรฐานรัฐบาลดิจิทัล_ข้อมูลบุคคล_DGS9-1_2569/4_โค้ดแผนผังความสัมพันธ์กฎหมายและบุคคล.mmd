@@ -1,0 +1,44 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:13px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:11px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:11px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:11px;
+
+    CenterLaw["📜 มาตรฐานข้อมูลบุคคล<br/>DGS 9-1:2569<br/>(ศูนย์กลางการเชื่อมโยงข้อมูล)"]:::centerLaw
+
+    subgraph GROUP_LAWS ["📚 กฎหมาย/มาตรฐานที่บูรณาการร่วมกัน"]
+        ActDGov["พ.ร.บ.การบริหารงานฯ ภาครัฐผ่านระบบดิจิทัล<br/>(พ.ศ. 2562 มาตรา 13/15/19)"]:::otherLaws
+        PDPA["พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล<br/>(PDPA พ.ศ. 2562)"]:::otherLaws
+        CivilReg["พ.ร.บ.การทะเบียนราษฎร<br/>(พ.ศ. 2534)"]:::otherLaws
+        OldStd["มาตรฐานเดิม มสพร. 4-2565<br/>(ข้อมูลอ้างอิงทั่วไป)"]:::otherLaws
+    end
+
+    subgraph GROUP_TECH ["🏢 หน่วยงานภาครัฐผู้เชื่อมโยงข้อมูล"]
+        DOPA["กรมการปกครอง (เจ้าของข้อมูล)"]:::techSide
+        AgencyDev["หน่วยงานรัฐผู้พัฒนาระบบเชื่อมโยงข้อมูล"]:::techSide
+    end
+
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและเจ้าของข้อมูล"]
+        Citizen["ประชาชน / เจ้าของข้อมูลบุคคล"]:::citizenSide
+    end
+
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        DGA["สำนักงานพัฒนารัฐบาลดิจิทัล (DGA) / คณะกรรมการพัฒนารัฐบาลดิจิทัล"]:::regulatorSide
+    end
+
+    CenterLaw -->|1. ออกภายใต้อำนาจตามมาตรา 13/15/19| ActDGov
+    CenterLaw -->|2. ข้อมูลที่เชื่อมโยงต้องคุ้มครองตามฐานกฎหมาย| PDPA
+    CenterLaw -->|3. อ้างอิงข้อมูลต้นทางจากทะเบียนราษฎร| CivilReg
+    CenterLaw -->|4. ยกระดับและแทนที่มาตรฐานอ้างอิงเดิม| OldStd
+
+    CenterLaw ==>|5. กำหนดให้กรมการปกครองเป็นเจ้าของข้อมูล| DOPA
+    CenterLaw ==>|6. กำหนดสคีมาที่หน่วยงานต้องนำไปปรับใช้| AgencyDev
+
+    DOPA -->|7. ให้บริการข้อมูลผ่านศูนย์แลกเปลี่ยนข้อมูลกลาง| AgencyDev
+    AgencyDev -->|8. ให้บริการประชาชนโดยไม่ต้องขอเอกสารซ้ำ| Citizen
+    Citizen -->|9. ใช้สิทธิตาม PDPA เหนือข้อมูลของตน| AgencyDev
+
+    AgencyDev -.->|10. ต้องปฏิบัติตามมาตรฐานที่ DGA กำหนด| DGA
+    DGA -.->|11. ติดตามและปรับปรุงมาตรฐานอย่างต่อเนื่อง| CenterLaw

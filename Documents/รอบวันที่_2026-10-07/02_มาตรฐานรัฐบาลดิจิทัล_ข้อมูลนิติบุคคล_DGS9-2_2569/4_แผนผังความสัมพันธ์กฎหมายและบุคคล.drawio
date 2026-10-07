@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="แผนผังความสัมพันธ์" id="relation-map">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n_center" value="📜 มาตรฐานข้อมูลนิติบุคคล&#10;DGS 9-2:2569&#10;(ศูนย์กลางการเชื่อมโยงข้อมูล)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B2545;strokeColor=#FF6600;fontColor=#FFFFFF;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="40" width="360" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="n_law1" value="พ.ร.บ.การบริหารงานฯ ภาครัฐผ่านระบบดิจิทัล&#10;(พ.ศ. 2562 มาตรา 13/15/19)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="220" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="n_law2" value="ประมวลกฎหมายแพ่งและพาณิชย์&#10;(ลักษณะห้างหุ้นส่วน/บริษัท)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="400" y="220" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="n_law3" value="พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล&#10;(PDPA พ.ศ. 2562)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="220" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="n_law4" value="มาตรฐานข้อมูลบุคคล&#10;DGS 9-1:2569 (คู่ขนาน)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="220" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="n_owner" value="กรมพัฒนาธุรกิจการค้า (เจ้าของข้อมูล)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5EB;strokeColor=#FF6600;fontColor=#111827;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="420" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="n_agency" value="หน่วยงานรัฐผู้พัฒนาระบบเชื่อมโยงข้อมูล" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B2545;strokeColor=#0B2545;fontColor=#FFFFFF;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="420" width="340" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="n_citizen" value="นิติบุคคล / กรรมการ / ผู้ถือหุ้น" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#16A34A;fontColor=#166534;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="580" width="340" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="n_regulator" value="สำนักงานพัฒนารัฐบาลดิจิทัล (DGA) /&#10;คณะกรรมการพัฒนารัฐบาลดิจิทัล" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontColor=#991B1B;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="420" width="400" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="1. ฐานอำนาจ/กฎหมายที่เกี่ยวข้อง" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#4B5563;" edge="1" parent="1" source="n_center" target="n_law1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="2. บูรณาการร่วมกัน" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#4B5563;" edge="1" parent="1" source="n_center" target="n_law2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="3. คุ้มครองข้อมูลตาม" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#4B5563;" edge="1" parent="1" source="n_center" target="n_law3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="4. เชื่อมโยงกับมาตรฐานคู่ขนาน" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#4B5563;" edge="1" parent="1" source="n_center" target="n_law4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="5. กำหนดเจ้าของข้อมูล" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#4B5563;" edge="1" parent="1" source="n_center" target="n_owner">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="6. กำหนดสคีมาให้หน่วยงานนำไปใช้" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#4B5563;" edge="1" parent="1" source="n_center" target="n_agency">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="7. ให้บริการผ่านศูนย์แลกเปลี่ยนข้อมูลกลาง" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#4B5563;" edge="1" parent="1" source="n_owner" target="n_agency">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="8. ให้บริการโดยไม่ต้องยื่นเอกสารซ้ำ" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#4B5563;" edge="1" parent="1" source="n_agency" target="n_citizen">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="9. ใช้สิทธิตาม PDPA" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#4B5563;" edge="1" parent="1" source="n_citizen" target="n_agency">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" value="10. ต้องปฏิบัติตามมาตรฐานที่กำหนด" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#4B5563;dashed=1;" edge="1" parent="1" source="n_agency" target="n_regulator">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" value="11. ติดตามและปรับปรุงมาตรฐาน" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#4B5563;dashed=1;" edge="1" parent="1" source="n_regulator" target="n_center">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

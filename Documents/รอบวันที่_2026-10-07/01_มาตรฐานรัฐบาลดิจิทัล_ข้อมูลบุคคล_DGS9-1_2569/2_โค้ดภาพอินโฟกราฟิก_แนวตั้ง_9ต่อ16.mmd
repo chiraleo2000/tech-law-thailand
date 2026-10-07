@@ -1,0 +1,44 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:15px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:12px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:11px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:11px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:11px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:11px,font-weight:bold;
+
+    subgraph HEADER ["📢 สรุปมาตรฐานรัฐบาลดิจิทัลฉบับใหม่"]
+        TitleNode["📜 มาตรฐานข้อมูลบุคคล DGS 9-1:2569<br/>ประกาศราชกิจจาฯ 25 ก.ย. 2569"]:::headerClass
+    end
+
+    subgraph CORE ["💡 สาระสำคัญที่ต้องรู้"]
+        CoreEssence["กำหนดสคีมาและรูปแบบแลกเปลี่ยนข้อมูลบุคคลกลาง อ้างอิงทะเบียนราษฎรกรมการปกครอง ใช้ร่วมกันทุกหน่วยงานรัฐ"]:::essenceClass
+    end
+
+    subgraph COMPARISON ["⚖️ เปรียบเทียบจุดเปลี่ยนสำคัญ (เดิม vs ใหม่)"]
+        OldRule["🏛️ มาตรฐานเดิม มสพร. 4-2565<br/>• ครอบคลุมเฉพาะข้อมูลอ้างอิงพื้นฐาน<br/>• ไม่มีพจนานุกรมข้อมูลครบทุกฟิลด์"]:::oldLawClass
+        NewRule["🚀 DGS 9-1:2569<br/>• ข้อมูลบุคคลฉบับเต็ม 7 องค์ประกอบ<br/>• มีสคีมา XML/JSON ครบชุด"]:::newLawClass
+    end
+
+    subgraph STAKEHOLDERS ["👥 ผู้เกี่ยวข้องและหน้าที่ตามมาตรฐาน"]
+        TechCompany["🏢 หน่วยงานรัฐผู้พัฒนาระบบเชื่อมโยงข้อมูล"]:::techSide
+        EndUser["👤 ประชาชนเจ้าของข้อมูล"]:::userSide
+    end
+
+    subgraph FOOTER ["⚠️ สถานะการบังคับใช้"]
+        PenaltyNode["🚨 มาตรฐานทางเทคนิค ไม่มีบทลงโทษอาญา แต่หน่วยงานรัฐต้องถือปฏิบัติตามกรอบ TGIX<br/>แหล่งอ้างอิง: standard.dga.or.th/dgs-19-1-and-19-2-2569"]:::penaltyClass
+    end
+
+    TitleNode -->|ประกาศใช้ภายใต้กรอบ TGIX Semantic Standards| CoreEssence
+    CoreEssence -->|ยกระดับจากมาตรฐานอ้างอิงเดิม| OldRule
+    CoreEssence -->|กำหนดมาตรฐานข้อมูลบุคคลฉบับเต็ม| NewRule
+
+    NewRule -->|1. กำหนดสคีมาและ API สำหรับเชื่อมโยงข้อมูลบุคคล| TechCompany
+    NewRule -->|2. ลดการกรอกข้อมูลซ้ำ เพิ่มความสะดวกในการรับบริการ| EndUser
+
+    TechCompany -->|3. แลกเปลี่ยนข้อมูลผ่านศูนย์แลกเปลี่ยนข้อมูลกลาง| EndUser
+    EndUser -->|4. ยังคงมีสิทธิตาม PDPA เหนือข้อมูลของตน| TechCompany
+
+    TechCompany -.->|หากไม่ปฏิบัติตามมาตรฐานอาจเชื่อมโยงข้อมูลผ่านศูนย์กลางไม่ได้| PenaltyNode
+    OldRule -.->|ถูกยกระดับแทนที่ด้วยมาตรฐานฉบับใหม่| PenaltyNode
