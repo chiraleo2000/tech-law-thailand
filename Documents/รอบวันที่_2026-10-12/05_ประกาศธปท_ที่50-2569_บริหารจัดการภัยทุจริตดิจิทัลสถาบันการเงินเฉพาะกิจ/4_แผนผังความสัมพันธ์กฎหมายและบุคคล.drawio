@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="แผนผังความสัมพันธ์" id="d1">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n_C" value="📜 ประกาศ ธปท. 50/2569 Digital Fraud Management สถาบันการเงินเฉพาะกิจ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B2545;strokeColor=#FF6600;fontColor=#FFFFFF;fontSize=16;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="560" y="400" width="300" height="140" as="geometry" /></mxCell>
+        <mxCell id="n_L0" value="พ.ร.บ.ธุรกิจสถาบันการเงิน 2551 มาตรา 120/1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=12;" vertex="1" parent="1"><mxGeometry x="60" y="60" width="300" height="120" as="geometry" /></mxCell>
+        <mxCell id="n_L1" value="กฎหมายป้องกันอาชญากรรมทางเทคโนโลยี" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=12;" vertex="1" parent="1"><mxGeometry x="60" y="250" width="300" height="120" as="geometry" /></mxCell>
+        <mxCell id="n_L2" value="กฎหมายป้องกันและปราบปรามการฟอกเงิน" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=12;" vertex="1" parent="1"><mxGeometry x="60" y="440" width="300" height="120" as="geometry" /></mxCell>
+        <mxCell id="n_L3" value="PDPA พ.ศ. 2562" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=12;" vertex="1" parent="1"><mxGeometry x="60" y="630" width="300" height="120" as="geometry" /></mxCell>
+        <mxCell id="n_A0" value="สถาบันการเงินเฉพาะกิจ 6 แห่ง" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5EB;strokeColor=#FF6600;fontColor=#111827;fontSize=12;" vertex="1" parent="1"><mxGeometry x="1080" y="40" width="300" height="110" as="geometry" /></mxCell>
+        <mxCell id="n_A1" value="ทีมไอที ความเสี่ยง และกำกับการปฏิบัติตามกฎเกณฑ์" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5EB;strokeColor=#FF6600;fontColor=#111827;fontSize=12;" vertex="1" parent="1"><mxGeometry x="1080" y="210" width="300" height="110" as="geometry" /></mxCell>
+        <mxCell id="n_A2" value="ลูกค้า / ประชาชน" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontColor=#991B1B;fontSize=12;" vertex="1" parent="1"><mxGeometry x="1080" y="380" width="300" height="110" as="geometry" /></mxCell>
+        <mxCell id="n_A3" value="ธปท. และ CFR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#16A34A;fontColor=#166534;fontSize=12;" vertex="1" parent="1"><mxGeometry x="1080" y="550" width="300" height="110" as="geometry" /></mxCell>
+        <mxCell id="n_A4" value="พนักงานสอบสวน" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontColor=#991B1B;fontSize=12;" vertex="1" parent="1"><mxGeometry x="1080" y="720" width="300" height="110" as="geometry" /></mxCell>
+        <mxCell id="e0" value="1. ออกตามอำนาจกฎหมายแม่" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_C" target="n_L0"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e1" value="2. ต้องแลกเปลี่ยนข้อมูลและรองรับการระงับบัญชีม้า" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_C" target="n_L1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" value="3. KYC CDD EDD ตามกฎหมายฟอกเงิน" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_C" target="n_L2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" value="4. ใช้ข้อมูลลูกค้าตรวจจับอย่างมีฐานกฎหมาย" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_C" target="n_L3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" value="5. ต้องปฏิบัติตามหลักเกณฑ์ทั้งหมด" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeWidth=3;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_C" target="n_A0"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" value="6. สร้างระบบตรวจจับ ระงับ และ hotline" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_A0" target="n_A1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" value="7. ได้รับแจ้งเตือน ปกป้อง และเยียวยา" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_A1" target="n_A2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" value="8. รายงานเหตุและส่งข้อมูลภัยทุจริต" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_A0" target="n_A3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" value="9. ได้รับข้อมูลสนับสนุนอย่างทันการ" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_A0" target="n_A4"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

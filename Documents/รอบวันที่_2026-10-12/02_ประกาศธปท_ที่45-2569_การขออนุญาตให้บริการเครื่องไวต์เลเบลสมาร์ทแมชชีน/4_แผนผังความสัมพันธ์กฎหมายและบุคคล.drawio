@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="แผนผังความสัมพันธ์" id="d1">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n_C" value="📜 ประกาศ ธปท. 45/2569 การขออนุญาตเครื่อง WSM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B2545;strokeColor=#FF6600;fontColor=#FFFFFF;fontSize=16;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="560" y="400" width="300" height="140" as="geometry" /></mxCell>
+        <mxCell id="n_L0" value="พ.ร.บ.ระบบการชำระเงิน 2560" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=12;" vertex="1" parent="1"><mxGeometry x="60" y="60" width="300" height="120" as="geometry" /></mxCell>
+        <mxCell id="n_L1" value="ประกาศกระทรวงการคลัง บริการภายใต้การกำกับ ฉบับที่ 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=12;" vertex="1" parent="1"><mxGeometry x="60" y="250" width="300" height="120" as="geometry" /></mxCell>
+        <mxCell id="n_L2" value="กฎหมายป้องกันและปราบปรามการฟอกเงิน" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=12;" vertex="1" parent="1"><mxGeometry x="60" y="440" width="300" height="120" as="geometry" /></mxCell>
+        <mxCell id="n_L3" value="PDPA พ.ศ. 2562" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=12;" vertex="1" parent="1"><mxGeometry x="60" y="630" width="300" height="120" as="geometry" /></mxCell>
+        <mxCell id="n_A0" value="ผู้ประสงค์จะให้บริการ WSM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5EB;strokeColor=#FF6600;fontColor=#111827;fontSize=12;" vertex="1" parent="1"><mxGeometry x="1080" y="40" width="300" height="110" as="geometry" /></mxCell>
+        <mxCell id="n_A1" value="ธนาคารพาณิชย์และสถาบันการเงินเฉพาะกิจ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5EB;strokeColor=#FF6600;fontColor=#111827;fontSize=12;" vertex="1" parent="1"><mxGeometry x="1080" y="210" width="300" height="110" as="geometry" /></mxCell>
+        <mxCell id="n_A2" value="ธปท." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontColor=#991B1B;fontSize=12;" vertex="1" parent="1"><mxGeometry x="1080" y="380" width="300" height="110" as="geometry" /></mxCell>
+        <mxCell id="n_A3" value="รัฐมนตรีว่าการกระทรวงการคลัง" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#16A34A;fontColor=#166534;fontSize=12;" vertex="1" parent="1"><mxGeometry x="1080" y="550" width="300" height="110" as="geometry" /></mxCell>
+        <mxCell id="n_A4" value="ประชาชนผู้ใช้เครื่อง" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontColor=#991B1B;fontSize=12;" vertex="1" parent="1"><mxGeometry x="1080" y="720" width="300" height="110" as="geometry" /></mxCell>
+        <mxCell id="e0" value="1. ใช้กฎหมายแม่เป็นฐานการอนุญาต" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_C" target="n_L0"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e1" value="2. กำหนดว่า WSM ต้องขออนุญาต" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_C" target="n_L1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" value="3. ผู้ขอต้องแสดงระบบ AML/CFT" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_C" target="n_L2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" value="4. ต้องคุ้มครองข้อมูลผู้ใช้เครื่อง" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_C" target="n_L3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" value="5. ยื่นแจ้งความประสงค์ แผน และคำขอ" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeWidth=3;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_A0" target="n_C"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" value="6. หารือและแจ้งความสนใจใช้บริการ" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_A1" target="n_A0"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" value="7. ประเมินความพร้อมและพิจารณาใน 60 วันทำการ" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_A2" target="n_A0"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" value="8. ออกใบอนุญาตตามคำแนะนำ ธปท." style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_A3" target="n_A0"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" value="9. ใช้บริการเงินสดผ่านเครื่องร่วม" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_A0" target="n_A4"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

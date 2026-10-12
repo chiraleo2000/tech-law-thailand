@@ -1,0 +1,27 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:20px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:16px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:15px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:15px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:15px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:15px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:15px,font-weight:bold;
+
+    TitleNode["ประกาศ ธปท. ที่ 44/2569<br/>บริหารความเสี่ยงร้านค้ารับชำระเงิน<br/>ราชกิจจาฯ 7 ต.ค. 2569 · มีผล 8 ต.ค. 2569"]:::headerClass
+    CoreEssence["💡 สาระสำคัญ<br/>ผู้ให้บริการรับชำระเงินต้องจัดระดับความเสี่ยงร้านค้า รู้จักร้านค้าก่อนรับ ตรวจจับความผิดปกติ และคุมร้านค้าหลักตลอดวงจร"]:::essenceClass
+    OldRule["แนวนโยบาย KYM ปี 2564<br/>• เน้นรู้จักร้านค้า<br/>• ไม่มีการแบ่งระดับในประกาศ"]:::oldLawClass
+    NewRule["ประกาศ 44/2569<br/>• ร้านค้า 3 ระดับ<br/>• ใช้ CFR และรายชื่อบัญชีม้า<br/>• คุมร้านค้าหลักและ sub-merchant"]:::newLawClass
+    TechCompany["🏢 ผู้ให้บริการรับชำระเงิน<br/>และ e-Money"]:::techSide
+    EndUser["👤 ร้านค้า ผู้ซื้อ<br/>และประชาชน"]:::userSide
+    PenaltyNode["⚠️ ไม่มีโทษโดยตรงในประกาศ แต่ต้องเปิดเผยหากถูกปรับทางปกครอง<br/>เปลี่ยนผ่าน 90 วัน และ 1 ปี สำหรับร้านค้าเดิม"]:::penaltyClass
+
+    TitleNode -->|ออกตามอำนาจ ม.24-26 พ.ร.บ.ระบบการชำระเงิน| CoreEssence
+    CoreEssence -->|แทนที่แนวนโยบาย KYM และหนังสือเวียนเดิม| OldRule
+    CoreEssence -->|ยกระดับเป็นการบริหารความเสี่ยงตลอดวงจร| NewRule
+    NewRule -->|1. ต้องมีนโยบาย ระบบตรวจจับ และ watch list| TechCompany
+    NewRule -->|2. ถูกตรวจสอบก่อนรับ และมีสิทธิขอแก้ไขเมื่อไม่เกี่ยวข้อง| EndUser
+    TechCompany -->|3. กำหนดวงเงิน ชะลอโอน หรือระงับบริการเมื่อน่าสงสัย| EndUser
+    EndUser -->|4. ได้รับความคุ้มครองจากร้านค้าหลอกลวงลดลง| TechCompany
+    TechCompany -.->|หากปฏิบัติไม่ได้ ขอผ่อนผันต่อ ธปท.| PenaltyNode
+    OldRule -.->|ถูกแทนที่หรือยกระดับโดยกฎใหม่ ตามสถานะการบังคับใช้| PenaltyNode

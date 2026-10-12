@@ -1,0 +1,27 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:20px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:16px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:15px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:15px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:15px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:15px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:15px,font-weight:bold;
+
+    TitleNode["ประกาศ ธปท. ที่ 50/2569<br/>ภัยทุจริตดิจิทัล สถาบันการเงินเฉพาะกิจ<br/>ราชกิจจาฯ 9 ต.ค. 2569 · มีผล 1 พ.ย. 2569"]:::headerClass
+    CoreEssence["💡 สาระสำคัญ<br/>ธนาคารรัฐ 6 แห่งต้องบริหารภัยทุจริตดิจิทัลครบวงจร รู้จักลูกค้า ตรวจจับบัญชีม้า หน่วงหรือระงับธุรกรรม และดูแลลูกค้าตลอด 24 ชั่วโมง"]:::essenceClass
+    OldRule["แนวนโยบายปี 2566<br/>และหนังสือเวียน 384/2567<br/>• ระดับแนวนโยบาย<br/>• เน้นบัญชีเสี่ยงสูง"]:::oldLawClass
+    NewRule["ประกาศ 50/2569<br/>• KYC/CDD/EDD ตลอดความสัมพันธ์<br/>• ตรวจจับเชิงรุก ใช้ CFR<br/>• hotline 24 ชั่วโมง"]:::newLawClass
+    TechCompany["🏢 สถาบันการเงินเฉพาะกิจ<br/>6 แห่ง"]:::techSide
+    EndUser["👤 ลูกค้าและประชาชน"]:::userSide
+    PenaltyNode["⚠️ ไม่มีโทษตรงในประกาศ แต่ต้องเปิดเผยหากผู้บริหารถูกปรับหรือกล่าวโทษ<br/>ไม่มีช่วงเปลี่ยนผ่าน มีผล 1 พ.ย. 2569"]:::penaltyClass
+
+    TitleNode -->|ออกตามอำนาจ ม.120/1 พ.ร.บ.ธุรกิจสถาบันการเงิน| CoreEssence
+    CoreEssence -->|ยกเลิกแนวนโยบายเดิมเฉพาะส่วนสถาบันการเงินเฉพาะกิจ| OldRule
+    CoreEssence -->|ยกระดับเป็นหลักเกณฑ์ตลอดวงจร| NewRule
+    NewRule -->|1. ต้องมีนโยบาย ระบบตรวจจับ และ hotline| TechCompany
+    NewRule -->|2. ได้รับการแจ้งเตือน หน่วงหรือระงับธุรกรรมน่าสงสัย| EndUser
+    TechCompany -->|3. แลกเปลี่ยนข้อมูลภัยทุจริตและสนับสนุนพนักงานสอบสวน| EndUser
+    EndUser -->|4. ปลดระงับโดยเร็วและเยียวยาเมื่อสถาบันบกพร่อง| TechCompany
+    TechCompany -.->|เปิดเผยการถูกปรับ ยกเว้น ธปท.สั่งไม่ให้เปิดเผย| PenaltyNode
+    OldRule -.->|ถูกแทนที่หรือยกระดับโดยกฎใหม่ ตามสถานะการบังคับใช้| PenaltyNode

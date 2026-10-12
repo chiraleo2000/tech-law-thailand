@@ -1,0 +1,31 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:18px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:15px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:15px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:15px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:15px;
+
+    C["📜 ประกาศ ธปท. 46/2569<br/>กำกับดูแลผู้ให้บริการ WSM"]:::centerLaw
+    subgraph GL ["📚 กฎหมายและประกาศที่เกี่ยวข้อง"]
+        L0["พ.ร.บ.ระบบการชำระเงิน 2560"]:::otherLaws
+        L1["ประกาศ ธปท. 45/2569<br/>และ 47/2569"]:::otherLaws
+        L2["หลักเกณฑ์ Market Conduct"]:::otherLaws
+        L3["PDPA พ.ศ. 2562"]:::otherLaws
+    end
+    subgraph GA ["🏢 บริษัทไอที ผู้ประกอบธุรกิจ หน่วยงานกำกับ และประชาชน"]
+        A0["ผู้ให้บริการเครื่อง WSM"]:::techSide
+        A1["ธนาคารพาณิชย์และสถาบันการเงินเฉพาะกิจ"]:::techSide
+        A2["ธปท."]:::regulatorSide
+        A3["ผู้ใช้บริการ / ประชาชน"]:::citizenSide
+        A4["บริษัทไอทีผู้ให้บริการระบบ"]:::regulatorSide
+    end
+    C -->|1. อ้างอำนาจกฎหมายแม่| L0
+    C -->|2. ใช้ร่วมกันเป็นชุด 3 ฉบับ| L1
+    C -->|3. ผู้ใช้บริการต้องได้รับการดูแลอย่างเป็นธรรม| L2
+    C -->|4. ต้องคุ้มครองข้อมูลธุรกรรมและบัตร| L3
+    C ==>|5. ต้องปฏิบัติตามหลักเกณฑ์ 4 ด้าน| A0
+    A1 -->|6. ธนาคารกำกับให้ผู้ให้บริการทำตามมาตรฐานเดียวกัน| A0
+    A2 -->|7. ธปท. กำกับตรวจสอบและสั่งแก้ไข| A0
+    A3 -->|8. ผู้ใช้บริการร้องเรียนและได้รับการเยียวยา| A0
+    A4 -.->|9. ผู้ให้บริการระบบต้องอยู่ภายใต้การควบคุมของผู้ได้รับอนุญาต| A0

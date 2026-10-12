@@ -1,0 +1,31 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:18px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:15px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:15px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:15px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:15px;
+
+    C["📜 ประกาศ ธปท. 50/2569<br/>Digital Fraud Management<br/>สถาบันการเงินเฉพาะกิจ"]:::centerLaw
+    subgraph GL ["📚 กฎหมายและประกาศที่เกี่ยวข้อง"]
+        L0["พ.ร.บ.ธุรกิจสถาบันการเงิน 2551<br/>มาตรา 120/1"]:::otherLaws
+        L1["กฎหมายป้องกันอาชญากรรมทางเทคโนโลยี"]:::otherLaws
+        L2["กฎหมายป้องกันและปราบปรามการฟอกเงิน"]:::otherLaws
+        L3["PDPA พ.ศ. 2562"]:::otherLaws
+    end
+    subgraph GA ["🏢 บริษัทไอที ผู้ประกอบธุรกิจ หน่วยงานกำกับ และประชาชน"]
+        A0["สถาบันการเงินเฉพาะกิจ 6 แห่ง"]:::techSide
+        A1["ทีมไอที ความเสี่ยง และกำกับการปฏิบัติตามกฎเกณฑ์"]:::techSide
+        A2["ลูกค้า / ประชาชน"]:::regulatorSide
+        A3["ธปท. และ CFR"]:::citizenSide
+        A4["พนักงานสอบสวน"]:::regulatorSide
+    end
+    C -->|1. ออกตามอำนาจกฎหมายแม่| L0
+    C -->|2. ต้องแลกเปลี่ยนข้อมูลและรองรับการระงับบัญชีม้า| L1
+    C -->|3. KYC CDD EDD ตามกฎหมายฟอกเงิน| L2
+    C -->|4. ใช้ข้อมูลลูกค้าตรวจจับอย่างมีฐานกฎหมาย| L3
+    C ==>|5. ต้องปฏิบัติตามหลักเกณฑ์ทั้งหมด| A0
+    A0 -->|6. สร้างระบบตรวจจับ ระงับ และ hotline| A1
+    A1 -->|7. ได้รับแจ้งเตือน ปกป้อง และเยียวยา| A2
+    A0 -->|8. รายงานเหตุและส่งข้อมูลภัยทุจริต| A3
+    A0 -->|9. ได้รับข้อมูลสนับสนุนอย่างทันการ| A4

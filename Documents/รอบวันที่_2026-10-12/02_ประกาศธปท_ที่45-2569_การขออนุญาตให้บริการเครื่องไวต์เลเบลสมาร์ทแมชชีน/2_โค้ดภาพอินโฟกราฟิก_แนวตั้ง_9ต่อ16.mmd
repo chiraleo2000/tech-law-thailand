@@ -1,0 +1,27 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:20px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:16px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:15px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:15px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:15px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:15px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:15px,font-weight:bold;
+
+    TitleNode["ประกาศ ธปท. ที่ 45/2569<br/>การขออนุญาตให้บริการเครื่อง WSM<br/>ราชกิจจาฯ 7 ต.ค. 2569"]:::headerClass
+    CoreEssence["💡 สาระสำคัญ<br/>ผู้ให้บริการเครื่อง White-label Smart Machine ต้องขอใบอนุญาต ทุนไม่ต่ำกว่า 100 ล้านบาท ประสบการณ์ 10 ปี และผ่านการประเมินความพร้อมก่อนยื่น"]:::essenceClass
+    OldRule["ก่อนหน้านี้<br/>• ยังไม่มีใบอนุญาตเฉพาะ<br/>• ไม่มีเกณฑ์ทุนและประสบการณ์"]:::oldLawClass
+    NewRule["ประกาศ 45/2569<br/>• ทุน 100 ล้านบาท<br/>• ประสบการณ์ 10 ปี<br/>• ส่งแผนใน 180 วัน<br/>• ธปท. พิจารณาใน 60 วันทำการ"]:::newLawClass
+    TechCompany["🏢 ผู้ประสงค์จะให้บริการ<br/>เครื่อง WSM"]:::techSide
+    EndUser["👤 ประชาชนและ<br/>ผู้ใช้เงินสด"]:::userSide
+    PenaltyNode["⚠️ ไม่มีโทษปรับโดยตรง แต่ธปท.สั่งแก้ไข ระงับ หรือเสนอเพิกถอนใบอนุญาตได้<br/>ต้องส่งแผนภายใน 180 วัน มิฉะนั้นยื่นขอไม่ได้"]:::penaltyClass
+
+    TitleNode -->|ออกต่อเนื่องจากประกาศกระทรวงการคลัง ฉบับที่ 2| CoreEssence
+    CoreEssence -->|กำหนดกรอบการขออนุญาตใหม่ทั้งระบบ| OldRule
+    CoreEssence -->|ยกระดับเป็นบริการที่ต้องมีใบอนุญาต| NewRule
+    NewRule -->|1. ต้องผ่านเกณฑ์ทุน ประสบการณ์ และประเมินความพร้อม| TechCompany
+    NewRule -->|2. ได้ใช้เครื่องเงินสดร่วมกันหลายธนาคาร| EndUser
+    TechCompany -->|3. หารือธนาคารและส่งแผนบริหารเครื่อง| EndUser
+    EndUser -->|4. ได้บริการเงินสดทั่วถึงขึ้นโดยเฉพาะพื้นที่ห่างไกล| TechCompany
+    TechCompany -.->|เพิกถอนหรือระงับหากข้อมูลไม่ตรงจริง| PenaltyNode
+    OldRule -.->|ถูกแทนที่หรือยกระดับโดยกฎใหม่ ตามสถานะการบังคับใช้| PenaltyNode

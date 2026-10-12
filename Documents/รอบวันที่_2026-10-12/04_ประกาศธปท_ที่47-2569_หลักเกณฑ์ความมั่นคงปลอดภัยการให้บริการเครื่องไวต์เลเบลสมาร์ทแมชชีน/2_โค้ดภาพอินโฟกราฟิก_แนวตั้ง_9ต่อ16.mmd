@@ -1,0 +1,27 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:20px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:16px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:15px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:15px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:15px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:15px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:15px,font-weight:bold;
+
+    TitleNode["ประกาศ ธปท. ที่ 47/2569<br/>ความมั่นคงปลอดภัยเครื่อง WSM<br/>ราชกิจจาฯ 7 ต.ค. 2569"]:::headerClass
+    CoreEssence["💡 สาระสำคัญ<br/>ผู้ให้บริการเครื่อง WSM ต้องรักษามาตรฐานขั้นต่ำด้านความมั่นคงปลอดภัยและรับมือภัยคุกคามทางไซเบอร์เพื่อสร้างความเชื่อมั่นให้ประชาชน"]:::essenceClass
+    OldRule["ก่อนหน้านี้<br/>• ไม่มีมาตรฐานความปลอดภัยเฉพาะ WSM"]:::oldLawClass
+    NewRule["ประกาศ 47/2569<br/>• มาตรฐานขั้นต่ำด้านความปลอดภัย<br/>• รับมือภัยไซเบอร์"]:::newLawClass
+    TechCompany["🏢 ผู้ให้บริการ WSM<br/>และทีมไอที"]:::techSide
+    EndUser["👤 ผู้ใช้เครื่อง WSM"]:::userSide
+    PenaltyNode["⚠️ ไม่พบบทลงโทษในข้อมูลที่เข้าถึงได้ ต้องตรวจข้อความเต็ม<br/>ธปท.สั่งแก้ไขหรือเสนอเพิกถอนใบอนุญาตได้"]:::penaltyClass
+
+    TitleNode -->|เป็นชุดเดียวกับประกาศ 45 และ 46| CoreEssence
+    CoreEssence -->|เพิ่มมาตรฐานความปลอดภัยเฉพาะ WSM| OldRule
+    CoreEssence -->|กำหนดมาตรฐานขั้นต่ำใหม่| NewRule
+    NewRule -->|1. ต้องทำ gap assessment และแผนรับมือไซเบอร์| TechCompany
+    NewRule -->|2. ข้อมูลบัตรและธุรกรรมได้รับการปกป้อง| EndUser
+    TechCompany -->|3. ผู้ใช้แจ้งเหตุผิดปกติได้| EndUser
+    EndUser -->|4. ผู้ให้บริการแจ้งเหตุสำคัญต่อ ธปท.| TechCompany
+    TechCompany -.->|ธปท. ตรวจสอบและสั่งแก้ไข| PenaltyNode
+    OldRule -.->|ถูกแทนที่หรือยกระดับโดยกฎใหม่ ตามสถานะการบังคับใช้| PenaltyNode

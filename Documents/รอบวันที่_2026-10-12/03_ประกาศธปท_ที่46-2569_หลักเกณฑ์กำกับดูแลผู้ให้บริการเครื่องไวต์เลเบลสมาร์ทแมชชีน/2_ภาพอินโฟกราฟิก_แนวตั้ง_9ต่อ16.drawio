@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="อินโฟกราฟิก 9x16" id="d1">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1080" pageHeight="1920" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n_title" value="ประกาศ ธปท. ที่ 46/2569 กำกับดูแลผู้ให้บริการเครื่อง WSM ราชกิจจาฯ 7 ต.ค. 2569" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B2545;strokeColor=#FF6600;fontColor=#FFFFFF;fontSize=16;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="240" y="30" width="600" height="120" as="geometry" /></mxCell>
+        <mxCell id="n_core" value="💡 สาระสำคัญ ผู้ได้รับอนุญาตให้บริการเครื่อง WSM ต้องปฏิบัติตามหลักเกณฑ์กำกับดูแล 4 ด้าน ฐานะการเงิน ธรรมาภิบาล ความเสี่ยงและความปลอดภัย และคุ้มครองผู้ใช้" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5EB;strokeColor=#FF6600;fontColor=#111827;fontSize=14;" vertex="1" parent="1"><mxGeometry x="190" y="230" width="700" height="130" as="geometry" /></mxCell>
+        <mxCell id="n_old" value="ก่อนหน้านี้ • ยังไม่มีกรอบกำกับสำหรับ WSM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#9CA3AF;fontColor=#4B5563;fontSize=13;" vertex="1" parent="1"><mxGeometry x="60" y="450" width="420" height="170" as="geometry" /></mxCell>
+        <mxCell id="n_new" value="ประกาศ 46/2569 • 4 ด้านกำกับดูแล • หน้าที่ต่อเนื่องหลังได้รับอนุญาต" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=13;" vertex="1" parent="1"><mxGeometry x="600" y="450" width="420" height="170" as="geometry" /></mxCell>
+        <mxCell id="n_tech" value="🏢 ผู้ให้บริการ WSM ที่ได้รับอนุญาต" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B2545;strokeColor=#0B2545;fontColor=#FFFFFF;fontSize=13;" vertex="1" parent="1"><mxGeometry x="60" y="740" width="420" height="120" as="geometry" /></mxCell>
+        <mxCell id="n_user" value="👤 ผู้ใช้เครื่อง WSM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF6600;strokeColor=#FF6600;fontColor=#FFFFFF;fontSize=13;" vertex="1" parent="1"><mxGeometry x="600" y="740" width="420" height="120" as="geometry" /></mxCell>
+        <mxCell id="n_pen" value="⚠️ ไม่พบบทลงโทษในข้อมูลที่เข้าถึงได้ ต้องตรวจข้อความเต็ม ธปท.มีอำนาจสั่งแก้ไขหรือเสนอเพิกถอนใบอนุญาต" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#EF4444;fontColor=#991B1B;fontSize=13;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="140" y="1010" width="800" height="140" as="geometry" /></mxCell>
+        <mxCell id="e0" value="เป็นชุดเดียวกับประกาศ 45 และ 47" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_title" target="n_core"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e1" value="ต่อยอดจากการขออนุญาตเป็นการกำกับต่อเนื่อง" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_core" target="n_old"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" value="กำหนดหน้าที่ใหม่ครบ 4 ด้าน" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_core" target="n_new"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" value="1. ต้องรักษาฐานะการเงินและธรรมาภิบาล" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_new" target="n_tech"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" value="2. ได้รับความคุ้มครองและช่องทางร้องเรียน" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_new" target="n_user"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" value="3. ผู้ให้บริการต้องดูแลผู้ใช้อย่างเป็นธรรม" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_tech" target="n_user"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" value="4. ผู้ใช้ร้องเรียนผ่านช่องทางที่แจ้งไว้" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_user" target="n_tech"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" value="ธปท. ตรวจสอบและสั่งแก้ไข" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;dashed=1;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_tech" target="n_pen"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" value="ถูกแทนที่หรือยกระดับโดยกฎใหม่ ตามสถานะการบังคับใช้" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;html=1;fontSize=11;dashed=1;strokeColor=#0B2545;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_old" target="n_pen"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

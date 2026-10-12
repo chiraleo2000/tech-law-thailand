@@ -1,0 +1,27 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:20px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:16px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:15px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:15px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:15px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:15px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:15px,font-weight:bold;
+
+    TitleNode["ประกาศ ธปท. ที่ 46/2569<br/>กำกับดูแลผู้ให้บริการเครื่อง WSM<br/>ราชกิจจาฯ 7 ต.ค. 2569"]:::headerClass
+    CoreEssence["💡 สาระสำคัญ<br/>ผู้ได้รับอนุญาตให้บริการเครื่อง WSM ต้องปฏิบัติตามหลักเกณฑ์กำกับดูแล 4 ด้าน ฐานะการเงิน ธรรมาภิบาล ความเสี่ยงและความปลอดภัย และคุ้มครองผู้ใช้"]:::essenceClass
+    OldRule["ก่อนหน้านี้<br/>• ยังไม่มีกรอบกำกับสำหรับ WSM"]:::oldLawClass
+    NewRule["ประกาศ 46/2569<br/>• 4 ด้านกำกับดูแล<br/>• หน้าที่ต่อเนื่องหลังได้รับอนุญาต"]:::newLawClass
+    TechCompany["🏢 ผู้ให้บริการ WSM<br/>ที่ได้รับอนุญาต"]:::techSide
+    EndUser["👤 ผู้ใช้เครื่อง WSM"]:::userSide
+    PenaltyNode["⚠️ ไม่พบบทลงโทษในข้อมูลที่เข้าถึงได้ ต้องตรวจข้อความเต็ม<br/>ธปท.มีอำนาจสั่งแก้ไขหรือเสนอเพิกถอนใบอนุญาต"]:::penaltyClass
+
+    TitleNode -->|เป็นชุดเดียวกับประกาศ 45 และ 47| CoreEssence
+    CoreEssence -->|ต่อยอดจากการขออนุญาตเป็นการกำกับต่อเนื่อง| OldRule
+    CoreEssence -->|กำหนดหน้าที่ใหม่ครบ 4 ด้าน| NewRule
+    NewRule -->|1. ต้องรักษาฐานะการเงินและธรรมาภิบาล| TechCompany
+    NewRule -->|2. ได้รับความคุ้มครองและช่องทางร้องเรียน| EndUser
+    TechCompany -->|3. ผู้ให้บริการต้องดูแลผู้ใช้อย่างเป็นธรรม| EndUser
+    EndUser -->|4. ผู้ใช้ร้องเรียนผ่านช่องทางที่แจ้งไว้| TechCompany
+    TechCompany -.->|ธปท. ตรวจสอบและสั่งแก้ไข| PenaltyNode
+    OldRule -.->|ถูกแทนที่หรือยกระดับโดยกฎใหม่ ตามสถานะการบังคับใช้| PenaltyNode
