@@ -52,58 +52,52 @@ trigger:
 ห้ามถือว่าจบการค้นหาเมื่อพบแค่แหล่งใดแหล่งหนึ่งแล้วหยุด
 
 ### 2.1 แหล่งประกาศและฐานกฎหมายกลาง (Primary Gazette & Law Portals)
+1. ราชกิจจานุเบกษา (หน้าหลัก): https://ratchakitcha.soc.go.th/
+2. ราชกิจจานุเบกษา (หน้าค้นหาช่วงวันที่): https://ratchakitcha.soc.go.th/search-result/
+3. ระบบกลางทางกฎหมาย (Law Portal): https://law.go.th/Laws
+4. สำนักเลขาธิการคณะรัฐมนตรี (สลค. มติ ครม.): https://www.soc.go.th/?p=7548
+5. กฤษฎีกา (ค้นหารายการล่าสุด): https://www.ocs.go.th/searchlaw?perpage=100
+6. กฤษฎีกา (คลังประมวลฉบับเดิมสำหรับทำ Diff): https://www.krisdika.go.th
+7. กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม (กฎหมายและกฎกระทรวง MDES): https://www.mdes.go.th/law
+8. ระบบติดตามร่างกฎหมายรัฐสภา (Early Warning): https://www.parliament.go.th
 
-1. **ราชกิจจานุเบกษา (Royal Gazette) — หน้าหลักและหน้าค้นหา**
-   * `https://ratchakitcha.soc.go.th/`
-   * `https://ratchakitcha.soc.go.th/search-result/` *(บังคับใช้ค้นหาตามช่วงวันที่ของรอบ)*
-   * มุ่งเน้น: ประกาศหมวด ก (ฉบับกฤษฎีกา), ประกาศกระทรวงดิจิทัลฯ (MDES), ประกาศ กสทช., ประกาศ สคส. (PDPC), ประกาศ สกมช. (NCSA), กฎกระทรวง/ประกาศหน่วยงานกำกับดูแลด้านไอที
-2. **ระบบกลางทางกฎหมาย (Law Portal):** `https://law.go.th/Laws`
-   * มุ่งเน้น: สืบค้นฐานข้อมูลกฎหมายที่มีผลบังคับใช้ล่าสุด, กฎหมายระดับรองที่ออกใหม่, และการติดตามสถานะร่างกฎหมายเทคโนโลยี
-3. **สำนักเลขาธิการคณะรัฐมนตรี (สลค. / SOC):** `https://www.soc.go.th/?p=7548`
-   * มุ่งเน้น: มติคณะรัฐมนตรีที่ให้ความเห็นชอบ พ.ร.บ./พ.ร.ก. หรือกฎกระทรวงด้านดิจิทัลที่ผ่านการตรวจของกฤษฎีกาแล้ว
-4. **สำนักงานคณะกรรมการกฤษฎีกา (OCS) — สืบค้นกฎหมาย:** `https://www.ocs.go.th/searchlaw?perpage=100`
-   * มุ่งเน้น: รายการกฎหมาย/ร่าง/ประกาศล่าสุดจากระบบค้นหาของกฤษฎีกา ใช้ตรวจของใหม่และสถานะฉบับ
-5. **สำนักงานคณะกรรมการกฤษฎีกา (Krisdika) — คลังฉบับเดิม:** `https://www.krisdika.go.th`
-   * มุ่งเน้น: ใช้เป็นคลังประมวลกฎหมายฉบับเดิมเพื่อดึงมาทำ **Diff เปรียบเทียบ มาตราต่อมาตรา**
+### 2.2 โทรคมนาคม ไซเบอร์ และโครงสร้างพื้นฐาน (NBTC & NCSA)
+9. กสทช. (คลังกฎหมายและประกาศกำกับดูแล): https://law.nbtc.go.th/
+10. กสทช. (ประกาศและคำสั่งด้านโทรคมนาคม/OTT/ซิมการ์ด): https://www.nbtc.go.th/Law.aspx
+11. มาตรฐานและแนวปฏิบัติ สกมช. (NCSA): https://www.ncsa.or.th/standards
+12. กฎหมายและระเบียบ Cloud Security (NCSA): https://cloudsecurity.ncsa.or.th/legal
 
-### 2.2 หน่วยงานกำกับดูแลด้านไซเบอร์และความมั่นคงปลอดภัย (NCSA)
+### 2.3 การคุ้มครองข้อมูลส่วนบุคคล (สคส. / PDPC)
+13. กฎหมาย สคส. (หมวดรวม): https://www.pdpc.or.th/category/pdpc-law/
+14. ประกาศ สคส.: https://www.pdpc.or.th/category/pdpc-law/announce/
+15. พระราชกฤษฎีกา/กฎที่เกี่ยวข้อง (decree): https://www.pdpc.or.th/category/pdpc-law/decree/
+16. การตรา/ออกใช้บังคับ (enactment): https://www.pdpc.or.th/category/pdpc-law/enactment/
+17. Notifications of PDPC (EN): https://www.pdpc.or.th/en/notifications-of-the-personal-data-protection-committee/
+18. Act category (EN): https://www.pdpc.or.th/en/category/act/
 
-6. **มาตรฐานและแนวปฏิบัติ สกมช.:** `https://www.ncsa.or.th/standards`
-   * มุ่งเน้น: มาตรฐานความมั่นคงปลอดภัยไซเบอร์, แนวปฏิบัติ, เอกสารกำกับที่ประกาศใหม่
-7. **กฎหมายและระเบียบด้าน Cloud Security (NCSA):** `https://cloudsecurity.ncsa.or.th/legal`
-   * มุ่งเน้น: กฎหมาย ระเบียบ และเกณฑ์ที่เกี่ยวข้องกับความมั่นคงปลอดภัยคลาวด์
+### 2.4 แพลตฟอร์มดิจิทัล มาตรฐานธุรกรรม และภาครัฐดิจิทัล (ETDA, DGA, DBD)
+19. กฎหมายกำกับแพลตฟอร์มดิจิทัล DPS (ETDA): https://www.etda.or.th/th/regulator/Digitalplatform/law.aspx
+20. มาตรฐานและข้อเสนอแนะ ขมธอ. (ETDA Recommendations): https://standard.etda.or.th/
+21. กฎหมายธุรกรรมอิเล็กทรอนิกส์ (ETDA): https://www.etda.or.th/th/regulator/et-law.aspx
+22. มาตรฐาน สพร. (DGA Standards - ตรวจหน้าย่อยรายฉบับ): https://standard.dga.or.th/standard/
+23. พ.ร.บ.การปฏิบัติราชการทางอิเล็กทรอนิกส์ (DGA): https://www.dga.or.th/document-category/law-and-regulations/
+24. ทะเบียนพาณิชย์อิเล็กทรอนิกส์และการค้าออนไลน์ (DBD): https://www.dbd.go.th/news/category/7
 
-### 2.3 สำนักงานคณะกรรมการคุ้มครองข้อมูลส่วนบุคคล (สคส. / PDPC) — ตรวจครบทุกหมวด
+### 2.5 การเงินดิจิทัล ภาษี และ e-KYC (BOT, SEC, RD, AMLO)
+25. ธนาคารแห่งประเทศไทย (BOT FIPCS): https://app.bot.or.th/FIPCS/thai/PFIPCS_list.aspx
+26. ก.ล.ต. (พ.ร.บ. และ พ.ร.ก.): https://www.sec.or.th/TH/Pages/LawandRegulations/ActandRoyalEnactment.aspx
+27. ก.ล.ต. (กฎกระทรวง): https://www.sec.or.th/TH/Pages/LawandRegulations/MinistrialRegulation.aspx
+28. ก.ล.ต. (ประกาศกระทรวง/ประกาศ ก.ล.ต.): https://www.sec.or.th/TH/Pages/LawandRegulations/MinistrialNotification.aspx
+29. กรมสรรพากร (ประกาศแพลตฟอร์มส่งข้อมูล/e-Tax/e-Service): https://www.rd.go.th/272.html
+30. สำนักงาน ปปง. (เกณฑ์ e-KYC / CDD / Travel Rule): https://www.amlo.go.th/index.php/th/law-and-regulations
 
-ต้องตรวจ **ทุกหมวดย่อย** ของ PDPC ในทุกรอบ ไม่ใช่แค่หน้าหมวดหลัก:
+### 2.6 คุ้มครองผู้บริโภค การแข่งขันทางการค้า และกระบวนการยุติธรรม (OCPB, TCCT, COJ)
+31. สคบ. (มาตรการ COD และการขายสินค้าออนไลน์): https://www.ocpb.go.th/news_category.php?cid=5
+32. ศาลยุติธรรม (วิธีพิจารณาคดีทางอิเล็กทรอนิกส์): https://www.coj.go.th/th/content/category/detail/id/8
 
-8. **กฎหมาย สคส. (หมวดรวม):** `https://www.pdpc.or.th/category/pdpc-law/`
-9. **ประกาศ สคส.:** `https://www.pdpc.or.th/category/pdpc-law/announce/`
-10. **พระราชกฤษฎีกา / กฎที่เกี่ยวข้อง (decree):** `https://www.pdpc.or.th/category/pdpc-law/decree/`
-11. **การตรา/ออกใช้บังคับ (enactment):** `https://www.pdpc.or.th/category/pdpc-law/enactment/`
-12. **Notifications of the Personal Data Protection Committee (EN):** `https://www.pdpc.or.th/en/notifications-of-the-personal-data-protection-committee/`
-13. **Act category (EN):** `https://www.pdpc.or.th/en/category/act/`
-   * มุ่งเน้นรวม: พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล, ประกาศคณะกรรมการ, แนวปฏิบัติ, เกณฑ์การถ่ายโอนข้อมูลข้ามพรมแดน, โทษทางปกครอง
+### 2.7 กฎความครบถ้วนของการค้นหา (Completeness Rules)
 
-### 2.4 หน่วยงานกำกับแพลตฟอร์มดิจิทัลและมาตรฐานภาครัฐ (ETDA / DGA)
-
-14. **กฎหมายกำกับแพลตฟอร์มดิจิทัล (ETDA):** `https://www.etda.or.th/th/regulator/Digitalplatform/law.aspx`
-   * มุ่งเน้น: พ.ร.บ./กฎ/ประกาศเกี่ยวกับบริการแพลตฟอร์มดิจิทัล (DPS) และธุรกรรมอิเล็กทรอนิกส์
-15. **มาตรฐาน สพร. (DGA Standards):** `https://standard.dga.or.th/standard/`
-   * มุ่งเน้น: มาตรฐานดิจิทัลภาครัฐ, ข้อกำหนดระบบสารสนเทศและบริการภาครัฐที่เกี่ยวข้องกับไอที
-
-### 2.5 หน่วยงานกำกับการเงินดิจิทัล (ธปท. / ก.ล.ต.) — ระดับ B ที่เกี่ยวกับไอที/FinTech
-
-16. **ธนาคารแห่งประเทศไทย — รายการประกาศ/หนังสือเวียน (FIPCS):** `https://app.bot.or.th/FIPCS/thai/PFIPCS_list.aspx`
-   * มุ่งเน้น: เกณฑ์ระบบชำระเงินดิจิทัล, Virtual Bank, Payment Gateway, ความมั่นคงปลอดภัยระบบการเงินที่กระทบไอที
-17. **ก.ล.ต. — พ.ร.บ. และพระราชกำหนด:** `https://www.sec.or.th/TH/Pages/LawandRegulations/ActandRoyalEnactment.aspx`
-18. **ก.ล.ต. — กฎกระทรวง:** `https://www.sec.or.th/TH/Pages/LawandRegulations/MinistrialRegulation.aspx`
-19. **ก.ล.ต. — ประกาศกระทรวง:** `https://www.sec.or.th/TH/Pages/LawandRegulations/MinistrialNotification.aspx`
-   * มุ่งเน้นรวม: สินทรัพย์ดิจิทัล, แพลตฟอร์มซื้อขาย, ข้อกำหนดระบบและเทคโนโลยีที่เกี่ยวข้องกับตลาดทุนดิจิทัล
-
-### 2.6 กฎความครบถ้วนของการค้นหา (Completeness Rules)
-
-* **ค้นครบทุกแหล่งก่อนสรุปผล:** ต้องเปิด/สืบค้นครบ URL ข้อ 1–19 ภายใน Lookback Window ก่อนตัดสินใจว่ามีหรือไม่มีฉบับใหม่
+* **ค้นครบทุกแหล่งก่อนสรุปผล:** ต้องเปิด/สืบค้นครบ URL ข้อ 1–32 ภายใน Lookback Window ก่อนตัดสินใจว่ามีหรือไม่มีฉบับใหม่
 * **ห้ามหยุดค้นเมื่อพบแหล่งแรก:** หากพบฉบับใหม่จากแหล่งหนึ่ง ยังต้องตรวจแหล่งที่เหลือเพื่อไม่ให้ตกหล่นฉบับอื่นในรอบเดียวกัน
 * **ขจัดซ้ำข้ามแหล่ง:** ฉบับเดียวกันที่ปรากฏหลาย URL (เช่น ราชกิจจา + law.go.th + เว็บหน่วยงาน) นับเป็น **1 ฉบับ** โดยอ้าง URL ฉบับเต็มที่ทางการที่สุดเป็น `แหล่งอ้างอิง`
 * **ช่วงเวลาต้องตรงรอบ:** กรองเฉพาะรายการที่ประกาศ/เผยแพร่ในหน้าต่าง 24 ชม. (รายวัน) หรือ 7 วัน (รายสัปดาห์) ตามโหมด
@@ -136,7 +130,7 @@ trigger:
 
 นี่คือขั้นตอนบังคับเพื่อประหยัดทรัพยากรและไม่สร้างไฟล์ขยะ:
 
-1. ภายหลังจากผ่านขั้นตอนการค้นหา **ครบทุกแหล่งในข้อ 2 (URL ข้อ 1–19)** และคัดกรองแล้ว หากตรวจพบว่า:
+1. ภายหลังจากผ่านขั้นตอนการค้นหา **ครบทุกแหล่งในข้อ 2 (URL ข้อ 1–32)** และคัดกรองแล้ว หากตรวจพบว่า:
    * **จำนวนกฎหมายด้านไอทีที่ประกาศใหม่ = 0 ฉบับ** (ไม่มี พ.ร.บ., กฎกระทรวง, หรือประกาศใหม่ที่เกี่ยวกับไอทีเลยในช่วง 24 ชม. หรือ 7 วัน)
    * **หรือ** กฎหมายที่พบทุกฉบับเคยถูกประมวลผลไปแล้วใน `_ประวัติกฎหมายที่ประมวลผลแล้ว.json`
 2. ห้ามใช้ Circuit Breaker หากยังค้นไม่ครบทุกแหล่ง หรือยังมีแหล่งที่เข้าไม่ได้โดยไม่ได้บันทึกสาเหตุ
@@ -466,7 +460,7 @@ mmdc -i "4_โค้ดแผนผังความสัมพันธ์ก
 
 ก่อนจะบันทึกสถานะว่าระบบดำเนินการเสร็จสิ้น ให้ตรวจสอบตามรายการนี้:
 
-- [ ] ดึงข้อมูลครอบคลุม **ครบทุกแหล่งในข้อ 2** ได้แก่ ราชกิจจานุเบกษา (+search-result), `law.go.th/Laws`, สลค., OCS searchlaw, กฤษฎีกา (Diff), NCSA standards + cloud legal, PDPC ทุกหมวด (announce/decree/enactment + EN), ETDA, DGA standards, BOT FIPCS, และ ก.ล.ต. ทั้ง 3 หน้า
+- [ ] ดึงข้อมูลครอบคลุม **ครบ URL ข้อ 1–32 ในข้อ 2** ได้แก่ ราชกิจจา, law.go.th, สลค., OCS, กฤษฎีกา, MDES, รัฐสภา, กสทช., NCSA, PDPC ทุกหมวด, ETDA, DGA, DBD, BOT, ก.ล.ต., สรรพากร, ปปง., สคบ., และศาลยุติธรรม
 - [ ] ไม่ได้สรุปว่า "ไม่พบฉบับใหม่" ก่อนค้นครบทุก URL และได้ขจัดซ้ำข้ามแหล่งแล้ว
 - [ ] ของใหม่ที่ผ่านเกณฑ์ไอทีทุกฉบับในหน้าต่างเวลาถูกประมวลผลครบ ห้ามเลือกบางฉบับทิ้ง
 - [ ] คำนวณช่วงเวลาย้อนหลังถูกต้อง (24 ชั่วโมงสำหรับรายวัน หรือ 7 วันสำหรับรายสัปดาห์)
