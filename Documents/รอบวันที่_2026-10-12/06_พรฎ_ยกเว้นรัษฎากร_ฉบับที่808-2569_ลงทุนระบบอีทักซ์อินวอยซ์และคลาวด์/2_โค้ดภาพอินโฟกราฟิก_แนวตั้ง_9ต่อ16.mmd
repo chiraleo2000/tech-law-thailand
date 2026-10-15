@@ -1,0 +1,28 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:22px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:20px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:18px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:18px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:18px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:18px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:18px,font-weight:bold;
+
+    TitleNode["📜 พรฎ.ยกเว้นรัษฎากร ฉบับที่ 808 พ.ศ. 2569<br/>ราชกิจจาฯ 12 ต.ค. 2569 · บังคับใช้ 13 ต.ค. 2569"]:::headerClass
+    CoreEssence["💡 ยกเว้นภาษีเงินได้นิติบุคคล 100% ของรายจ่ายจริง<br/>ลงทุนระบบ e-Tax Invoice / e-Receipt / ระบบนำส่งภาษี<br/>รายจ่ายตั้งแต่ 1 ม.ค. 2569 ถึง 31 ธ.ค. 2570"]:::essenceClass
+    OldRule["🏛️ ฉบับเดิม พรฎ.766 พ.ศ. 2566<br/>• รายจ่ายถึง 31 ธ.ค. 2568<br/>• ไม่มีรายการค่าตรวจประเมินระบบ<br/>• นิยามผู้ให้บริการแยกจัดทำ/นำส่ง"]:::oldLawClass
+    NewRule["🚀 ฉบับใหม่ พรฎ.808 พ.ศ. 2569<br/>• ต่อเวลาถึง 31 ธ.ค. 2570<br/>• เพิ่มค่าตรวจประเมินระบบที่จ่าย สพธอ.<br/>• รวมนิยามผู้ให้บริการจัดทำหรือนำส่ง"]:::newLawClass
+    TechCompany["🏢 บริษัท / ห้างหุ้นส่วนนิติบุคคล<br/>ที่ลงทุนระบบ e-Tax"]:::techSide
+    Provider["☁️ ผู้ให้บริการจัดทำ/นำส่งข้อมูล<br/>ผู้ให้บริการคลาวด์เก็บเอกสาร"]:::userSide
+    RD["🏛️ กรมสรรพากร<br/>อธิบดีออกประกาศหลักเกณฑ์"]:::oldLawClass
+    PenaltyNode["⚠️ ไม่มีโทษปรับในตัวพระราชกฤษฎีกา<br/>สิทธิใช้ได้เมื่อทรัพย์สินครบเงื่อนไขมาตรา 6<br/>เช่น ใช้งานไม่น้อยกว่า 3 รอบบัญชี"]:::penaltyClass
+
+    TitleNode -->|ประกาศใช้อย่างเป็นทางการ| CoreEssence
+    CoreEssence -->|ต่อเนื่องจากมาตรการเดิมที่สิ้นสุด 2568| OldRule
+    CoreEssence -->|ขยายเวลาและเพิ่มรายการรายจ่าย| NewRule
+    NewRule -->|1. ให้สิทธิยกเว้นภาษีตามรายจ่ายจริง| TechCompany
+    TechCompany -->|2. ซื้อบริการจัดทำ นำส่ง และเก็บใบกำกับ| Provider
+    Provider -->|3. ออกเอกสารอิเล็กทรอนิกส์ที่เชื่อมระบบกรมสรรพากร| RD
+    RD -->|4. ประกาศหลักเกณฑ์ วิธีการ เงื่อนไขการใช้สิทธิ| TechCompany
+    TechCompany -.->|หากทรัพย์สินไม่เข้าเงื่อนไข| PenaltyNode
+    OldRule -.->|สิทธิเดิมสิ้นสุดแล้วตามช่วงเวลา| PenaltyNode
