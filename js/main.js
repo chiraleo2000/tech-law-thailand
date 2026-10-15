@@ -33,13 +33,23 @@ async function loadAll() {
   const manifest = await loadManifest();
   const entries = Array.isArray(manifest.entries) ? manifest.entries : [];
   const documents = await Promise.all(entries.map((entry) => loadContent(entry.path)));
+  const seen = new Set();
   posts = documents.flatMap((document, index) => {
-    const contentPath = entries[index].path;
-    return (document.posts || []).map((post) => ({
-      ...post,
-      roundDate: document.date,
-      contentPath,
-    }));
+    const entry = entries[index];
+    const contentPath = entry.path;
+    const listedIds = Array.isArray(entry.ids) ? new Set(entry.ids) : null;
+    return (document.posts || [])
+      .filter((post) => listedIds === null || listedIds.has(post.id))
+      .map((post) => ({
+        ...post,
+        roundDate: document.date,
+        contentPath,
+      }));
+  }).filter((post) => {
+    const key = `${post.roundDate}\0${post.id}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
   });
 }
 
