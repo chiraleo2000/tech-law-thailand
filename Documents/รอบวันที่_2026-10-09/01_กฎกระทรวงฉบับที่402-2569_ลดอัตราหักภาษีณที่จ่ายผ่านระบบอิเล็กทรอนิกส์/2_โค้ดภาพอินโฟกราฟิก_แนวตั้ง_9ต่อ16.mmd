@@ -1,0 +1,28 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:22px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:20px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:18px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:18px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:18px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:18px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:18px,font-weight:bold;
+
+    TitleNode["📜 กฎกระทรวง ฉบับที่ 402 พ.ศ. 2569<br/>ราชกิจจาฯ 9 ต.ค. 2569 · ให้ไว้ 1 ต.ค. 2569"]:::headerClass
+    CoreEssence["💡 หักภาษี ณ ที่จ่ายเพียงร้อยละ 1.0<br/>เมื่อนำส่งผ่านระบบ e-Withholding Tax (มาตรา 3 ปัณรส)<br/>สำหรับเงินได้ที่จ่ายตั้งแต่ 1 ม.ค. 2569 ถึง 31 ธ.ค. 2570"]:::essenceClass
+    OldRule["🏛️ ฉบับเดิม กฎกระทรวง 389/2566<br/>• ช่วงจ่ายเงิน 1 ม.ค. 2566 – 31 ธ.ค. 2568<br/>• อัตรา 1.0% เฉพาะนำส่งแบบอิเล็กทรอนิกส์<br/>• สิ้นสุดแล้วตามช่วงเวลา"]:::oldLawClass
+    NewRule["🚀 ฉบับใหม่ กฎกระทรวง 402/2569<br/>• ต่อช่วงเวลาเป็น 1 ม.ค. 2569 – 31 ธ.ค. 2570<br/>• คงอัตรา 1.0% และรายการ (ก)–(ช) เดิม<br/>• ยังไม่รวมมูลนิธิ/สมาคมที่ประกอบกิจการมีรายได้"]:::newLawClass
+    TechCompany["🏢 ผู้จ่ายเงินได้ / ผู้มีหน้าที่หักภาษี<br/>ฝ่ายบัญชี ฝ่ายไอที ผู้พัฒนาระบบจ่ายเงิน"]:::techSide
+    Payee["👤 ผู้รับเงินได้<br/>บริษัท ผู้ประกอบการ นักแสดงสาธารณะ"]:::userSide
+    RD["🏛️ กรมสรรพากร<br/>ระบบ e-Withholding Tax"]:::oldLawClass
+    PenaltyNode["⚠️ ไม่มีโทษในตัวกฎกระทรวง<br/>หากไม่นำส่งผ่านระบบอิเล็กทรอนิกส์<br/>ต้องหักตามอัตราปกติของฉบับที่ 144"]:::penaltyClass
+
+    TitleNode -->|ประกาศใช้อย่างเป็นทางการ| CoreEssence
+    CoreEssence -->|ต่อเนื่องจากมาตรการเดิมที่สิ้นสุด 2568| OldRule
+    CoreEssence -->|ขยายช่วงเวลาถึงสิ้นปี 2570| NewRule
+    NewRule -->|1. ให้ใช้อัตรา 1.0% เมื่อนำส่งผ่านระบบ| TechCompany
+    TechCompany -->|2. หักภาษี ณ ที่จ่ายและโอนเงินได้สุทธิ| Payee
+    TechCompany -->|3. นำส่งภาษีด้วยวิธีอิเล็กทรอนิกส์| RD
+    RD -->|4. ออกหลักฐานการนำส่งและรับข้อมูลเข้าระบบ| TechCompany
+    TechCompany -.->|หากไม่ใช้วิธีนำส่งที่กำหนด| PenaltyNode
+    OldRule -.->|สิทธิเดิมสิ้นสุดแล้วตามช่วงเวลา| PenaltyNode

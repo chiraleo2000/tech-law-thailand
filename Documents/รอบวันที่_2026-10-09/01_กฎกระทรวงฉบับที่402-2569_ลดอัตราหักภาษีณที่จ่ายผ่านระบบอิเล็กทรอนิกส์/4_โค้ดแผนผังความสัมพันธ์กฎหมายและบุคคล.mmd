@@ -1,0 +1,31 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:18px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:15px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:15px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:15px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:15px;
+
+    C["📜 กฎกระทรวง ฉบับที่ 402/2569<br/>ลดอัตราหักภาษี ณ ที่จ่าย e-WHT"]:::centerLaw
+    subgraph GL ["📚 กฎหมายและประกาศที่เกี่ยวข้อง"]
+        L0["ประมวลรัษฎากร<br/>มาตรา 3 เตรส, 4, 3 ปัณรส, 40, 47 (7) (ข)"]:::otherLaws
+        L1["กฎกระทรวง ฉบับที่ 144/2522<br/>ข้อ 2 (17/5) (ฉบับที่ถูกแก้ไข)"]:::otherLaws
+        L2["กฎกระทรวง ฉบับที่ 389/2566<br/>(ฉบับเดิม ถึง 31 ธ.ค. 2568)"]:::otherLaws
+        L3["PDPA พ.ศ. 2562<br/>(ข้อสังเกตเชิงปฏิบัติ)"]:::otherLaws
+    end
+    subgraph GA ["🏢 ภาคธุรกิจ หน่วยงาน และประชาชน"]
+        A0["ผู้จ่ายเงินได้ / ผู้มีหน้าที่หักภาษี<br/>ฝ่ายบัญชีและฝ่ายไอที"]:::techSide
+        A1["ผู้พัฒนาระบบบัญชี ERP<br/>และระบบจ่ายเงิน"]:::techSide
+        A2["ผู้รับเงินได้<br/>บริษัท ผู้ประกอบการ นักแสดงสาธารณะ"]:::citizenSide
+        A3["กรมสรรพากร<br/>ระบบ e-Withholding Tax"]:::regulatorSide
+    end
+    C -->|1. ออกตามอำนาจกฎหมายแม่| L0
+    C -->|2. ยกเลิกและแทนที่ข้อความรายการ 17/5| L1
+    C -->|3. ต่อเนื่องจากช่วงเวลาเดิม 2566-2568| L2
+    C -->|4. ข้อมูลผู้รับเงินในระบบต้องคุ้มครองตามกฎหมาย| L3
+    C ==>|5. กำหนดอัตรา 1.0% เมื่อนำส่งผ่านระบบ| A0
+    A0 -->|6. หักภาษีและจ่ายเงินได้สุทธิให้| A2
+    A0 -->|7. ใช้ระบบบัญชีที่รองรับการนำส่ง e-WHT| A1
+    A0 -.->|8. นำส่งภาษีตามวิธีมาตรา 3 ปัณรส| A3
+    A3 -.->|9. รับข้อมูลและออกหลักฐานการนำส่ง| A0
+    A2 -->|10. ใช้ภาษีที่ถูกหักเป็นเครดิตภาษี| A3
