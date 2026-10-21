@@ -1,0 +1,28 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:22px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:20px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:18px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:18px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:18px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:18px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:18px,font-weight:bold;
+
+    TitleNode["📜 ทธ.22/2569 มอบหมายงานจัดการลงทุนคริปโท<br/>ก.ล.ต. ชุด Crypto ETF · มีผล 16 ตุลาคม 2569"]:::headerClass
+    CoreEssence["💡 ผู้รับมอบหมายงานลงทุนคริปโท/โทเคนดิจิทัลของกองทุนรวม<br/>ต้องเป็นผู้จัดการเงินทุนสินทรัพย์ดิจิทัลที่ได้รับอนุญาต"]:::essenceClass
+    OldRule["🏛️ เดิม<br/>• ข้อ 16 เดิม ไม่มีเกณฑ์เฉพาะงานลงทุนสินทรัพย์ดิจิทัล (ตามที่ประกาศนี้แทนที่)"]:::oldLawClass
+    NewRule["🚀 ใหม่<br/>• คริปโท/โทเคนดิจิทัล = ผู้จัดการเงินทุนสินทรัพย์ดิจิทัล<br/>• งานอื่น = ผู้จัดการกองทุนส่วนบุคคล (+ผู้จัดการเงินทุนอนุพันธ์ถ้าลงทุนอนุพันธ์)"]:::newLawClass
+    TechCompany["🏢 บลจ. ผู้มอบหมายงาน"]:::techSide
+    Provider["👤 ผู้ถือหน่วยลงทุน"]:::userSide
+    RD["🏛️ ก.ล.ต."]:::oldLawClass
+    PenaltyNode["⚠️ ไม่มีโทษในตัวประกาศ<br/>มอบหมายผิดคุณสมบัติขัดเกณฑ์ ก.ล.ต."]:::penaltyClass
+
+    TitleNode -->|"ประกาศใช้อย่างเป็นทางการ"| CoreEssence
+    CoreEssence -->|"หลักเกณฑ์เดิม"| OldRule
+    CoreEssence -->|"หลักเกณฑ์ใหม่"| NewRule
+    NewRule -->|"1. เลือกผู้รับมอบหมายที่ถือใบอนุญาตถูกประเภท"| TechCompany
+    TechCompany -->|"2. ได้รับการจัดการลงทุนโดยผู้มีใบอนุญาต"| Provider
+    Provider -->|"3. ตรวจสอบสถานะใบอนุญาตผู้รับมอบหมาย"| RD
+    RD -->|"4. กำกับดูแลตามกฎหมายแม่"| TechCompany
+    TechCompany -.->|"หากฝ่าฝืน"| PenaltyNode
+    OldRule -.->|"ถูกแก้ไขตามชุดกฎเกณฑ์นี้"| PenaltyNode

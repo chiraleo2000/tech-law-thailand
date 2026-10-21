@@ -1,0 +1,28 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:22px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:20px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:18px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:18px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:18px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:18px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:18px,font-weight:bold;
+
+    TitleNode["📜 ทธ.23/2569 ห้ามมาร์จินซื้อ Crypto ETF<br/>ก.ล.ต. ชุด Crypto ETF · มีผล 16 ตุลาคม 2569"]:::headerClass
+    CoreEssence["💡 ห้ามให้กู้ยืมมาร์จินเพื่อซื้อหน่วยลงทุน Crypto ETF<br/>โดยตัดออกจากรายการหลักทรัพย์ที่กู้ซื้อได้"]:::essenceClass
+    OldRule["🏛️ เดิม<br/>• หลักทรัพย์จดทะเบียนใช้มาร์จินได้ ยกเว้นรายการตามข้อ 2 (1) เดิม"]:::oldLawClass
+    NewRule["🚀 ใหม่<br/>• เพิ่มข้อยกเว้น: หน่วยลงทุน Crypto ETF<br/>• นิยามกองทุนคริปโทอีทีเอฟ (15)"]:::newLawClass
+    TechCompany["🏢 บริษัทหลักทรัพย์"]:::techSide
+    Provider["👤 นักลงทุนบัญชีมาร์จิน"]:::userSide
+    RD["🏛️ ก.ล.ต."]:::oldLawClass
+    PenaltyNode["⚠️ ไม่มีโทษในตัวประกาศ<br/>ให้กู้ซื้อ Crypto ETF ขัดเกณฑ์ ก.ล.ต."]:::penaltyClass
+
+    TitleNode -->|"ประกาศใช้อย่างเป็นทางการ"| CoreEssence
+    CoreEssence -->|"หลักเกณฑ์เดิม"| OldRule
+    CoreEssence -->|"หลักเกณฑ์ใหม่"| NewRule
+    NewRule -->|"1. ตัด Crypto ETF ออกจากรายการหลักทรัพย์ที่ให้กู้ได้"| TechCompany
+    TechCompany -->|"2. ซื้อ Crypto ETF ได้ด้วยเงินสดเท่านั้น"| Provider
+    Provider -->|"3. กำกับเงื่อนไขการให้กู้ยืมเพื่อซื้อหลักทรัพย์"| RD
+    RD -->|"4. กำกับดูแลตามกฎหมายแม่"| TechCompany
+    TechCompany -.->|"หากฝ่าฝืน"| PenaltyNode
+    OldRule -.->|"ถูกแก้ไขตามชุดกฎเกณฑ์นี้"| PenaltyNode

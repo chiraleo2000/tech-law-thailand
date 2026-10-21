@@ -1,0 +1,30 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:18px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:15px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:15px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:15px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:15px;
+
+    C["📜 สธ.20/2569 ขึ้นทะเบียนผู้ดูแลผลประโยชน์ Crypto ETF"]:::centerLaw
+    subgraph GL ["📚 กฎหมายและประกาศที่เกี่ยวข้อง"]
+        L0["สน. 19/2569 คุณสมบัติผู้ดูแลฯ"]:::otherLaws
+        L1["สธ. 60/2558 ขึ้นทะเบียน"]:::otherLaws
+        L2["พ.ร.ก.ธุรกิจสินทรัพย์ดิจิทัล"]:::otherLaws
+    end
+    subgraph GA ["🏢 ภาคธุรกิจ หน่วยงานกำกับ และผู้ลงทุน"]
+        A0["DA Custodian"]:::techSide
+        A1["ตัวแทนเก็บรักษา (ไทย/ต่างประเทศ)"]:::techSide
+        A3["ผู้ถือหน่วยลงทุน"]:::citizenSide
+        A5["บลจ."]:::citizenSide
+        A4["ก.ล.ต."]:::regulatorSide
+    end
+    C -->|"1. อาศัยอำนาจ"| L0
+    C -->|"2. ใช้ร่วมกับ"| L1
+    C -->|"3. อ้างอิง"| L2
+    C ==>|"4. กำหนดหน้าที่"| A0
+    A0 -->|"5. ใช้บริการ/ประสานงาน"| A1
+    A0 -->|"6. เสนอขาย/ให้บริการ"| A3
+    A3 -->|"7. ถือหน่วยลงทุน"| A5
+    A4 -.->|"8. กำกับดูแล"| A0
+    A1 -.->|"9. อยู่ภายใต้การกำกับ"| A4

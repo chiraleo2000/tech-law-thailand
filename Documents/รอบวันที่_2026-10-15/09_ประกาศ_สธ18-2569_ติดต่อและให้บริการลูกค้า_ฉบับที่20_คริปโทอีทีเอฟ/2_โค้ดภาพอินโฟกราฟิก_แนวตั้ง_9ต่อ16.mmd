@@ -1,0 +1,28 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:22px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:20px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:18px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:18px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:18px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:18px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:18px,font-weight:bold;
+
+    TitleNode["📜 สธ.18/2569 ให้ลูกค้ารับรู้ความเสี่ยง Crypto ETF ก่อนซื้อขาย<br/>ก.ล.ต. ชุด Crypto ETF · มีผล 16 ตุลาคม 2569"]:::headerClass
+    CoreEssence["💡 ก่อนลูกค้าที่ไม่ใช่สถาบันซื้อขาย Crypto ETF<br/>ต้องมีกระบวนการให้ลูกค้ารู้ลักษณะและความเสี่ยงของหน่วยลงทุน"]:::essenceClass
+    OldRule["🏛️ เดิม<br/>• ไม่มีหมวดเฉพาะ Crypto ETF ในประกาศบริการลูกค้า"]:::oldLawClass
+    NewRule["🚀 ใหม่<br/>• เพิ่มหมวด 6/4 ข้อ 35/4 และ 35/5<br/>• ต้องให้ลูกค้ารับรู้ความเสี่ยงก่อนเริ่มซื้อขาย"]:::newLawClass
+    TechCompany["🏢 บริษัทหลักทรัพย์"]:::techSide
+    Provider["👤 ลูกค้ารายย่อย"]:::userSide
+    RD["🏛️ ก.ล.ต."]:::oldLawClass
+    PenaltyNode["⚠️ ไม่มีโทษในตัวประกาศ<br/>ไม่มีกระบวนการขัดมาตรฐานผู้ประกอบธุรกิจ"]:::penaltyClass
+
+    TitleNode -->|"ประกาศใช้อย่างเป็นทางการ"| CoreEssence
+    CoreEssence -->|"หลักเกณฑ์เดิม"| OldRule
+    CoreEssence -->|"หลักเกณฑ์ใหม่"| NewRule
+    NewRule -->|"1. จัดทำกระบวนการแจ้งความเสี่ยงและเก็บหลักฐาน"| TechCompany
+    TechCompany -->|"2. ทำความเข้าใจความเสี่ยงก่อนซื้อขายครั้งแรก"| Provider
+    Provider -->|"3. ตรวจสอบมาตรฐานการให้บริการลูกค้า"| RD
+    RD -->|"4. กำกับดูแลตามกฎหมายแม่"| TechCompany
+    TechCompany -.->|"หากฝ่าฝืน"| PenaltyNode
+    OldRule -.->|"ถูกแก้ไขตามชุดกฎเกณฑ์นี้"| PenaltyNode
