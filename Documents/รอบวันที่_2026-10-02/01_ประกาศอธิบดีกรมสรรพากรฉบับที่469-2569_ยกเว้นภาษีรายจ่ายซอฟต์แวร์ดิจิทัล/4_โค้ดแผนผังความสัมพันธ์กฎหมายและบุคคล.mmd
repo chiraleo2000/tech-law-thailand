@@ -1,0 +1,41 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:20px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:18px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:18px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:18px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:18px;
+
+    CenterLaw["📜 ประกาศอธิบดีกรมสรรพากร ฉบับที่ 469<br/>ยกเว้นภาษีรายจ่ายซอฟต์แวร์และบริการดิจิทัล<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่เกี่ยวข้อง"]
+        Decree["พ.ร.ฎ. ยกเว้นรัษฎากร ฉบับที่ 802<br/>พ.ศ. 2569 (กฎหมายแม่)"]:::otherLaws
+        RevCode["ประมวลรัษฎากร<br/>มาตรา 3 (1) และ 65 ทวิ (2)"]:::otherLaws
+        BOI["กฎหมายส่งเสริมการลงทุน<br/>EEC และอุตสาหกรรมเป้าหมาย"]:::otherLaws
+        PDPA["PDPA พ.ศ. 2562<br/>(ข้อสังเกตเชิงปฏิบัติ)"]:::otherLaws
+    end
+
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        TechDev["ผู้พัฒนาซอฟต์แวร์ / ผู้ให้บริการแพลตฟอร์มในไทย"]:::techSide
+        Depa["สำนักงานส่งเสริมเศรษฐกิจดิจิทัล (depa)<br/>บัญชีบริการดิจิทัล"]:::techSide
+    end
+
+    subgraph GROUP_CITIZEN ["👤 SMEs และผู้ใช้งาน"]
+        SME["บริษัท/ห้างหุ้นส่วนนิติบุคคล SMEs<br/>ผู้ซื้อและใช้บริการ"]:::citizenSide
+    end
+
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        RD["กรมสรรพากร<br/>เจ้าพนักงานประเมิน"]:::regulatorSide
+    end
+
+    CenterLaw -->|1. ออกตามอำนาจมาตรา 4 ของ| Decree
+    Decree -->|"2. ตราตามมาตรา 3 (1) ของ"| RevCode
+    CenterLaw -->|3. อ้างหลักการหักค่าเสื่อมราคา| RevCode
+    Decree -->|4. ห้ามใช้สิทธิซ้อนกับ| BOI
+    CenterLaw ==>|5. กำหนดเงื่อนไขผู้ขายต้องขึ้นทะเบียน| TechDev
+    TechDev -->|6. ขอขึ้นทะเบียนสินค้าและบริการ| Depa
+    Depa -->|7. อนุมัติขึ้นทะเบียนก่อนการซื้อ| TechDev
+    TechDev -->|8. ขายซอฟต์แวร์และบริการที่พัฒนาในไทย| SME
+    SME -->|9. ตรวจสัญญาผู้ประมวลผลข้อมูลตาม| PDPA
+    SME -.->|10. เก็บรายงานการใช้สิทธิให้ตรวจสอบ| RD
+    RD -.->|11. ตรวจสอบและยอมรับสิทธิยกเว้นภาษี| SME

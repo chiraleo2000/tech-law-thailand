@@ -1,0 +1,28 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:22px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:20px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:18px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:18px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:18px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:18px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:18px,font-weight:bold;
+
+    TitleNode["📜 ประกาศอธิบดีกรมสรรพากร ฉบับที่ 469<br/>ประกาศ 30 ก.ย. 2569 · ลงเว็บ 2 ต.ค. 2569<br/>ใช้กับรายจ่ายตั้งแต่ 24 มิ.ย. 2568"]:::headerClass
+    CoreEssence["💡 SMEs ยกเว้นภาษีนิติบุคคล 100% ของค่าซอฟต์แวร์<br/>ฮาร์ดแวร์ อุปกรณ์อัจฉริยะ และบริการดิจิทัล<br/>สูงสุด 300,000 บาทต่อรอบบัญชี ถึง 31 ธ.ค. 2570"]:::essenceClass
+    OldRule["🏛️ มาตรการเดิม พ.ร.ฎ. 647/2560<br/>• เฉพาะโปรแกรมคอมพิวเตอร์<br/>• ยกเว้นสูงสุด 100,000 บาท<br/>• ใช้ได้ถึงรอบบัญชี 2562"]:::oldLawClass
+    NewRule["🚀 ฉบับใหม่ พ.ร.ฎ. 802/2569 + ประกาศ 469<br/>• ซอฟต์แวร์ ฮาร์ดแวร์ อุปกรณ์อัจฉริยะ แพลตฟอร์ม<br/>• ยกเว้นสูงสุด 300,000 บาท<br/>• ต้องพัฒนาในไทย และผู้ขายขึ้นทะเบียน depa"]:::newLawClass
+    TechCompany["🏢 ผู้ขายซอฟต์แวร์ / ผู้ให้บริการแพลตฟอร์ม<br/>ต้องขึ้นทะเบียนบัญชีบริการดิจิทัล depa"]:::techSide
+    EndUser["👤 SMEs ผู้ซื้อ<br/>ทุนชำระแล้วไม่เกิน 5 ล้าน รายได้ไม่เกิน 30 ล้านบาท"]:::userSide
+    RD["🏛️ กรมสรรพากร<br/>เจ้าพนักงานประเมินตรวจรายงาน"]:::oldLawClass
+    PenaltyNode["⚠️ ไม่มีโทษในตัวประกาศ<br/>แต่ไม่เข้าเงื่อนไขหรือไม่มีรายงาน<br/>เสี่ยงเสียสิทธิยกเว้นภาษี"]:::penaltyClass
+
+    TitleNode -->|ประกาศใช้อย่างเป็นทางการ| CoreEssence
+    CoreEssence -->|ขยายจากมาตรการเดิมที่สิ้นสุดแล้ว| OldRule
+    CoreEssence -->|กำหนดวงเงินและเงื่อนไขใหม่| NewRule
+    NewRule -->|1. ผู้ขายต้องขึ้นทะเบียนก่อนขาย| TechCompany
+    TechCompany -->|2. ส่งมอบซอฟต์แวร์และบริการที่พัฒนาในไทย| EndUser
+    EndUser -->|3. จัดทำรายงานการใช้สิทธิเก็บไว้ที่สถานประกอบการ| RD
+    RD -->|4. ตรวจสอบและยอมรับสิทธิยกเว้นภาษี| EndUser
+    EndUser -.->|หากไม่เข้าเงื่อนไข| PenaltyNode
+    OldRule -.->|วงเงินเดิมต่ำกว่าและสิ้นสุดแล้ว| PenaltyNode
