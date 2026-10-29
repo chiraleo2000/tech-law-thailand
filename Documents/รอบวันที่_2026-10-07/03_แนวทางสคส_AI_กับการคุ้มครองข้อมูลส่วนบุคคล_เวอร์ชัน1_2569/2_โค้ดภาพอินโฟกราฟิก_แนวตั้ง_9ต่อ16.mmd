@@ -1,0 +1,27 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:13px;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:13px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:2px,color:#4B5563,font-size:13px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:13px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:13px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:13px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:13px;
+
+    TitleNode["📜 แนวทาง สคส. คุ้มครองข้อมูลส่วนบุคคลกับ AI (v1.0)<br/>เผยแพร่ 7 ต.ค. 2569"]:::headerClass
+    CoreEssence["นำ PDPA มาใช้กับ AI ทั้ง Analytic / Generative / Agentic AI ตลอดวงจรชีวิตระบบ เป็นแนวทางเชิงแนะนำ ไม่มีสภาพบังคับ"]:::essenceClass
+    OldRule["🏛️ เดิม<br/>• PDPA เป็นกลางทางเทคโนโลยี ต้องตีความเองว่าใช้กับ AI อย่างไร<br/>• มักพึ่งความยินยอมเป็นหลัก"]:::oldLawClass
+    NewRule["🚀 แนวทางใหม่ v1.0<br/>• Prompt / Log / Embedding / Output อาจเป็นข้อมูลส่วนบุคคล<br/>• ความยินยอมเป็นทางเลือกสุดท้าย ใช้ ม.24/26 + LIA ก่อน<br/>• ทำ DPIA ก่อนเริ่มโครงการเสี่ยงสูง"]:::newLawClass
+    TechCompany["🏢 องค์กรที่พัฒนา/ใช้ AI<br/>(ผู้ควบคุม/ผู้ประมวลผลข้อมูล)"]:::techSide
+    EndUser["👤 เจ้าของข้อมูล<br/>/ ผู้ใช้งาน AI"]:::userSide
+    PenaltyNode["🚨 แนวทางไม่มีโทษในตัวเอง แต่ละเมิด PDPA ยังมีโทษ (ปรับทางปกครองสูงสุด 5 ล้านบาท) และต้องแจ้งเหตุละเมิด สคส. ภายใน 72 ชม.<br/>แหล่งอ้างอิง: pdpc.or.th/28888"]:::penaltyClass
+
+    TitleNode -->|"เผยแพร่เป็นแนวทางตามมาตรา 16 (3) PDPA"| CoreEssence
+    CoreEssence -->|"เติมช่องว่างจากแนวปฏิบัติเดิมที่ไม่เฉพาะ AI"| OldRule
+    CoreEssence -->|"กำหนดแนวทางเฉพาะด้าน AI ตามวงจรชีวิตระบบ"| NewRule
+    NewRule -->|"1. ระบุบทบาท ฐานกฎหมาย ทำ DPIA และมาตรการ Guardrails"| TechCompany
+    NewRule -->|"2. คุ้มครองสิทธิเข้าถึง ลบ คัดค้าน แม้เทคโนโลยีซับซ้อน"| EndUser
+    TechCompany -->|"3. ให้บริการโปร่งใส แจ้งวัตถุประสงค์ ไม่ฝึกโมเดลโดยพลการ"| EndUser
+    EndUser -->|"4. ใช้สิทธิร้องขอ เช่น ลบข้อมูลออกจากระบบ AI"| TechCompany
+    TechCompany -.->|"หากละเลย PDPA เมื่อใช้ AI อาจถูกลงโทษ"| PenaltyNode
+    OldRule -.->|"โทษตาม PDPA ยังใช้บังคับเหมือนเดิม"| PenaltyNode

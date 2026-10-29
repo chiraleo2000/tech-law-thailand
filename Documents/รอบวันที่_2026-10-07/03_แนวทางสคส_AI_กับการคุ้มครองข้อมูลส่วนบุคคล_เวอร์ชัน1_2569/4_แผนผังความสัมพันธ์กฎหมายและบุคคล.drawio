@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="แผนผังความสัมพันธ์" id="d1">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="CenterLaw" value="📜 แนวทาง สคส. คุ้มครองข้อมูลส่วนบุคคลกับ AI v1.0&#10;(ศูนย์กลาง)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B2545;strokeColor=#FF6600;fontColor=#FFFFFF;fontSize=12;" vertex="1" parent="1"><mxGeometry x="380" y="300" width="340" height="110" as="geometry" /></mxCell>
+        <mxCell id="PDPA" value="พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล&#10;(PDPA พ.ศ. 2562)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=12;" vertex="1" parent="1"><mxGeometry x="20" y="40" width="300" height="90" as="geometry" /></mxCell>
+        <mxCell id="CompLaw" value="พ.ร.บ.คอมพิวเตอร์ฯ&#10;(พ.ศ. 2550)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=12;" vertex="1" parent="1"><mxGeometry x="20" y="300" width="300" height="90" as="geometry" /></mxCell>
+        <mxCell id="CyberLaw" value="พ.ร.บ.ความมั่นคงไซเบอร์&#10;(พ.ศ. 2562)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=12;" vertex="1" parent="1"><mxGeometry x="20" y="560" width="300" height="90" as="geometry" /></mxCell>
+        <mxCell id="AIBill" value="ร่าง พ.ร.บ.ปัญญาประดิษฐ์" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=12;" vertex="1" parent="1"><mxGeometry x="400" y="560" width="300" height="90" as="geometry" /></mxCell>
+        <mxCell id="TechDev" value="ผู้พัฒนา/ผู้ให้บริการ AI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B2545;strokeColor=#0B2545;fontColor=#FFFFFF;fontSize=12;" vertex="1" parent="1"><mxGeometry x="800" y="120" width="300" height="90" as="geometry" /></mxCell>
+        <mxCell id="TechUser" value="องค์กรผู้ใช้ AI / DPO / ฝ่ายกฎหมาย" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B2545;strokeColor=#0B2545;fontColor=#FFFFFF;fontSize=12;" vertex="1" parent="1"><mxGeometry x="800" y="300" width="300" height="90" as="geometry" /></mxCell>
+        <mxCell id="Owner" value="เจ้าของข้อมูล / ผู้ใช้งาน" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#16A34A;fontColor=#166534;fontSize=12;" vertex="1" parent="1"><mxGeometry x="1250" y="120" width="280" height="90" as="geometry" /></mxCell>
+        <mxCell id="Reg" value="สคส. (ผู้กำกับดูแล PDPA)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontColor=#991B1B;fontSize=12;" vertex="1" parent="1"><mxGeometry x="1250" y="420" width="280" height="90" as="geometry" /></mxCell>
+        <mxCell id="e0" value="1. ออกตามอำนาจ ม.16(3) และอ้างฐาน ม.24/26 สิทธิ ม.33" style="endArrow=classic;html=1;strokeColor=#0B2545;fontSize=10;" edge="1" parent="1" source="CenterLaw" target="PDPA"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e1" value="2. บันทึก Log ระบบ AI เป็นพยานหลักฐาน (ข้อสังเกตผู้จัดทำ)" style="endArrow=classic;html=1;strokeColor=#0B2545;fontSize=10;" edge="1" parent="1" source="CenterLaw" target="CompLaw"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" value="3. มาตรการ Guardrails และควบคุมการเข้าถึง สอดรับความมั่นคงไซเบอร์" style="endArrow=classic;html=1;strokeColor=#0B2545;fontSize=10;" edge="1" parent="1" source="CenterLaw" target="CyberLaw"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" value="4. เติมช่องว่างด้านข้อมูลส่วนบุคคลระหว่างรอกฎหมาย AI" style="endArrow=classic;html=1;strokeColor=#0B2545;fontSize=10;" edge="1" parent="1" source="CenterLaw" target="AIBill"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" value="5. แนะนำ Privacy by Design/Default และ DPIA" style="endArrow=classic;html=1;strokeColor=#0B2545;fontSize=10;dashed=1;" edge="1" parent="1" source="CenterLaw" target="TechDev"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" value="6. แนะนำการระบุบทบาท LIA และตรวจสัญญาผู้ให้บริการ" style="endArrow=classic;html=1;strokeColor=#0B2545;fontSize=10;dashed=1;" edge="1" parent="1" source="CenterLaw" target="TechUser"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" value="7. ให้บริการโปร่งใส ไม่ฝึกโมเดลด้วยข้อมูลโดยพลการ" style="endArrow=classic;html=1;strokeColor=#0B2545;fontSize=10;" edge="1" parent="1" source="TechDev" target="Owner"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" value="8. ตอบสนองคำขอใช้สิทธิ เช่น ลบข้อมูลใน RAG" style="endArrow=classic;html=1;strokeColor=#0B2545;fontSize=10;" edge="1" parent="1" source="TechUser" target="Owner"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" value="9. ใช้สิทธิเข้าถึง คัดค้าน แก้ไข และขอลบ" style="endArrow=classic;html=1;strokeColor=#0B2545;fontSize=10;" edge="1" parent="1" source="Owner" target="TechUser"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" value="10. แจ้งเหตุละเมิดภายใน 72 ชั่วโมง (ม.37(4))" style="endArrow=classic;html=1;strokeColor=#0B2545;fontSize=10;dashed=1;" edge="1" parent="1" source="TechUser" target="Reg"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" value="11. ร้องเรียนเมื่อถูกละเมิดสิทธิ" style="endArrow=classic;html=1;strokeColor=#0B2545;fontSize=10;dashed=1;" edge="1" parent="1" source="Owner" target="Reg"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" value="12. ตรวจสอบและใช้มาตรการลงโทษตาม PDPA" style="endArrow=classic;html=1;strokeColor=#0B2545;fontSize=10;dashed=1;" edge="1" parent="1" source="Reg" target="TechDev"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

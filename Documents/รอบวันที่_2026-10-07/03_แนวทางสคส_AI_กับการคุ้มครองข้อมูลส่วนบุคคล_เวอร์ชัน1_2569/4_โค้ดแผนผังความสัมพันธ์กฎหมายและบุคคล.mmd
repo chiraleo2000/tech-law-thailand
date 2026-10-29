@@ -1,0 +1,30 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:13px;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:13px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:13px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:13px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:13px;
+
+    CenterLaw["📜 แนวทาง สคส. คุ้มครองข้อมูลส่วนบุคคลกับ AI v1.0<br/>(ศูนย์กลาง)"]:::centerLaw
+    PDPA["พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล<br/>(PDPA พ.ศ. 2562)"]:::otherLaws
+    CompLaw["พ.ร.บ.คอมพิวเตอร์ฯ<br/>(พ.ศ. 2550)"]:::otherLaws
+    CyberLaw["พ.ร.บ.ความมั่นคงไซเบอร์<br/>(พ.ศ. 2562)"]:::otherLaws
+    AIBill["ร่าง พ.ร.บ.ปัญญาประดิษฐ์"]:::otherLaws
+    TechDev["ผู้พัฒนา/ผู้ให้บริการ AI"]:::techSide
+    TechUser["องค์กรผู้ใช้ AI / DPO / ฝ่ายกฎหมาย"]:::techSide
+    Owner["เจ้าของข้อมูล / ผู้ใช้งาน"]:::citizenSide
+    Reg["สคส. (ผู้กำกับดูแล PDPA)"]:::regulatorSide
+
+    CenterLaw -->|"1. ออกตามอำนาจ ม.16(3) และอ้างฐาน ม.24/26 สิทธิ ม.33"| PDPA
+    CenterLaw -->|"2. บันทึก Log ระบบ AI เป็นพยานหลักฐาน (ข้อสังเกตผู้จัดทำ)"| CompLaw
+    CenterLaw -->|"3. มาตรการ Guardrails และควบคุมการเข้าถึง สอดรับความมั่นคงไซเบอร์"| CyberLaw
+    CenterLaw -->|"4. เติมช่องว่างด้านข้อมูลส่วนบุคคลระหว่างรอกฎหมาย AI"| AIBill
+    CenterLaw -.->|"5. แนะนำ Privacy by Design/Default และ DPIA"| TechDev
+    CenterLaw -.->|"6. แนะนำการระบุบทบาท LIA และตรวจสัญญาผู้ให้บริการ"| TechUser
+    TechDev -->|"7. ให้บริการโปร่งใส ไม่ฝึกโมเดลด้วยข้อมูลโดยพลการ"| Owner
+    TechUser -->|"8. ตอบสนองคำขอใช้สิทธิ เช่น ลบข้อมูลใน RAG"| Owner
+    Owner -->|"9. ใช้สิทธิเข้าถึง คัดค้าน แก้ไข และขอลบ"| TechUser
+    TechUser -.->|"10. แจ้งเหตุละเมิดภายใน 72 ชั่วโมง (ม.37(4))"| Reg
+    Owner -.->|"11. ร้องเรียนเมื่อถูกละเมิดสิทธิ"| Reg
+    Reg -.->|"12. ตรวจสอบและใช้มาตรการลงโทษตาม PDPA"| TechDev
