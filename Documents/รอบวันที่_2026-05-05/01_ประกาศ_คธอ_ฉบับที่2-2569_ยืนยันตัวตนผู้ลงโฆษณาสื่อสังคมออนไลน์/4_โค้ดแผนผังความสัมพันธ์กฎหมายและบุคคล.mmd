@@ -1,0 +1,31 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:18px;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:18px;
+    classDef techS2 fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:18px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:18px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:18px;
+
+    CenterLaw["📜 ประกาศ คธอ. ฉบับที่ 2<br/>ยืนยันตัวตนผู้ลงโฆษณาบนสื่อสังคมออนไลน์<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+    Decree["พ.ร.ก.มาตรการป้องกันและปราบปราม<br/>อาชญากรรมทางเทคโนโลยี พ.ศ. 2566<br/>แก้ไข ฉบับที่ 2 พ.ศ. 2568 (ม.4/1)"]:::otherLaws
+    ETLaw["พ.ร.บ.ธุรกรรมทางอิเล็กทรอนิกส์<br/>พ.ศ. 2544 ม.37 (3)"]:::otherLaws
+    First["ประกาศ คธอ. ฉบับแรก<br/>(4 ก.ค. 2568) ถอดข้อมูลปลอม 24 ชม."]:::otherLaws
+    PDPA["PDPA พ.ศ. 2562<br/>(ข้อสังเกตเชิงปฏิบัติ)"]:::otherLaws
+    Platform["ผู้ให้บริการสื่อสังคมออนไลน์<br/>ที่รับค่าโฆษณา"]:::techS2
+    DigitalID["ผู้ให้บริการ Digital ID / ระบบยืนยันตัวตน<br/>ตามระดับที่ คธอ. กำหนด"]:::techS2
+    Advertiser["ผู้ลงโฆษณา / ผู้ชำระค่าโฆษณาแทน"]:::citizenSide
+    Public["ผู้บริโภคที่พบโฆษณา"]:::citizenSide
+    Regulator["คธอ. / สพธอ. / กองป้องกันฯ<br/>และพนักงานเจ้าหน้าที่"]:::regulatorSide
+
+    CenterLaw -->|1. ออกตามอำนาจมาตรา 4/1 ของกฎหมายแม่| Decree
+    CenterLaw -->|2. อ้างมาตรา 37 อนุ 3 เป็นที่มาของอำนาจ คธอ.| ETLaw
+    CenterLaw -->|3. ใช้ควบคู่ ไม่ปรากฏข้อยกเลิกฉบับแรก| First
+    CenterLaw -.->|4. ข้อมูลบัตรและใบหน้าต้องคุ้มครองตาม PDPA| PDPA
+    CenterLaw -->|5. กำหนดหน้าที่พิสูจน์ตัวตนก่อนโฆษณา| Platform
+    Platform -->|6. เลือกใช้ Digital ID ตามระดับความน่าเชื่อถือ| DigitalID
+    Advertiser -->|7. ส่งหลักฐานแสดงตนและข้อมูลติดต่อ| Platform
+    Platform -->|8. อนุญาตลงโฆษณาหลังยืนยันตัวตนผ่าน| Advertiser
+    Platform -->|9. เผยแพร่โฆษณาที่ผ่านการคัดกรอง| Public
+    Public -.->|10. แจ้งเหตุโฆษณาหลอกลวง| Regulator
+    Regulator -.->|11. ขอข้อมูลผู้ลงโฆษณาที่เก็บไว้ 90 วัน| Platform
+    Regulator -.->|12. กำกับดูแลและบังคับใช้มาตรการ| CenterLaw

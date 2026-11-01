@@ -1,0 +1,29 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:20px;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:20px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:2px,color:#4B5563,font-size:20px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:20px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:20px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:20px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:20px;
+
+    TitleNode["📜 ประกาศ คธอ. ฉบับที่ 2 มาตรการป้องกันอาชญากรรมทางเทคโนโลยี<br/>ราชกิจจาฯ 5 พ.ค. 2569 · มีผลบังคับใช้ 1 พ.ย. 2569"]:::headerClass
+    CoreEssence["💡 แพลตฟอร์มโซเชียลที่รับค่าโฆษณา ต้องพิสูจน์ตัวตนผู้ลงโฆษณา<br/>ทุกครั้งก่อนโฆษณา และเก็บข้อมูลอย่างน้อย 90 วัน"]:::essenceClass
+    OldRule["🏛️ ประกาศฉบับแรก (ราชกิจจาฯ 4 ก.ค. 2568)<br/>• ระงับข้อมูลปลอมภายใน 24 ชม. หลังถูกแจ้ง<br/>• ยังไม่บังคับยืนยันตัวตนผู้ลงโฆษณา"]:::oldLawClass
+    NewRule["🚀 ประกาศฉบับที่ 2<br/>• ยืนยันตัวตนผู้ลงโฆษณาทุกครั้ง<br/>• ตรวจบัตรรัฐ/เทียบใบหน้า หรือ Digital ID<br/>• ไม่ต้องทำซ้ำถ้ายืนยันไว้ภายใน 1 ปี"]:::newLawClass
+    TechCompany["🏢 ผู้ให้บริการสื่อสังคมออนไลน์<br/>ที่ได้รับค่าบริการโฆษณา"]:::techSide
+    EndUser["👤 ผู้ลงโฆษณา / ผู้ชำระค่าโฆษณา<br/>และผู้บริโภคที่เห็นโฆษณา"]:::userSide
+    Reg["🏛️ พนักงานเจ้าหน้าที่ / ตำรวจ<br/>ใช้ข้อมูลตรวจสอบย้อนหลัง"]:::oldLawClass
+    PenaltyNode["⚠️ ตัวประกาศไม่มีโทษเอง<br/>ผลรับผิดอยู่ที่ พ.ร.ก. (ม.8/10 ตามที่ สพธอ. แจ้ง)<br/>แพลตฟอร์มต้องพิสูจน์ว่าทำตามมาตรการ"]:::penaltyClass
+
+    TitleNode -->|ประกาศใช้อย่างเป็นทางการ| CoreEssence
+    CoreEssence -->|ต่อยอดจากประกาศฉบับแรกที่ยังไม่ถูกยกเลิก| OldRule
+    CoreEssence -->|เพิ่มหน้าที่ยืนยันตัวตนและเก็บข้อมูล| NewRule
+    NewRule -->|1. กำหนดให้ตรวจตัวตนก่อนเผยแพร่โฆษณา| TechCompany
+    TechCompany -->|2. ขอเอกสารยืนยันตัวตนและข้อมูลผู้จ่ายเงิน| EndUser
+    EndUser -->|3. ส่งหลักฐานแสดงตนหรือยืนยันผ่าน Digital ID| TechCompany
+    TechCompany -->|4. เก็บข้อมูล 90 วันหลังโฆษณาสิ้นสุดให้ตรวจสอบ| Reg
+    Reg -->|5. ขอข้อมูลผู้ลงโฆษณาเมื่อพบโฆษณาหลอกลวง| TechCompany
+    TechCompany -.->|หากละเลยไม่ปฏิบัติตามมาตรการ| PenaltyNode
+    OldRule -.->|ยังต้องถอดข้อมูลปลอมภายใน 24 ชม.| PenaltyNode
