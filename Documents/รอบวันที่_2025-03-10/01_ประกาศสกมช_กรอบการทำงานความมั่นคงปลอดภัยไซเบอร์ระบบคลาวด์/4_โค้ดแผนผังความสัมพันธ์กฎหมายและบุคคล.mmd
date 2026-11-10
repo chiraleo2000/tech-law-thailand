@@ -1,0 +1,38 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:13px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:11px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:11px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:11px;
+
+    CenterLaw["📜 กรอบการทำงานความมั่นคงปลอดภัยไซเบอร์ระบบคลาวด์ (National Cloud Security Framework)<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        L1["พ.ร.บ.การรักษาความมั่นคงปลอดภัยไซเบอร์ พ.ศ. 2562"]:::otherLaws
+        L2["มาตรฐานคลาวด์ พ.ศ. 2567"]:::otherLaws
+        L3["ประกาศ กกม. หน้าที่ CII และหน่วยงานกำกับ พ.ศ. 2567 / ประกาศ สกมช. แนวทางจัดทำแผนไซเบอร์ 2567"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        TechDev["ผู้ให้บริการคลาวด์ / หน่วยตรวจรับรอง (CB)"]:::techSide
+        TechInfra["ทีมไอที / ผู้รับจ้างพัฒนาระบบ"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้งาน"]
+        User["หน่วยงานรัฐ/CII และประชาชน"]:::citizenSide
+        Victim["ผู้ได้รับผลกระทบจากเหตุละเมิด/ภัยไซเบอร์"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        Regulator["สกมช. / กกม. / หน่วยงานกำกับ"]:::regulatorSide
+    end
+
+    CenterLaw -->|"1. อ้างมาตรา 9 (4) และมาตรา 53 เรื่องหน่วยงานกำกับตรวจมาตรฐานขั้นต่ำของ C…"| L1
+    CenterLaw -->|"2. กรอบนี้ออกตามข้อ 7 เพื่อเตรียมการก่อนมีผล 10 ก.ย. 2569"| L2
+    CenterLaw -->|"3. หลักการสำคัญที่อ้างใน 5.3"| L3
+    CenterLaw ==>|"4. กำหนดหน้าที่และข้อกำหนดขั้นต่ำ"| TechDev
+    CenterLaw ==>|"5. กำหนดมาตรการเทคนิคที่ต้องติดตั้ง"| TechInfra
+    TechDev -->|"6. ให้บริการ/ประมวลผลตามมาตรฐาน"| User
+    TechDev -->|"7. แจ้งเหตุและเยียวยาเมื่อเกิดเหตุ"| Victim
+    User -->|"8. ใช้สิทธิ/ยื่นคำขอ/สอบถาม"| TechDev
+    Victim -->|"9. ร้องเรียนและเรียกร้องการแก้ไข"| TechDev
+    TechDev -.->|"10. รายงานผลประเมิน/ความสอดคล้อง"| Regulator
+    Regulator -.->|"11. ตรวจสอบ สั่งแก้ไข บังคับใช้กฎหมาย"| TechDev
+    Victim -.->|"12. ยื่นเรื่องร้องเรียนต่อหน่วยงานกำกับ"| Regulator

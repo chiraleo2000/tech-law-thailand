@@ -1,0 +1,37 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:26px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:23px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:22px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:22px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:22px,font-weight:bold;
+
+    subgraph HEADER ["📢 สรุปกฎหมายไอทีฉบับใหม่"]
+        TitleNode["📜 แนวทางใช้คลาวด์สาธารณะที่มีศูนย์ข้อมูลหลักในไทย พ.ศ. 2567 (สกมช.)<br/>มีผลบังคับใช้: วันประกาศ (26 ธ.ค. 2567)"]:::headerClass
+    end
+    subgraph CORE ["💡 สาระสำคัญที่ต้องรู้"]
+        CoreEssence["ระบบผลกระทบสูงต้องใช้คลาวด์ที่มีศูนย์ข้อมูลหลักในไทย (Data Localization)"]:::essenceClass
+    end
+    subgraph COMPARISON ["⚖️ เปรียบเทียบจุดเปลี่ยนสำคัญ (เดิม vs ใหม่)"]
+        OldRule["🏛️ เดิม<br/>• ไม่ผูกที่ตั้งศูนย์ข้อมูล<br/>• เลือกคลาวด์ได้อิสระ"]:::oldLawClass
+        NewRule["🚀 ใหม่<br/>• ผลกระทบสูง = ศูนย์ข้อมูลหลักในไทย<br/>• สำรองในไทย/อาเซียน<br/>• ทำไม่ได้ต้องแจ้ง สกมช."]:::newLawClass
+    end
+    subgraph STAKEHOLDERS ["👥 ผู้เกี่ยวข้องและหน้าที่"]
+        TechCompany["🏢 ผู้ให้บริการคลาวด์สาธารณะ"]:::techSide
+        EndUser["👤 หน่วยงานรัฐ/CII และประชาชน"]:::userSide
+    end
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["🚨 ไม่มีโทษในประกาศ ทำไม่ได้ต้องแจ้ง สกมช. เพื่อเสนอ กมช.<br/>แหล่งอ้างอิง: drive.ncsa.or.th"]:::penaltyClass
+    end
+
+    TitleNode -->|"ประกาศใช้อย่างเป็นทางการ"| CoreEssence
+    CoreEssence -->|"ปิดช่องว่างของแนวปฏิบัติเดิม"| OldRule
+    CoreEssence -->|"กำหนดข้อกำหนดขั้นต่ำฉบับใหม่"| NewRule
+    NewRule -->|"1. กำหนดหน้าที่ต้องปฏิบัติและเก็บหลักฐาน"| TechCompany
+    NewRule -->|"2. ยกระดับความคุ้มครองข้อมูลและบริการ"| EndUser
+    TechCompany -->|"3. ส่งมอบบริการที่สอดคล้องมาตรฐาน"| EndUser
+    EndUser -->|"4. ใช้สิทธิ/ร้องเรียนเมื่อพบปัญหา"| TechCompany
+    TechCompany -.->|"หากละเลยไม่ปฏิบัติตามเกณฑ์"| PenaltyNode
+    OldRule -.->|"บทลงโทษอยู่ที่กฎหมายแม่"| PenaltyNode
