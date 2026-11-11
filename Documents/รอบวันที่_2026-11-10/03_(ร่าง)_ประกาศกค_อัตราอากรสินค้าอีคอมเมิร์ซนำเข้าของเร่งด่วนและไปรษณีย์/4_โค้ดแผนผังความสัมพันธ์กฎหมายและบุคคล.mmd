@@ -1,0 +1,38 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:13px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:11px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:11px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:11px;
+
+    CenterLaw["📜 (ร่าง) ประกาศ กค. อัตราอากรสินค้าอีคอมเมิร์ซนำเข้า (ครม. เห็นชอบหลักการ 10 พ.ย. 2569)<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        L1["พ.ร.ก.พิกัดอัตราศุลกากร 2530<br/>+ พ.ร.บ.ศุลกากร 2560"]:::otherLaws
+        L2["ประกาศ กค. ลด/ยกเว้นอากร ม.12<br/>(28 ธ.ค. 2564)"]:::otherLaws
+        L3["พ.ร.ฎ.แพลตฟอร์มดิจิทัล 2565<br/>+ VAT/De Minimis 2569"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        TechDev["แพลตฟอร์ม e-Commerce ข้ามพรมแดน"]:::techSide
+        TechInfra["ผู้ประกอบการของเร่งด่วน / เขตปลอดอากร"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้งาน"]
+        User["ผู้บริโภคที่สั่งซื้อออนไลน์"]:::citizenSide
+        Victim["SMEs ไทยที่แข่งขันด้านราคา"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        Regulator["กระทรวงการคลัง / กรมศุลกากร / ไปรษณีย์ไทย"]:::regulatorSide
+    end
+
+    CenterLaw -->|"1. ฐานอำนาจอัตราภาค 2 และพิธีการ"| L1
+    CenterLaw -->|"2. ไม่ใช้บัญชีอัตราลดกับของ e-Commerce"| L2
+    CenterLaw -->|"3. แพลตฟอร์มแจ้งเงื่อนไข/ภาระภาษีผู้ซื้อ"| L3
+    CenterLaw ==>|"4. คำนวณอากรตามเพดาน 30%"| TechDev
+    CenterLaw ==>|"5. ทำใบขนแบบรวม/ประเภทที่ 4"| TechInfra
+    TechDev -->|"6. แสดงราคาและภาระอากร"| User
+    TechDev -->|"7. ได้แข่งขันอย่างเป็นธรรม"| Victim
+    User -->|"8. ชำระอากรตามจริง"| TechDev
+    Victim -->|"9. ร้องเรียนการคิดอากรผิด"| TechDev
+    TechDev -.->|"10. สำแดงราคาและพิกัดถูกต้อง"| Regulator
+    Regulator -.->|"11. ตรวจปล่อยและเรียกเก็บอากร"| TechDev
+    Victim -.->|"12. อุทธรณ์การประเมินอากร"| Regulator

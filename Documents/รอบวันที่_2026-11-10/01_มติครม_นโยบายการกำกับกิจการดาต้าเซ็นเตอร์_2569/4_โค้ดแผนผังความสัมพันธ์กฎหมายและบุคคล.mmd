@@ -1,0 +1,38 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:13px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:11px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:11px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:11px;
+
+    CenterLaw["📜 นโยบายการกำกับกิจการดาต้าเซ็นเตอร์ (มติ ครม. 10 พ.ย. 2569)<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        L1["ระเบียบสำนักนายกฯ คณะกรรมการนโยบาย<br/>ดาต้าเซ็นเตอร์ พ.ศ. 2569"]:::otherLaws
+        L2["พ.ร.บ.ควบคุมอาคาร 2522<br/>+ พ.ร.บ.การผังเมือง 2562"]:::otherLaws
+        L3["พ.ร.บ.ไซเบอร์ 2562 + มาตรฐานคลาวด์ 2567<br/>+ PDPA 2562"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        TechDev["ผู้ประกอบการดาต้าเซ็นเตอร์ (7 ระดับ)"]:::techSide
+        TechInfra["ผู้ใช้บริการคลาวด์ / Colocation"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้งาน"]
+        User["ประชาชน / ชุมชนรอบไซต์"]:::citizenSide
+        Victim["ผู้ได้รับผลกระทบด้านไฟ น้ำ สิ่งแวดล้อม"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        Regulator["ดศ. (TH-DC/กลั่นกรองชั่วคราว) / สศช. / ผู้ว่าฯ / BOI / สผ."]:::regulatorSide
+    end
+
+    CenterLaw -->|"1. ฐานอำนาจ ต้องแก้ข้อ 9 รองรับ DC-OSS"| L1
+    CenterLaw -->|"2. ใบอนุญาตก่อสร้าง/ผังเมืองต้องสอดคล้องข้อกำหนดขั้นต่ำ"| L2
+    CenterLaw -->|"3. ความปลอดภัยข้อมูลของผู้ใช้บริการ"| L3
+    CenterLaw ==>|"4. กำหนดนิยาม ระดับ และข้อกำหนดขั้นต่ำ"| TechDev
+    CenterLaw ==>|"5. ความต่อเนื่องบริการตาม SLA"| TechInfra
+    TechDev -->|"6. ให้บริการโดยไม่ก่อผลกระทบเกินสมควร"| User
+    TechDev -->|"7. แจ้งข้อมูลโครงการโปร่งใส"| Victim
+    User -->|"8. ใช้ข้อมูล TH-DC ติดตามโครงการ"| TechDev
+    Victim -->|"9. ร้องเรียนผลกระทบ"| TechDev
+    TechDev -.->|"10. นำเข้าข้อมูล/ขออนุมัติผ่าน DC-OSS"| Regulator
+    Regulator -.->|"11. กลั่นกรอง อนุมัติ กำกับ CoP"| TechDev
+    Victim -.->|"12. ร้องเรียนต่อหน่วยงานรัฐ"| Regulator

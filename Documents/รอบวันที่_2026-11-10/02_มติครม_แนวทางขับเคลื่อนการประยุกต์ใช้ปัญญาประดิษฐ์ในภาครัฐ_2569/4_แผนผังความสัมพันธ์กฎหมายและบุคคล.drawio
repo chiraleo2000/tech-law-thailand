@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="แผนผังความสัมพันธ์" id="d1">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="CenterLaw" value="📜 แนวทางขับเคลื่อนการใช้ AI ในภาครัฐ (มติ ครม. 10 พ.ย. 2569)&#10;(ศูนย์กลางการบังคับใช้)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B2545;strokeColor=#FF6600;fontColor=#FFFFFF;fontSize=14;fontStyle=1;strokeWidth=3;" vertex="1" parent="1"><mxGeometry x="60" y="440" width="360" height="160" as="geometry" /></mxCell>
+        <mxCell id="L1" value="พ.ร.บ.บริหารงานภาครัฐ&#10;ผ่านระบบดิจิทัล 2562" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=11;" vertex="1" parent="1"><mxGeometry x="620" y="60" width="340" height="90" as="geometry" /></mxCell>
+        <mxCell id="L2" value="PDPA 2562 + แนวทาง สคส.&#10;AI กับข้อมูลส่วนบุคคล" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=11;" vertex="1" parent="1"><mxGeometry x="620" y="180" width="340" height="90" as="geometry" /></mxCell>
+        <mxCell id="L3" value="พ.ร.บ.ไซเบอร์ 2562&#10;+ AI Security Guidelines สกมช." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=11;" vertex="1" parent="1"><mxGeometry x="620" y="300" width="340" height="90" as="geometry" /></mxCell>
+        <mxCell id="TechDev" value="หน่วยงานรัฐที่มี/จะมี AI Chatbot" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5EB;strokeColor=#FF6600;fontColor=#111827;fontSize=11;" vertex="1" parent="1"><mxGeometry x="620" y="480" width="340" height="80" as="geometry" /></mxCell>
+        <mxCell id="TechInfra" value="ผู้พัฒนา AI / LLM / คลาวด์ GDCC" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5EB;strokeColor=#FF6600;fontColor=#111827;fontSize=11;" vertex="1" parent="1"><mxGeometry x="620" y="620" width="340" height="80" as="geometry" /></mxCell>
+        <mxCell id="User" value="ประชาชนผู้ใช้บริการรัฐ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#16A34A;fontColor=#166534;fontSize=11;" vertex="1" parent="1"><mxGeometry x="1200" y="420" width="340" height="80" as="geometry" /></mxCell>
+        <mxCell id="Victim" value="ผู้ได้รับผลกระทบจากคำตอบ AI ผิดพลาด" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#16A34A;fontColor=#166534;fontSize=11;" vertex="1" parent="1"><mxGeometry x="1200" y="560" width="340" height="80" as="geometry" /></mxCell>
+        <mxCell id="Regulator" value="ก.พ.ร. / สดช. (ดศ.) / เนคเทค สวทช. / สพร." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontColor=#991B1B;fontSize=11;" vertex="1" parent="1"><mxGeometry x="1200" y="820" width="400" height="100" as="geometry" /></mxCell>
+        <mxCell id="e0" value="1. บริการดิจิทัลผ่านจุดเดียว" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="CenterLaw" target="L1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e1" value="2. ฐานการใช้ข้อมูลส่วนบุคคลกับ Chatbot" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="CenterLaw" target="L2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" value="3. ความปลอดภัยแพลตฟอร์ม AI กลาง" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="CenterLaw" target="L3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" value="4. ใช้แพลตฟอร์มกลางลดซ้ำซ้อน" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="CenterLaw" target="TechDev"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" value="5. โครงสร้างพื้นฐานร่วม Common API" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="CenterLaw" target="TechInfra"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" value="6. ตอบคำถามพร้อมแหล่งอ้างอิง" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="TechDev" target="User"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" value="7. แก้ไขข้อมูลที่ผิดพลาด" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="TechDev" target="Victim"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" value="8. ใช้บริการดิจิทัลจุดเดียว" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="User" target="TechDev"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" value="9. แจ้งข้อผิดพลาด/ใช้สิทธิ" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="Victim" target="TechDev"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" value="10. รายงาน Use Case และตัวชี้วัด" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;dashed=1;" edge="1" parent="1" source="TechDev" target="Regulator"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" value="11. กำหนดมาตรฐานและกรอบกำกับ AI" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;dashed=1;" edge="1" parent="1" source="Regulator" target="TechDev"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" value="12. ร้องเรียนต่อหน่วยงานกำกับ" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;dashed=1;" edge="1" parent="1" source="Victim" target="Regulator"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

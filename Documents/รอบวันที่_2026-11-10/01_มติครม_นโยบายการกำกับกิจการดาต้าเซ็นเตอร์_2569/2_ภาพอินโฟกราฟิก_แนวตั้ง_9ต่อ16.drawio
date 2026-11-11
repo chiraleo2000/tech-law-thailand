@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="อินโฟกราฟิก 9x16" id="d1">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1080" pageHeight="1920" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TitleNode" value="📜 นโยบายกำกับกิจการดาต้าเซ็นเตอร์&#10;มติ ครม. 10 พ.ย. 2569 · มีผลทันที (เปลี่ยนผ่าน 1 ปี)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B2545;strokeColor=#FF6600;fontColor=#FFFFFF;fontSize=14;fontStyle=1;strokeWidth=3;" vertex="1" parent="1"><mxGeometry x="240" y="40" width="600" height="130" as="geometry" /></mxCell>
+        <mxCell id="CoreEssence" value="นิยามทางการ + 7 ระดับตามกำลังไฟ&#10;กลั่นกรองรวมศูนย์ DC-OSS + TH-DC Dashboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5EB;strokeColor=#FF6600;fontColor=#111827;fontSize=13;" vertex="1" parent="1"><mxGeometry x="240" y="260" width="600" height="120" as="geometry" /></mxCell>
+        <mxCell id="OldRule" value="🏛️ เดิม&#10;• ไม่มีนิยาม/ไม่มีผู้รวบรวมข้อมูล&#10;• 18 หน่วยงานอนุมัติแยกกัน&#10;• ชะลอการอนุญาต" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#9CA3AF;fontColor=#4B5563;fontSize=12;" vertex="1" parent="1"><mxGeometry x="60" y="500" width="440" height="220" as="geometry" /></mxCell>
+        <mxCell id="NewRule" value="🚀 ใหม่&#10;• ≥0.5 MW = ดาต้าเซ็นเตอร์ 7 ระดับ&#10;• DC-OSS + SLA + อนุมัติดิจิทัล&#10;• ≥20 MW / หลัง 14 ส.ค. = รายใหม่&#10;• ข้อกำหนดขั้นต่ำ 4 มิติ + CoP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=12;" vertex="1" parent="1"><mxGeometry x="580" y="500" width="440" height="220" as="geometry" /></mxCell>
+        <mxCell id="TechCompany" value="🏢 ผู้ประกอบการดาต้าเซ็นเตอร์ / คลาวด์" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B2545;strokeColor=#0B2545;fontColor=#FFFFFF;fontSize=12;" vertex="1" parent="1"><mxGeometry x="60" y="900" width="440" height="120" as="geometry" /></mxCell>
+        <mxCell id="EndUser" value="👤 ชุมชนรอบไซต์ / ประชาชน" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF6600;strokeColor=#FF6600;fontColor=#FFFFFF;fontSize=12;" vertex="1" parent="1"><mxGeometry x="580" y="900" width="440" height="120" as="geometry" /></mxCell>
+        <mxCell id="PenaltyNode" value="🚨 ไม่มีโทษใหม่ บังคับผ่านเงื่อนไขใบอนุญาต&#10;แหล่งอ้างอิง: thaigov.go.th สรุปมติ ครม." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#EF4444;fontColor=#991B1B;fontSize=12;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="240" y="1300" width="600" height="140" as="geometry" /></mxCell>
+        <mxCell id="e0" value="ครม. เห็นชอบ 10 พ.ย. 2569" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="TitleNode" target="CoreEssence"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e1" value="แทนการอนุมัติแยกส่วนเดิม" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="CoreEssence" target="OldRule"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" value="กำหนดกลไกรวมศูนย์ใหม่" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="CoreEssence" target="NewRule"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" value="1. จดแจ้ง TH-DC + ผ่านข้อกำหนดขั้นต่ำ" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="NewRule" target="TechCompany"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" value="2. ลดผลกระทบไฟ น้ำ อัคคีภัย" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="NewRule" target="EndUser"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" value="3. ให้บริการตาม SLA/CoP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="TechCompany" target="EndUser"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" value="4. ร้องเรียนผลกระทบต่อชุมชน" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="EndUser" target="TechCompany"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" value="หากไม่ปรับตามข้อกำหนดใน 1 ปี" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;dashed=1;" edge="1" parent="1" source="TechCompany" target="PenaltyNode"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" value="ไม่มีบทลงโทษเฉพาะ" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;dashed=1;" edge="1" parent="1" source="OldRule" target="PenaltyNode"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

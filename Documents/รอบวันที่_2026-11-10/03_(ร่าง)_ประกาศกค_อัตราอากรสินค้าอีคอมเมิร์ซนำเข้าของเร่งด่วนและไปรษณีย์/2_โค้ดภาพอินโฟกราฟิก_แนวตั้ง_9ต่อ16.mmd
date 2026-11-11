@@ -1,0 +1,37 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:26px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:23px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:22px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:22px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:22px,font-weight:bold;
+
+    subgraph HEADER ["📢 สรุปกฎหมายไอทีฉบับใหม่"]
+        TitleNode["📜 (ร่าง) ประกาศ กค. อัตราอากรสินค้าอีคอมเมิร์ซนำเข้า<br/>ครม. เห็นชอบหลักการ 10 พ.ย. 2569 · ยังไม่มีผล"]:::headerClass
+    end
+    subgraph CORE ["💡 สาระสำคัญที่ต้องรู้"]
+        CoreEssence["ของเร่งด่วน/ไปรษณีย์/เขตปลอดอากรอีคอมเมิร์ซ ≤40,000 บาท<br/>เลิกใช้อัตราลด → อัตราภาค 2 เพดาน 30%"]:::essenceClass
+    end
+    subgraph COMPARISON ["⚖️ เปรียบเทียบจุดเปลี่ยนสำคัญ (เดิม vs ใหม่)"]
+        OldRule["🏛️ เดิม<br/>• ใช้อัตราลดตามประกาศ กค. 28 ธ.ค. 64<br/>• กระเป๋า 20% เครื่องมือช่าง 10%"]:::oldLawClass
+        NewRule["🚀 ใหม่ (ร่าง)<br/>• อัตราภาค 2 แต่ไม่เกิน 30%<br/>• กระเป๋า 30% เครื่องมือช่าง 25%<br/>• มีผลพ้น 15 วันหลังลงราชกิจจาฯ"]:::newLawClass
+    end
+    subgraph STAKEHOLDERS ["👥 ผู้เกี่ยวข้องและหน้าที่"]
+        TechCompany["🏢 แพลตฟอร์ม e-Commerce / Express"]:::techSide
+        EndUser["👤 ผู้ซื้อของออนไลน์จากต่างประเทศ"]:::userSide
+    end
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["🚨 ไม่มีโทษใหม่ (บทเดิม พ.ร.บ.ศุลกากร 2560)<br/>แหล่งอ้างอิง: thaigov.go.th สรุปมติ ครม."]:::penaltyClass
+    end
+
+    TitleNode -->|"ครม. เห็นชอบหลักการ (ร่าง)"| CoreEssence
+    CoreEssence -->|"ตัดสิทธิอัตราลดเดิม"| OldRule
+    CoreEssence -->|"ใช้อัตราภาค 2 เพดาน 30%"| NewRule
+    NewRule -->|"1. ปรับระบบคำนวณอากร/ใบขน"| TechCompany
+    NewRule -->|"2. ภาระอากรสูงขึ้น"| EndUser
+    TechCompany -->|"3. แสดงราคารวมอากรถูกต้อง"| EndUser
+    EndUser -->|"4. เลือกทำใบขนปกติได้"| TechCompany
+    TechCompany -.->|"สำแดงเท็จ/หลีกเลี่ยงอากร"| PenaltyNode
+    OldRule -.->|"บทลงโทษตาม พ.ร.บ.ศุลกากร"| PenaltyNode

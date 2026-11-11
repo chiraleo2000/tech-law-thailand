@@ -1,0 +1,37 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:26px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:23px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:22px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:22px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:22px,font-weight:bold;
+
+    subgraph HEADER ["📢 สรุปกฎหมายไอทีฉบับใหม่"]
+        TitleNode["📜 นโยบายกำกับกิจการดาต้าเซ็นเตอร์<br/>มติ ครม. 10 พ.ย. 2569 · มีผลทันที (เปลี่ยนผ่าน 1 ปี)"]:::headerClass
+    end
+    subgraph CORE ["💡 สาระสำคัญที่ต้องรู้"]
+        CoreEssence["นิยามทางการ + 7 ระดับตามกำลังไฟ<br/>กลั่นกรองรวมศูนย์ DC-OSS + TH-DC Dashboard"]:::essenceClass
+    end
+    subgraph COMPARISON ["⚖️ เปรียบเทียบจุดเปลี่ยนสำคัญ (เดิม vs ใหม่)"]
+        OldRule["🏛️ เดิม<br/>• ไม่มีนิยาม/ไม่มีผู้รวบรวมข้อมูล<br/>• 18 หน่วยงานอนุมัติแยกกัน<br/>• ชะลอการอนุญาต"]:::oldLawClass
+        NewRule["🚀 ใหม่<br/>• ≥0.5 MW = ดาต้าเซ็นเตอร์ 7 ระดับ<br/>• DC-OSS + SLA + อนุมัติดิจิทัล<br/>• ≥20 MW / หลัง 14 ส.ค. = รายใหม่<br/>• ข้อกำหนดขั้นต่ำ 4 มิติ + CoP"]:::newLawClass
+    end
+    subgraph STAKEHOLDERS ["👥 ผู้เกี่ยวข้องและหน้าที่"]
+        TechCompany["🏢 ผู้ประกอบการดาต้าเซ็นเตอร์ / คลาวด์"]:::techSide
+        EndUser["👤 ชุมชนรอบไซต์ / ประชาชน"]:::userSide
+    end
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["🚨 ไม่มีโทษใหม่ บังคับผ่านเงื่อนไขใบอนุญาต<br/>แหล่งอ้างอิง: thaigov.go.th สรุปมติ ครม."]:::penaltyClass
+    end
+
+    TitleNode -->|"ครม. เห็นชอบ 10 พ.ย. 2569"| CoreEssence
+    CoreEssence -->|"แทนการอนุมัติแยกส่วนเดิม"| OldRule
+    CoreEssence -->|"กำหนดกลไกรวมศูนย์ใหม่"| NewRule
+    NewRule -->|"1. จดแจ้ง TH-DC + ผ่านข้อกำหนดขั้นต่ำ"| TechCompany
+    NewRule -->|"2. ลดผลกระทบไฟ น้ำ อัคคีภัย"| EndUser
+    TechCompany -->|"3. ให้บริการตาม SLA/CoP"| EndUser
+    EndUser -->|"4. ร้องเรียนผลกระทบต่อชุมชน"| TechCompany
+    TechCompany -.->|"หากไม่ปรับตามข้อกำหนดใน 1 ปี"| PenaltyNode
+    OldRule -.->|"ไม่มีบทลงโทษเฉพาะ"| PenaltyNode

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="อินโฟกราฟิก 9x16" id="d1">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1080" pageHeight="1920" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TitleNode" value="📜 (ร่าง) ประกาศ กค. อัตราอากรสินค้าอีคอมเมิร์ซนำเข้า&#10;ครม. เห็นชอบหลักการ 10 พ.ย. 2569 · ยังไม่มีผล" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B2545;strokeColor=#FF6600;fontColor=#FFFFFF;fontSize=14;fontStyle=1;strokeWidth=3;" vertex="1" parent="1"><mxGeometry x="240" y="40" width="600" height="130" as="geometry" /></mxCell>
+        <mxCell id="CoreEssence" value="ของเร่งด่วน/ไปรษณีย์/เขตปลอดอากรอีคอมเมิร์ซ ≤40,000 บาท&#10;เลิกใช้อัตราลด → อัตราภาค 2 เพดาน 30%" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5EB;strokeColor=#FF6600;fontColor=#111827;fontSize=13;" vertex="1" parent="1"><mxGeometry x="240" y="260" width="600" height="120" as="geometry" /></mxCell>
+        <mxCell id="OldRule" value="🏛️ เดิม&#10;• ใช้อัตราลดตามประกาศ กค. 28 ธ.ค. 64&#10;• กระเป๋า 20% เครื่องมือช่าง 10%" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#9CA3AF;fontColor=#4B5563;fontSize=12;" vertex="1" parent="1"><mxGeometry x="60" y="500" width="440" height="220" as="geometry" /></mxCell>
+        <mxCell id="NewRule" value="🚀 ใหม่ (ร่าง)&#10;• อัตราภาค 2 แต่ไม่เกิน 30%&#10;• กระเป๋า 30% เครื่องมือช่าง 25%&#10;• มีผลพ้น 15 วันหลังลงราชกิจจาฯ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2F6;strokeColor=#0B2545;fontColor=#0B2545;fontSize=12;" vertex="1" parent="1"><mxGeometry x="580" y="500" width="440" height="220" as="geometry" /></mxCell>
+        <mxCell id="TechCompany" value="🏢 แพลตฟอร์ม e-Commerce / Express" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B2545;strokeColor=#0B2545;fontColor=#FFFFFF;fontSize=12;" vertex="1" parent="1"><mxGeometry x="60" y="900" width="440" height="120" as="geometry" /></mxCell>
+        <mxCell id="EndUser" value="👤 ผู้ซื้อของออนไลน์จากต่างประเทศ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF6600;strokeColor=#FF6600;fontColor=#FFFFFF;fontSize=12;" vertex="1" parent="1"><mxGeometry x="580" y="900" width="440" height="120" as="geometry" /></mxCell>
+        <mxCell id="PenaltyNode" value="🚨 ไม่มีโทษใหม่ (บทเดิม พ.ร.บ.ศุลกากร 2560)&#10;แหล่งอ้างอิง: thaigov.go.th สรุปมติ ครม." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#EF4444;fontColor=#991B1B;fontSize=12;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="240" y="1300" width="600" height="140" as="geometry" /></mxCell>
+        <mxCell id="e0" value="ครม. เห็นชอบหลักการ (ร่าง)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="TitleNode" target="CoreEssence"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e1" value="ตัดสิทธิอัตราลดเดิม" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="CoreEssence" target="OldRule"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" value="ใช้อัตราภาค 2 เพดาน 30%" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="CoreEssence" target="NewRule"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" value="1. ปรับระบบคำนวณอากร/ใบขน" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="NewRule" target="TechCompany"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" value="2. ภาระอากรสูงขึ้น" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="NewRule" target="EndUser"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" value="3. แสดงราคารวมอากรถูกต้อง" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="TechCompany" target="EndUser"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" value="4. เลือกทำใบขนปกติได้" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;" edge="1" parent="1" source="EndUser" target="TechCompany"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" value="สำแดงเท็จ/หลีกเลี่ยงอากร" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;dashed=1;" edge="1" parent="1" source="TechCompany" target="PenaltyNode"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" value="บทลงโทษตาม พ.ร.บ.ศุลกากร" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0B2545;fontSize=12;labelBackgroundColor=#F8F9FA;dashed=1;" edge="1" parent="1" source="OldRule" target="PenaltyNode"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

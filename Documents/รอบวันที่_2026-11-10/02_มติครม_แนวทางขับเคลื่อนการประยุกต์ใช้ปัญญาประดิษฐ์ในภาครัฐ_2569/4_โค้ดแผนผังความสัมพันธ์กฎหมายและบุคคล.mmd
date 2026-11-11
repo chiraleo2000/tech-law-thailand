@@ -1,0 +1,38 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:13px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:11px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:11px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:11px;
+
+    CenterLaw["📜 แนวทางขับเคลื่อนการใช้ AI ในภาครัฐ (มติ ครม. 10 พ.ย. 2569)<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        L1["พ.ร.บ.บริหารงานภาครัฐ<br/>ผ่านระบบดิจิทัล 2562"]:::otherLaws
+        L2["PDPA 2562 + แนวทาง สคส.<br/>AI กับข้อมูลส่วนบุคคล"]:::otherLaws
+        L3["พ.ร.บ.ไซเบอร์ 2562<br/>+ AI Security Guidelines สกมช."]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        TechDev["หน่วยงานรัฐที่มี/จะมี AI Chatbot"]:::techSide
+        TechInfra["ผู้พัฒนา AI / LLM / คลาวด์ GDCC"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้งาน"]
+        User["ประชาชนผู้ใช้บริการรัฐ"]:::citizenSide
+        Victim["ผู้ได้รับผลกระทบจากคำตอบ AI ผิดพลาด"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        Regulator["ก.พ.ร. / สดช. (ดศ.) / เนคเทค สวทช. / สพร."]:::regulatorSide
+    end
+
+    CenterLaw -->|"1. บริการดิจิทัลผ่านจุดเดียว"| L1
+    CenterLaw -->|"2. ฐานการใช้ข้อมูลส่วนบุคคลกับ Chatbot"| L2
+    CenterLaw -->|"3. ความปลอดภัยแพลตฟอร์ม AI กลาง"| L3
+    CenterLaw ==>|"4. ใช้แพลตฟอร์มกลางลดซ้ำซ้อน"| TechDev
+    CenterLaw ==>|"5. โครงสร้างพื้นฐานร่วม Common API"| TechInfra
+    TechDev -->|"6. ตอบคำถามพร้อมแหล่งอ้างอิง"| User
+    TechDev -->|"7. แก้ไขข้อมูลที่ผิดพลาด"| Victim
+    User -->|"8. ใช้บริการดิจิทัลจุดเดียว"| TechDev
+    Victim -->|"9. แจ้งข้อผิดพลาด/ใช้สิทธิ"| TechDev
+    TechDev -.->|"10. รายงาน Use Case และตัวชี้วัด"| Regulator
+    Regulator -.->|"11. กำหนดมาตรฐานและกรอบกำกับ AI"| TechDev
+    Victim -.->|"12. ร้องเรียนต่อหน่วยงานกำกับ"| Regulator
