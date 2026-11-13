@@ -1,0 +1,40 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:13px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:11px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:11px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:11px;
+
+    CenterLaw["📜 (ร่าง) ประกาศ ก.ล.ต. กำกับธุรกรรม Stablecoin<br/>ผ่านผู้ประกอบธุรกิจสินทรัพย์ดิจิทัล (อนด. 82/2569)<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        L1["พ.ร.ก.การประกอบธุรกิจสินทรัพย์ดิจิทัล 2561<br/>+ ประกาศ กธ. 19/2561 / สธ. 17/2566"]:::otherLaws
+        L2["พ.ร.บ.ป้องกันและปราบปรามการฟอกเงิน 2542<br/>(Travel Rule / STR ตามเกณฑ์ ปปง.)"]:::otherLaws
+        L3["พ.ร.ก.มาตรการป้องกันและปราบปราม<br/>อาชญากรรมทางเทคโนโลยี (บัญชีม้า)"]:::otherLaws
+        L4["PDPA 2562 + พ.ร.บ.ควบคุมการแลกเปลี่ยนเงิน<br/>(กำกับโดย ธปท.)"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        TechDev["ศูนย์ซื้อขาย (DA Exchange) / Market Maker"]:::techSide
+        TechInfra["นายหน้า/ผู้ค้า (DA Broker / Dealer) / LP / ICO Portal"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้งาน"]
+        User["นักลงทุนที่ฝาก–ถอน Stablecoin"]:::citizenSide
+        Victim["ผู้เสียหายจากแก๊งมิจฉาชีพ / บัญชีม้า"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        Regulator["ก.ล.ต. (ผู้ออกประกาศ) · ธปท. (Stablecoin ชำระเงิน/บาท) · ปปง."]:::regulatorSide
+    end
+
+    CenterLaw -->|"1. แก้ไขเพิ่มเติมประกาศหลักของธุรกิจ DA"| L1
+    CenterLaw -->|"2. ผูกการโอนกับ Travel Rule, EDD และรายงาน STR"| L2
+    CenterLaw -->|"3. คัดกรองบัญชีม้า/wallet ในบัญชีเฝ้าระวัง"| L3
+    CenterLaw -->|"4. ประมวลผลข้อมูลยืนยันตัวตน wallet / ยกเว้นผู้ได้รับอนุญาต ธปท."| L4
+    CenterLaw ==>|"5. เปิดเผยรายชื่อ MM + Due Diligence ต่อเนื่อง"| TechDev
+    CenterLaw ==>|"6. ห้าม LP คู่ Stablecoin/บาท · นอกแพลตฟอร์ม ≥ 3 ล้าน"| TechInfra
+    TechDev -->|"7. จำกัดฝาก–ถอน ≤ 5 ล้านบาท/วัน และแจ้งเงื่อนไข"| User
+    TechInfra -->|"8. ตัดเส้นทางโอนเงินผิดกฎหมายออกนอกประเทศ"| Victim
+    User -->|"9. ยืนยัน wallet ของตนเองและแหล่งที่มาของรายได้"| TechDev
+    Victim -->|"10. ร้องขอระงับ/ติดตามเส้นทางสินทรัพย์"| TechInfra
+    TechDev -.->|"11. รายงานข้อมูลผ่าน e-reporting ตามรอบ"| Regulator
+    Regulator -.->|"12. สั่งแก้ไข/สั่งให้กระทำการภายในเวลาที่กำหนด"| TechInfra
+    Victim -.->|"13. ร้องเรียนต่อ ก.ล.ต. / แจ้งความผ่านระบบออนไลน์"| Regulator

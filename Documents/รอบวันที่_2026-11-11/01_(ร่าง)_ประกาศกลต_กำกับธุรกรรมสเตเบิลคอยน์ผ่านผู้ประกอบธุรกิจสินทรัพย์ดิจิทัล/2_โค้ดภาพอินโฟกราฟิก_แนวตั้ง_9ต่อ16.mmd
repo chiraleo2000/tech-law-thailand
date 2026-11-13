@@ -1,0 +1,37 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:26px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:23px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:22px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:22px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:22px,font-weight:bold;
+
+    subgraph HEADER ["📢 สรุปกฎหมายไอทีฉบับใหม่ (ร่าง)"]
+        TitleNode["📜 (ร่าง) ประกาศ ก.ล.ต. กำกับธุรกรรม Stablecoin<br/>ผ่านผู้ประกอบธุรกิจสินทรัพย์ดิจิทัล (อนด. 82/2569)<br/>รับฟังความเห็น 11–26 พ.ย. 2569 · ยังไม่มีผล"]:::headerClass
+    end
+    subgraph CORE ["💡 สาระสำคัญที่ต้องรู้"]
+        CoreEssence["สกัดการใช้ USDT/USDC ฟอกเงิน–เลี่ยงโอนเงินข้ามประเทศ<br/>ฝาก/ถอน Stablecoin ได้เฉพาะ wallet ของตัวเอง · ≤ 5 ล้านบาท/วัน"]:::essenceClass
+    end
+    subgraph COMPARISON ["⚖️ เปรียบเทียบจุดเปลี่ยนสำคัญ (เดิม vs ใหม่)"]
+        OldRule["🏛️ เดิม (กธ. 19/2561)<br/>• ไม่มีนิยาม/เพดานโอน stablecoin<br/>• MM/LP คุมแค่คุณสมบัติ ไม่ต้องเปิดเผย<br/>• ซื้อขายนอกแพลตฟอร์มไม่มีเกณฑ์ขั้นต่ำ"]:::oldLawClass
+        NewRule["🚀 ใหม่ (ร่าง)<br/>• ห้ามโอนเข้า/ออกบัญชีผู้อื่น<br/>• เพดาน 5 ล้านบาท/วัน/คน/ผู้ประกอบการ<br/>• เปิดเผย MM/LP · นอกแพลตฟอร์ม ≥ 3 ล้านบาท<br/>• มีผล 60 วันหลังประกาศใช้"]:::newLawClass
+    end
+    subgraph STAKEHOLDERS ["👥 ผู้เกี่ยวข้องและหน้าที่"]
+        TechCompany["🏢 Exchange / Broker / Dealer สินทรัพย์ดิจิทัล"]:::techSide
+        EndUser["👤 นักลงทุนคริปโท / ผู้ใช้ Stablecoin"]:::userSide
+    end
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["🚨 ไม่ปฏิบัติตาม: ก.ล.ต. สั่งแก้ไข/สั่งให้กระทำการภายในเวลา (ข้อ 7/1 ใหม่)<br/>+ บทลงโทษเดิมตาม พ.ร.ก.สินทรัพย์ดิจิทัล 2561<br/>แหล่งอ้างอิง: sec.or.th (อนด. 82/2569)"]:::penaltyClass
+    end
+
+    TitleNode -->|"ก.ล.ต. เปิดรับฟังร่างประกาศ 2 ฉบับ (กธ./สธ.)"| CoreEssence
+    CoreEssence -->|"แก้ไขเพิ่มเติม ประกาศ กธ. 19/2561"| OldRule
+    CoreEssence -->|"เพิ่มข้อ 11/5–11/8, 39/3, 40/4–40/6, 41/1"| NewRule
+    NewRule -->|"1. ยืนยัน wallet ลูกค้า + Travel Rule + จำกัดวงเงิน"| TechCompany
+    NewRule -->|"2. โอนได้เฉพาะบัญชีตนเอง ≤ 5 ล้านบาท/วัน"| EndUser
+    TechCompany -->|"3. แจ้งเงื่อนไขก่อนให้บริการ + เปิดเผย MM/LP"| EndUser
+    EndUser -->|"4. ยืนยันตัวตน wallet และแหล่งที่มาของเงิน"| TechCompany
+    TechCompany -.->|"หากไม่ทำตาม/ไม่ส่งข้อมูล"| PenaltyNode
+    OldRule -.->|"คงบทลงโทษเดิมตาม พ.ร.ก. 2561"| PenaltyNode
