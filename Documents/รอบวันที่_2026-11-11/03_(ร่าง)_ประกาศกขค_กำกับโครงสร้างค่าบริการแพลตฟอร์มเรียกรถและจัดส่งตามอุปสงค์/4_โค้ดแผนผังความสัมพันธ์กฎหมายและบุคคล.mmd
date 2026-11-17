@@ -1,0 +1,39 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:13px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:11px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:11px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:11px;
+
+    CenterLaw["📜 (ร่าง) ประกาศ กขค.<br/>โครงสร้างอัตราค่าบริการ<br/>Ride-hailing + On-demand<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        TCA["พ.ร.บ.การแข่งขันทางการค้า 2560<br/>(ม. 50 / 57 / 60)"]:::otherLaws
+        COP["(ร่าง) แนวปฏิบัติทางการค้า<br/>Ride hailing / On-demand"]:::otherLaws
+        DPS["พ.ร.ฎ.แพลตฟอร์มดิจิทัล 2565<br/>+ ธพด. 2/2569 (ETDA)"]:::otherLaws
+        LAB["ร่าง พ.ร.บ.คุ้มครองผู้ทำงานแพลตฟอร์ม<br/>/ กฎหมายรถรับจ้าง"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        PLAT["แพลตฟอร์มเรียกรถ / ส่งอาหาร<br/>(อำนาจตลาด/เหนือตลาด)"]:::techSide
+        DATA["ทีม Pricing / อัลกอริทึม GP–Surge"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้งานทั่วไป"]
+        RIDER["ไรเดอร์ / คนขับ (ผู้ใช้บริการ)"]:::citizenSide
+        SHOP["ร้านอาหาร / ร้านค้า"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        REG["คณะกรรมการการแข่งขันทางการค้า (กขค.)"]:::regulatorSide
+    end
+
+    CenterLaw -->|"1. อาศัยอำนาจ + ฐานความผิด"| TCA
+    CenterLaw -->|"2. ใช้คู่กัน: ข้อ 13 ของแนวปฏิบัติอ้างประกาศนี้"| COP
+    CenterLaw -->|"3. ซ้อนหน้าที่เปิดเผยค่าธรรมเนียม"| DPS
+    CenterLaw -->|"4. เป้าหมายค่าตอบแทนเป็นธรรมร่วมกัน"| LAB
+    CenterLaw ==>|"5. คิดค่าบริการจากต้นทุนจำเป็น + แจกแจง"| PLAT
+    CenterLaw ==>|"6. จัดทำรายงานผลกระทบที่ตรวจสอบได้"| DATA
+    PLAT -->|"7. แจ้งขึ้นค่าบริการล่วงหน้า ≥ 90 วัน"| RIDER
+    PLAT -->|"8. แจกแจงค่า GP/โฆษณา/โปรโมชัน"| SHOP
+    RIDER -->|"9. สอบทานและโต้แย้งการเรียกเก็บ"| PLAT
+    SHOP -.->|"10. ให้ความเห็น/ร้องเรียน"| REG
+    PLAT -.->|"11. แจ้ง (90 วัน) หรือขออนุญาต (180 วัน)"| REG
+    REG -.->|"12. อนุญาต/แนะนำ/สั่งระงับภายใน 120 วัน"| PLAT

@@ -1,0 +1,40 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:13px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:11px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:11px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:11px;
+
+    CenterLaw["📜 (ร่าง) ประกาศ กขค.<br/>แนวปฏิบัติทางการค้า<br/>Ride hailing + On-demand<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        TCA["พ.ร.บ.การแข่งขันทางการค้า 2560<br/>(ม. 17 (3), 50, 57)"]:::otherLaws
+        FEE["(ร่าง) ประกาศ กขค.<br/>โครงสร้างอัตราค่าบริการ"]:::otherLaws
+        PDPA["พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล 2562"]:::otherLaws
+        PAY["พ.ร.บ.ระบบการชำระเงิน 2560<br/>/ กฎหมายคุ้มครองผู้บริโภค"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        PLAT["แพลตฟอร์มเรียกรถ / ส่งอาหาร (ทุกราย)"]:::techSide
+        ALGO["ระบบอัลกอริทึม จัดอันดับ–จับคู่งาน"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้งานทั่วไป"]
+        RIDER["ไรเดอร์ / คนขับ"]:::citizenSide
+        SHOP["ร้านค้า / ร้านอาหาร"]:::citizenSide
+        CONS["ผู้บริโภค"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        REG["คณะกรรมการการแข่งขันทางการค้า (กขค.)<br/>/ หน่วยงานของรัฐที่เกี่ยวข้อง"]:::regulatorSide
+    end
+
+    CenterLaw -->|"1. ออกตาม ม. 17 (3) · ฝ่าฝืนเสี่ยงผิด ม. 50/57"| TCA
+    CenterLaw -->|"2. ขึ้นค่าบริการต้องอยู่ภายใต้ประกาศนี้ (ข้อ 13)"| FEE
+    CenterLaw -->|"3. รักษาความลับ + Data Portability"| PDPA
+    CenterLaw -->|"4. ห้ามพ่วง E-Wallet · ห้าม Dark patterns"| PAY
+    CenterLaw ==>|"5. สุจริต โปร่งใส ไม่เลือกปฏิบัติ"| PLAT
+    CenterLaw ==>|"6. เปิดเผยหลักการ ห้าม Dispatch bias"| ALGO
+    PLAT -->|"7. แสดงปลายทาง ระยะทาง รายได้สุทธิก่อนรับงาน"| RIDER
+    PLAT -->|"8. ไม่บังคับโฆษณาพ่วง/โปรโมชัน/Exclusive"| SHOP
+    PLAT -->|"9. ไม่ Pre-check · ไม่ซ่อนค่าธรรมเนียม · ติดป้าย Sponsored"| CONS
+    RIDER -->|"10. ใช้หลายแอปได้ + ขอพกพาข้อมูล"| PLAT
+    SHOP -.->|"11. ร้องเรียนการลดอันดับ/ปิดบัญชีโดยมิชอบ"| REG
+    REG -.->|"12. พิจารณาความผิดตาม พ.ร.บ.แข่งขัน"| PLAT

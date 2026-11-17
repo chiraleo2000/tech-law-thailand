@@ -1,0 +1,39 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:13px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:11px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:11px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:11px;
+
+    CenterLaw["📜 (ร่าง) ประกาศ กขค.<br/>โครงสร้างค่าบริการ + การจัดส่งสินค้า<br/>แพลตฟอร์ม E-commerce<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        TCA["พ.ร.บ.การแข่งขันทางการค้า 2560<br/>(ม. 50 / 57 / 60)"]:::otherLaws
+        OLD["ประกาศ กขค. แนวทาง E-Commerce<br/>(ราชกิจจาฯ 24 มี.ค. 2569)"]:::otherLaws
+        DPS["พ.ร.ฎ.แพลตฟอร์มดิจิทัล 2565 (ETDA)<br/>+ ธพด. 2/2569, 3/2569"]:::otherLaws
+        PDPA["พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล 2562"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        PLAT["แพลตฟอร์ม E-Marketplace<br/>(อำนาจตลาด/เหนือตลาด)"]:::techSide
+        CARRIER["ผู้ขนส่งรายอื่น / ขนส่งในเครือ"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้งานทั่วไป"]
+        SELLER["ร้านค้าออนไลน์ (ผู้ใช้บริการ)"]:::citizenSide
+        BUYER["ผู้ซื้อ / ผู้บริโภค"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        REG["คณะกรรมการการแข่งขันทางการค้า (กขค.)<br/>/ Trustee ติดตามคำสั่ง"]:::regulatorSide
+    end
+
+    CenterLaw -->|"1. อาศัยอำนาจ ม. 17 + ฐานความผิด ม. 50/57"| TCA
+    CenterLaw -->|"2. ต่อยอดพฤติกรรมต้องห้ามเป็นหน้าที่ล่วงหน้า"| OLD
+    CenterLaw -->|"3. ซ้อนหน้าที่เปิดเผยค่าธรรมเนียม"| DPS
+    CenterLaw -->|"4. Ring-fencing ข้อมูลลูกค้า/การจัดส่ง"| PDPA
+    CenterLaw ==>|"5. แจ้ง 90 วัน / ขออนุญาต 180 วัน + เลือกขนส่งเสรี"| PLAT
+    CenterLaw ==>|"6. เชื่อมต่อ API อย่างไม่เลือกปฏิบัติ"| CARRIER
+    PLAT -->|"7. แจกแจงค่าบริการ + แจ้งล่วงหน้าก่อนขึ้น"| SELLER
+    PLAT -->|"8. แสดงตัวเลือกขนส่งเป็นกลาง ไม่มี Default"| BUYER
+    SELLER -->|"9. เลือกใช้ขนส่งของตนเอง/หลายเจ้าโดยไม่เสียสิทธิ"| PLAT
+    CARRIER -.->|"10. ร้องเรียนการกีดกัน (คุ้มครองจากการตอบโต้)"| REG
+    PLAT -.->|"11. รายงาน 6 เดือน + เปิดให้ตรวจอัลกอริทึม"| REG
+    REG -.->|"12. คำสั่ง ม. 60 / Interim measures / Trustee"| PLAT
