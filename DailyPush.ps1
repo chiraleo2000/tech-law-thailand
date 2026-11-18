@@ -1,8 +1,9 @@
-# DailyPush.ps1 - Tech-Law Thailand scheduled push (12:30 PM)
+﻿# DailyPush.ps1 - Tech-Law Thailand scheduled push (14:30 / 2:30 PM)
 # 1) CHECK data/{today}/content.json or Documents/รอบวันที่_{today}/
 # 2) If missing, WAIT briefly for Claude noon pipeline, then continue
-# 3) PUSH via PUSH.bat when there is today content or staged site changes
-# 4) If no new law today and nothing to push → PASS SKIP (exit 0)
+# 3) PUSH via PUSH.bat: newest/changed files only (never re-push old unchanged data/)
+# 4) After push, PUSH.bat locally prunes news older than 180 days (cloud/GitHub untouched)
+# 5) If no new law today and nothing to push → PASS SKIP (exit 0)
 param(
     [switch]$Retry
 )
@@ -22,13 +23,38 @@ $DataContent = Join-Path $Repo ("data\{0}\content.json" -f $Today)
 $DocRoundDir = Join-Path $Repo ("Documents\รอบวันที่_{0}" -f $Today)
 $StatusLog = Join-Path $Repo "_บันทึกสถานะการตรวจสอบ.txt"
 $PushBat = Join-Path $Repo "PUSH.bat"
+$PushLog = Join-Path $LogDir ("tech-law-push-{0}.log" -f $Today)
 $WaitAttempts = if ($Retry) { 40 } else { 20 }
 $WaitSeconds = 30
+$script:ExitCode = 0
+$script:PushMutex = $null
+$script:PushMutexHeld = $false
 
 function Write-Log([string]$Message) {
     $line = "{0} {1}" -f (Get-Date -Format "yyyy-MM-dd HH:mm:ss"), $Message
     Write-Host $line
     Add-Content -LiteralPath $Log -Value $line -Encoding UTF8
+}
+
+function Get-PushBatExitCode {
+    param($Process)
+    if ($null -ne $Process -and $null -ne $Process.ExitCode) {
+        return [int]$Process.ExitCode
+    }
+    if (Test-Path -LiteralPath $PushLog) {
+        $tail = Get-Content -LiteralPath $PushLog -Tail 40 -ErrorAction SilentlyContinue
+        if ($tail -match 'RESULT=PASS') { return 0 }
+        if ($tail -match 'RESULT=FAIL') { return 1 }
+    }
+    return 1
+}
+
+function Release-PushMutex {
+    if ($script:PushMutexHeld -and $script:PushMutex) {
+        try { [void]$script:PushMutex.ReleaseMutex() } catch { }
+        try { $script:PushMutex.Dispose() } catch { }
+        $script:PushMutexHeld = $false
+    }
 }
 
 function Test-TodayContent {
@@ -39,6 +65,22 @@ function Test-HasUnpushedSiteChanges {
     Set-Location -LiteralPath $Repo
     $status = git status --porcelain -- "data/" "Documents/" "index.html" "js/" "assets/" ".nojekyll" 2>$null
     return -not [string]::IsNullOrWhiteSpace($status)
+}
+
+function Invoke-OneDriveDailyNewsSync {
+    param([string]$Day)
+    $candidates = @(
+        'C:\Scripts\Sync-DailyNewsToOneDrive.ps1'
+        (Join-Path $env:USERPROFILE 'Documents\Powershell-Scheduler\Sync-DailyNewsToOneDrive.ps1')
+    )
+    $scriptPath = $candidates | Where-Object { Test-Path -LiteralPath $_ } | Select-Object -First 1
+    if (-not $scriptPath) {
+        Write-Log 'WARN: Sync-DailyNewsToOneDrive.ps1 missing - skip OneDrive PDF sync'
+        return
+    }
+    Write-Log ("[OneDrive] Sync data\{0}\pdfs\* -> Daily-News\tech-law-thailand\{0}\" -f $Day)
+    & powershell.exe -NoProfile -ExecutionPolicy Bypass -File $scriptPath -Category 'tech-law-thailand' -Date $Day 2>&1 |
+        ForEach-Object { Write-Log ("  onedrive: {0}" -f $_) }
 }
 
 # Task Scheduler PATH / proxy hygiene
@@ -55,6 +97,18 @@ $env:all_proxy = ""
 $env:NO_PROXY = "*"
 $env:no_proxy = "*"
 
+$script:PushMutex = New-Object System.Threading.Mutex($false, 'Global\TechLawDailyPush')
+try {
+    $script:PushMutexHeld = $script:PushMutex.WaitOne(0)
+} catch [System.Threading.AbandonedMutexException] {
+    $script:PushMutexHeld = $true
+}
+if (-not $script:PushMutexHeld) {
+    Write-Log 'Another Tech-Law DailyPush is already running. RESULT=SKIP'
+    exit 0
+}
+
+try {
 Write-Log ("=== Tech-Law DailyPush.ps1 START (Retry={0}) ===" -f [bool]$Retry)
 Write-Log ("Repo={0} Today={1}" -f $Repo, $Today)
 
@@ -82,8 +136,8 @@ if (-not $hasToday -and -not $hasDirty) {
         if ($hasToday -or $hasDirty) { break }
         if (Test-Path -LiteralPath $StatusLog) {
             $tail = Get-Content -LiteralPath $StatusLog -Tail 3 -ErrorAction SilentlyContinue
-            if ($tail -match $Today -and $tail -match "ไม่พบกฎหมาย") {
-                Write-Log "  status log says no new IT law today — skip push"
+            if ($tail -match $Today -and (($tail -join "`n") -match ([char]0x0E44 + [char]0x0E21 + [char]0x0E48 + [char]0x0E1E + [char]0x0E1A + [char]0x0E01 + [char]0x0E0E + [char]0x0E2B + [char]0x0E21 + [char]0x0E32 + [char]0x0E22))) {
+                Write-Log "  status log says no new IT law today - skip push"
                 Write-Log "RESULT=SKIP"
                 Write-Log "=== Tech-Law DailyPush.ps1 END ==="
                 exit 0
@@ -96,7 +150,7 @@ $hasToday = Test-TodayContent
 $hasDirty = Test-HasUnpushedSiteChanges
 
 if (-not $hasToday -and -not $hasDirty) {
-    Write-Log "No today content and no unpushed site changes — nothing to publish"
+    Write-Log "No today content and no unpushed site changes - nothing to publish"
     Write-Log "RESULT=SKIP"
     Write-Log "=== Tech-Law DailyPush.ps1 END ==="
     exit 0
@@ -119,7 +173,7 @@ if ($hasToday) {
                 exit 1
             }
         } else {
-            Write-Log ("  Documents round folder present without data/{0}/content.json yet — PUSH.bat will ingest if possible" -f $Today)
+            Write-Log ("  Documents round folder present without data/{0}/content.json yet - PUSH.bat will ingest if possible" -f $Today)
         }
     } catch {
         Write-Log ("ERROR: cannot parse content.json: {0}" -f $_)
@@ -130,11 +184,12 @@ if ($hasToday) {
 
 Write-Log "[3/4] PUSH via PUSH.bat"
 $p = Start-Process -FilePath "cmd.exe" -ArgumentList @("/c", "`"$PushBat`"") -WorkingDirectory $Repo -Wait -PassThru -NoNewWindow
-Write-Log ("  PUSH.bat exit={0}" -f $p.ExitCode)
-if ($p.ExitCode -ne 0) {
+$pushExit = Get-PushBatExitCode -Process $p
+Write-Log ("  PUSH.bat exit={0}" -f $pushExit)
+if ($pushExit -ne 0) {
     Write-Log "ERROR: PUSH.bat failed"
     Write-Log "RESULT=FAIL"
-    exit $p.ExitCode
+    exit $pushExit
 }
 
 Write-Log "[4/4] VERIFY git ahead=0"
@@ -151,7 +206,12 @@ if ($ahead -ne 0) {
     exit 1
 }
 
+Invoke-OneDriveDailyNewsSync -Day $Today
 Write-Log "RESULT=PASS"
 Write-Log "SUCCESS https://chiraleo2000.github.io/tech-law-thailand/"
 Write-Log "=== Tech-Law DailyPush.ps1 END ==="
-exit 0
+$script:ExitCode = 0
+} finally {
+    Release-PushMutex
+}
+exit $script:ExitCode

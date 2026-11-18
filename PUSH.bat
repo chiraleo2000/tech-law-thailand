@@ -2,7 +2,9 @@
 setlocal EnableExtensions EnableDelayedExpansion
 cd /d "%~dp0"
 
-REM === Daily Tech-Law Pages push (scheduled 12:30 PM) ===
+REM === Daily Tech-Law Pages push (scheduled 14:30 / 2:30 PM) ===
+REM Stages newest/changed only via stage-newest-for-push.py (never deletions).
+REM After successful push: prune-local-old-news.py --days 180 (local only; cloud untouched).
 REM Task Scheduler often has a thin PATH / inherited proxy — fix that first.
 set "PATH=C:\Program Files\Git\cmd;C:\Program Files\Git\bin;%LOCALAPPDATA%\Python\bin;%LOCALAPPDATA%\Programs\Python\Python312;%LOCALAPPDATA%\Programs\Python\Python311;%LOCALAPPDATA%\Programs\Python\Python310;%PATH%"
 set "HTTP_PROXY="
@@ -74,6 +76,18 @@ if exist "!CONTENT!" (
   python "%HELPER%" --manifest "%MANIFEST%" --content "!CONTENT!"
   if errorlevel 1 ( set "ERR=manifest update failed" & goto :fail )
   call :pscheck "MANIFEST" "updated for !TARGET!"
+  set "PDF_BUILDER=%~dp0build-tech-law-pdfs.py"
+  if exist "%PDF_BUILDER%" (
+    call :log "Building PDFs for !TARGET! into data/!TARGET!/"
+    python "%PDF_BUILDER%" --date "!TARGET!"
+    if errorlevel 1 (
+      call :log "WARN: build-tech-law-pdfs.py failed - continuing push without blocking"
+    ) else (
+      call :pscheck "PDF" "data/!TARGET! pdfs ready"
+    )
+  ) else (
+    call :log "WARN: build-tech-law-pdfs.py missing - skip PDF"
+  )
 ) else (
   call :log "No today content.json — will push only if other site files changed"
 )
@@ -94,13 +108,31 @@ if exist ".github-pat" (
 )
 
 echo.
-echo [2/7] git add site paths
-git add -- "data/" "Documents/" "index.html" "js/" "assets/" ".nojekyll" "_ประวัติกฎหมายที่ประมวลผลแล้ว.json" "_บันทึกสถานะการตรวจสอบ.txt" 2>nul
-REM never stage secrets / schedule helpers accidentally as "news cleanup"
-git reset HEAD -- ".github-pat" "Logs/" 2>nul
-call :log "Staged files:"
-for /f "delims=" %%F in ('git diff --cached --name-only') do call :log "  %%F"
-call :pscheck "ADD" "Staged site paths"
+echo [2/7] git add NEWEST / changed only (never whole data/ tree, never deletions)
+set "STAGER=%~dp0stage-newest-for-push.py"
+if not exist "%STAGER%" ( set "ERR=missing stage-newest-for-push.py" & goto :fail )
+python "%STAGER%"
+if errorlevel 1 ( set "ERR=stage-newest-for-push.py refused staging (likely deletions)" & goto :fail )
+REM never stage secrets / helpers / prune tooling even if somehow listed
+git reset HEAD -- ".github-pat" "Logs/" "prune-local-old-news.py" "stage-newest-for-push.py" "build-tech-law-pdfs.py" "DailyPush.ps1" "Register-DailyPushSchedule.ps1" "PUSH.bat" "_to_delete/" 2>nul
+call :log "Staged files (newest/changed only):"
+set "STAGED_COUNT=0"
+set "DEL_COUNT=0"
+for /f "delims=" %%F in ('git diff --cached --name-only') do (
+  call :log "  %%F"
+  set /a STAGED_COUNT+=1
+)
+for /f "delims=" %%F in ('git diff --cached --diff-filter=D --name-only 2^>nul') do (
+  call :log "BLOCKED staged delete: %%F"
+  set /a DEL_COUNT+=1
+)
+if not "!DEL_COUNT!"=="0" (
+  git reset HEAD -- . >nul 2>&1
+  set "ERR=refusing commit: !DEL_COUNT! deletion(s) staged — local cleanup must never push deletes"
+  goto :fail
+)
+call :log "Staged count=!STAGED_COUNT!"
+call :pscheck "ADD" "Staged newest/changed only"
 
 echo.
 echo [3/7] git commit
@@ -163,7 +195,20 @@ call :log "AHEAD=!AHEAD!"
 if not "!AHEAD!"=="0" ( set "ERR=still ahead by !AHEAD! commit(s) - PUSH FAIL" & goto :fail )
 
 echo.
-echo [7/7] Done
+echo [7/7] LOCAL prune news older than 180 days (cloud untouched)
+set "PRUNER=%~dp0prune-local-old-news.py"
+if exist "%PRUNER%" (
+  python "%PRUNER%" --days 180
+  if errorlevel 1 (
+    call :log "WARN: local prune failed - push already OK, continuing"
+  ) else (
+    call :log "Local prune done - GitHub keeps full history"
+  )
+) else (
+  call :log "WARN: prune-local-old-news.py missing - skipped"
+)
+call :pscheck "PRUNE" "Local >180d removed; cloud unchanged"
+
 for /f %%H in ('git rev-parse --short HEAD') do set "HEADSHORT=%%H"
 call :log "HEAD=!HEADSHORT!"
 call :log "RESULT=PASS"
