@@ -1,0 +1,38 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:22px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:19px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:19px;
+    classDef citizenSide fill:#F8F9FA,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:19px;
+    classDef regulatorSide fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:19px;
+
+    CenterLaw["📜 (ร่าง) หลักการ Knowledge Test<br/>อนรด. 81/2569"]:::centerLaw
+    subgraph GROUP_LAWS ["📚 กฎหมายที่เชื่อมโยง"]
+        L1["พ.ร.ก.สินทรัพย์ดิจิทัล 2561"]:::otherLaws
+        L2["ประกาศ กจ. 16/2561"]:::otherLaws
+        L3["PDPA 2562"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบ"]
+        T1["ICO portal"]:::techSide
+        T2["ผู้ออกโทเคนดิจิทัล"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้"]
+        U1["ผู้ลงทุนรายย่อย"]:::citizenSide
+        U2["ผู้ลงทุนที่ได้รับผลกระทบ"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        R1["สำนักงาน ก.ล.ต. / สมาคม TDO"]:::regulatorSide
+    end
+
+    CenterLaw -->|"1. อยู่ภายใต้กรอบการกำกับโทเคน"| L1
+    CenterLaw -->|"2. ขยายรายละเอียดหน้าที่ตามข้อ 23"| L2
+    CenterLaw -->|"3. คุ้มครองข้อมูลผู้ทำแบบทดสอบ"| L3
+    CenterLaw ==>|"4. กำหนดเนื้อหาขั้นต่ำ 6 หัวข้อ"| T1
+    CenterLaw ==>|"5. ต้องให้ข้อมูลโครงการครบถ้วน"| T2
+    T1 -->|"6. จัดแบบทดสอบก่อนจองซื้อ"| U1
+    T1 -->|"7. แจ้งความเสี่ยงและข้อจำกัด"| U2
+    U1 -->|"8. ทำแบบทดสอบและศึกษาข้อมูล"| T1
+    U2 -->|"9. ร้องเรียนเมื่อข้อมูลไม่ถูกต้อง"| T1
+    T1 -.->|"10. ส่งแบบทดสอบและรายงานตามเกณฑ์"| R1
+    R1 -.->|"11. กำหนดแนวทางมาตรฐาน"| T1
+    U2 -.->|"12. แจ้งปัญหาต่อหน่วยกำกับ"| R1

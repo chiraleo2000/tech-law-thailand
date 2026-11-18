@@ -1,0 +1,37 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:26px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:23px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:22px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:22px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:22px,font-weight:bold;
+
+    subgraph HEADER ["📢 สรุปกฎหมายไอทีฉบับใหม่ (ร่าง)"]
+        TitleNode["📜 (ร่าง) ประกาศ ก.ล.ต. คำแนะนำลงทุนผ่านสื่อ<br/>อนป. 77/2569 · รับฟังถึง 6 ธ.ค. 2569<br/>ยังไม่มีผล"]:::headerClass
+    end
+    subgraph CORE ["💡 สาระสำคัญที่ต้องรู้"]
+        CoreEssence["ขยายเกณฑ์ถึงสื่อสังคมออนไลน์<br/>ข้อยกเว้นใช้เฉพาะผู้เผยแพร่ข่าวสารโดยสุจริต"]:::essenceClass
+    end
+    subgraph COMPARISON ["⚖️ เปรียบเทียบจุดเปลี่ยนสำคัญ (เดิม vs ใหม่)"]
+        OldRule["🏛️ เกณฑ์ปัจจุบัน<br/>• วิทยุ ทีวี หนังสือพิมพ์ สิ่งพิมพ์<br/>• ไม่จำกัดผู้เผยแพร่ชัดเจน"]:::oldLawClass
+        NewRule["🚀 ร่างใหม่<br/>• รวมโซเชียลและทุกช่องทาง<br/>• มีกลไกรับผิดชอบเนื้อหา<br/>• รายได้ไม่อิงการตัดสินใจลงทุน"]:::newLawClass
+    end
+    subgraph STAKEHOLDERS ["👥 ผู้เกี่ยวข้องและหน้าที่"]
+        TechCompany["🏢 สื่อออนไลน์ / แพลตฟอร์มคอนเทนต์ / finfluencer"]:::techSide
+        EndUser["👤 ผู้ลงทุน / ผู้ติดตามออนไลน์"]:::userSide
+    end
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["⚠️ หากเข้าข่ายที่ปรึกษาการลงทุนโดยไม่ได้รับอนุญาต<br/>อาจมีโทษตาม ม.289 พ.ร.บ.หลักทรัพย์ฯ / ม.125 พ.ร.บ.สัญญาซื้อขายล่วงหน้า<br/>แหล่งอ้างอิง: sec.or.th"]:::penaltyClass
+    end
+
+    TitleNode -->|"ก.ล.ต. เปิดรับฟังร่าง 2 ฉบับ"| CoreEssence
+    CoreEssence -->|"แก้ไข กธ. 1/2560 และ กธ. 2/2560"| OldRule
+    CoreEssence -->|"กำหนดเงื่อนไขข้อยกเว้นใหม่"| NewRule
+    NewRule -->|"1. จัดระบบกำกับเนื้อหา"| TechCompany
+    NewRule -->|"2. ได้รับความคุ้มครองเพิ่มขึ้น"| EndUser
+    TechCompany -->|"3. เผยแพร่ข่าวสารทั่วไปอย่างรับผิดชอบ"| EndUser
+    EndUser -->|"4. ตรวจสอบผู้ให้คำแนะนำ"| TechCompany
+    TechCompany -.->|"หากไม่เข้าข้อยกเว้น"| PenaltyNode
+    OldRule -.->|"คงบทกำหนดโทษตาม พ.ร.บ. เดิม"| PenaltyNode

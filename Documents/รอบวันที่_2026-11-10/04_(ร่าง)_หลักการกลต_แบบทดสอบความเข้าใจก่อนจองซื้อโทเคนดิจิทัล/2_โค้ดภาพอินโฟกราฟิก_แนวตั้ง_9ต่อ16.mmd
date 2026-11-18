@@ -1,0 +1,37 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:26px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:23px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:22px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:22px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:22px,font-weight:bold;
+
+    subgraph HEADER ["📢 สรุปกฎหมายไอทีฉบับใหม่ (ร่าง)"]
+        TitleNode["📜 (ร่าง) หลักการ ก.ล.ต. Knowledge Test<br/>ก่อนจองซื้อโทเคนดิจิทัล · อนรด. 81/2569<br/>รับฟังถึง 25 พ.ย. 2569 · ยังไม่มีผล"]:::headerClass
+    end
+    subgraph CORE ["💡 สาระสำคัญที่ต้องรู้"]
+        CoreEssence["ICO portal ต้องมีแบบทดสอบตามกรอบขั้นต่ำ 6 หัวข้อ<br/>เพื่อให้ผู้ลงทุนเข้าใจสิทธิ เทคโนโลยี และความเสี่ยง"]:::essenceClass
+    end
+    subgraph COMPARISON ["⚖️ เปรียบเทียบจุดเปลี่ยนสำคัญ (เดิม vs ใหม่)"]
+        OldRule["🏛️ เกณฑ์ปัจจุบัน<br/>• มีหน้าที่จัดแบบทดสอบ<br/>• ยังไม่มีกรอบเนื้อหากลาง"]:::oldLawClass
+        NewRule["🚀 หลักการใหม่<br/>• โทเคน · บล็อกเชน · Wallet<br/>• ข้อมูลโครงการ · ความเสี่ยง<br/>• ตลาดแรกและตลาดรอง"]:::newLawClass
+    end
+    subgraph STAKEHOLDERS ["👥 ผู้เกี่ยวข้องและหน้าที่"]
+        TechCompany["🏢 ICO portal / ผู้พัฒนาระบบเสนอขายโทเคน"]:::techSide
+        EndUser["👤 ผู้ลงทุนโทเคนดิจิทัล"]:::userSide
+    end
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["⚠️ ไม่มีโทษอาญาเพิ่มเติมในหลักการนี้<br/>มีผลภายใน 30 วันหลังลงราชกิจจานุเบกษา<br/>แหล่งอ้างอิง: sec.or.th"]:::penaltyClass
+    end
+
+    TitleNode -->|"ก.ล.ต. เปิดรับฟังหลักการ"| CoreEssence
+    CoreEssence -->|"ต่อยอดข้อ 23 ประกาศ กจ. 16/2561"| OldRule
+    CoreEssence -->|"กำหนดกรอบเนื้อหาขั้นต่ำ"| NewRule
+    NewRule -->|"1. ปรับคลังคำถามและระบบ"| TechCompany
+    NewRule -->|"2. ทำแบบทดสอบก่อนจองซื้อ"| EndUser
+    TechCompany -->|"3. ให้ข้อมูลความเสี่ยงชัดเจน"| EndUser
+    EndUser -->|"4. ส่งความเห็นถึง 25 พ.ย."| TechCompany
+    TechCompany -.->|"ต้องปฏิบัติตามเมื่อเกณฑ์มีผล"| PenaltyNode
+    OldRule -.->|"คงกรอบกฎหมายเดิม"| PenaltyNode

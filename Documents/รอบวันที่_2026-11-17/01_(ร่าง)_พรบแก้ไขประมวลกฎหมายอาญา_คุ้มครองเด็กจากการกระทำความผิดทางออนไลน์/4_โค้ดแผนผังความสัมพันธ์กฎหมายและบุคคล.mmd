@@ -1,0 +1,38 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:22px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:19px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:19px;
+    classDef citizenSide fill:#F8F9FA,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:19px;
+    classDef regulatorSide fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:19px;
+
+    CenterLaw["📜 (ร่าง) แก้ไขประมวลกฎหมายอาญา<br/>คุ้มครองเด็กจากความผิดทางออนไลน์"]:::centerLaw
+    subgraph GROUP_LAWS ["📚 กฎหมายที่เชื่อมโยง"]
+        L1["พ.ร.บ.คอมพิวเตอร์ 2550"]:::otherLaws
+        L2["พ.ร.ฎ.แพลตฟอร์มดิจิทัล 2565"]:::otherLaws
+        L3["PDPA 2562"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบ"]
+        T1["แพลตฟอร์มโซเชียลและแชต"]:::techSide
+        T2["ผู้ให้บริการเกมและชุมชนออนไลน์"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้"]
+        U1["เด็กและเยาวชน"]:::citizenSide
+        U2["ผู้เสียหายและผู้ปกครอง"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        R1["กระทรวงยุติธรรม / ตำรวจ / พนักงานอัยการ"]:::regulatorSide
+    end
+
+    CenterLaw -->|"1. ใช้พยานหลักฐานดิจิทัลร่วมกัน"| L1
+    CenterLaw -->|"2. เชื่อมกลไกดูแลผู้ใช้บนแพลตฟอร์ม"| L2
+    CenterLaw -->|"3. คุ้มครองข้อมูลเด็กและหลักฐาน"| L3
+    CenterLaw ==>|"4. เพิ่มความเสี่ยงหากสนับสนุนการกระทำผิด"| T1
+    CenterLaw ==>|"5. ทบทวนความปลอดภัยผู้เยาว์"| T2
+    T1 -->|"6. จัดเครื่องมือแจ้งเหตุและปิดกั้น"| U1
+    T1 -->|"7. ช่วยเหลือและส่งต่อผู้เสียหาย"| U2
+    U1 -->|"8. รายงานพฤติกรรมเสี่ยง"| T1
+    U2 -->|"9. ขอให้เก็บรักษาหลักฐาน"| T1
+    T1 -.->|"10. ตอบคำขอตามกฎหมาย"| R1
+    R1 -.->|"11. สอบสวนและดำเนินคดี"| T1
+    U2 -.->|"12. ร้องทุกข์ต่อเจ้าหน้าที่"| R1

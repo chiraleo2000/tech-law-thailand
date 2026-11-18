@@ -1,0 +1,38 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:22px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:19px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:19px;
+    classDef citizenSide fill:#F8F9FA,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:19px;
+    classDef regulatorSide fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:19px;
+
+    CenterLaw["📜 (ร่าง) พ.ร.บ.ธุรกรรมทางอิเล็กทรอนิกส์<br/>สภารับหลักการ 4 พ.ย. 2569"]:::centerLaw
+    subgraph GROUP_LAWS ["📚 กฎหมายที่เชื่อมโยง"]
+        L1["พ.ร.ฎ.แพลตฟอร์มดิจิทัล 2565"]:::otherLaws
+        L2["PDPA 2562"]:::otherLaws
+        L3["พ.ร.บ.ไซเบอร์ 2562 / คอมพิวเตอร์"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบ"]
+        T1["ผู้ให้บริการธุรกรรมอิเล็กทรอนิกส์ 7 ประเภท"]:::techSide
+        T2["ผู้พัฒนาระบบอัตโนมัติ / AI Agent"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้"]
+        U1["ผู้ใช้บริการ"]:::citizenSide
+        U2["คู่กรณีที่ได้รับความเสียหาย"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        R1["สพธอ. / คณะกรรมาธิการวิสามัญ"]:::regulatorSide
+    end
+
+    CenterLaw -->|"1. ยังใช้บังคับจนมีกฎหมายแพลตฟอร์มใหม่"| L1
+    CenterLaw -->|"2. คุ้มครองข้อมูลในบริการ"| L2
+    CenterLaw -->|"3. ใช้มาตรการไซเบอร์และหลักฐาน"| L3
+    CenterLaw ==>|"4. กำหนดหน้าที่และความรับผิด"| T1
+    CenterLaw ==>|"5. รับรองผลสัญญาอัตโนมัติ"| T2
+    T1 -->|"6. ให้บริการด้วยวิธีที่เชื่อถือได้"| U1
+    T1 -->|"7. ชดใช้เมื่อไม่ทำตามหน้าที่"| U2
+    U1 -->|"8. ใช้บริการตามวัตถุประสงค์"| T1
+    U2 -->|"9. ร้องเรียนและเรียกร้องสิทธิ"| T1
+    T1 -.->|"10. ขอการรับรองตามมาตรฐาน"| R1
+    R1 -.->|"11. ประกาศมาตรฐานและรายชื่อผู้ได้รับรอง"| T1
+    U2 -.->|"12. แปรญัตติถึง 19 พ.ย. 2569"| R1

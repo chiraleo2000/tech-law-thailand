@@ -1,0 +1,37 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:26px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:23px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:22px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:22px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:22px,font-weight:bold;
+
+    subgraph HEADER ["📢 สรุปกฎหมายไอทีฉบับใหม่ (ร่าง)"]
+        TitleNode["📜 (ร่าง) พ.ร.บ.ธุรกรรมทางอิเล็กทรอนิกส์ พ.ศ. ....<br/>สภารับหลักการ 4 พ.ย. 2569 · 459 เสียง<br/>แปรญัตติถึง 19 พ.ย. 2569 · ยังไม่มีผล"]:::headerClass
+    end
+    subgraph CORE ["💡 สาระสำคัญที่ต้องรู้"]
+        CoreEssence["ยกเครื่องกฎหมายปี 2544 ทั้งฉบับ<br/>ให้ธุรกรรมออนไลน์เป็นช่องทางหลัก และกำกับบริการตามความเสี่ยง"]:::essenceClass
+    end
+    subgraph COMPARISON ["⚖️ เปรียบเทียบจุดเปลี่ยนสำคัญ (เดิม vs ใหม่)"]
+        OldRule["🏛️ กฎหมายปัจจุบัน<br/>• ขออนุญาต จดทะเบียน จดแจ้ง<br/>• ไม่มีหมวดตราสารเปลี่ยนมือ<br/>• ไม่มีบทสัญญาอัตโนมัติ"]:::oldLawClass
+        NewRule["🚀 ร่างใหม่<br/>• บริการ 7 ประเภท + สพธอ. รับรอง<br/>• รองรับ Smart Contract และ AI<br/>• เช็ค ตั๋วเงินอิเล็กทรอนิกส์<br/>• ใช้บังคับเมื่อพ้น 180 วัน"]:::newLawClass
+    end
+    subgraph STAKEHOLDERS ["👥 ผู้เกี่ยวข้องและหน้าที่"]
+        TechCompany["🏢 ผู้ให้บริการ e-KYC ลายเซ็น เก็บข้อมูล โดเมน"]:::techSide
+        EndUser["👤 ประชาชน / ผู้ใช้บริการดิจิทัล"]:::userSide
+    end
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["⚠️ ไม่มีโทษอาญาในร่าง<br/>ผู้ให้บริการรับผิดทางแพ่งถ้าไม่ทำตามหน้าที่<br/>แหล่งอ้างอิง: lis.parliament.go.th"]:::penaltyClass
+    end
+
+    TitleNode -->|"สภาลงมติรับหลักการ"| CoreEssence
+    CoreEssence -->|"ปรับปรุงกฎหมายเดิมทั้งฉบับ"| OldRule
+    CoreEssence -->|"เปลี่ยนเป็นมาตรฐานและการรับรอง"| NewRule
+    NewRule -->|"1. มีระบบ ความเสี่ยง ไซเบอร์ เยียวยา"| TechCompany
+    NewRule -->|"2. ใช้ธุรกรรมออนไลน์ได้กว้างขึ้น"| EndUser
+    TechCompany -->|"3. แจ้งวัตถุประสงค์และข้อจำกัด"| EndUser
+    EndUser -->|"4. ร้องเรียนและเรียกค่าเสียหาย"| TechCompany
+    TechCompany -.->|"หากไม่ปฏิบัติตามหน้าที่"| PenaltyNode
+    OldRule -.->|"ยกเลิกระบบเดิมตามบทเฉพาะกาล"| PenaltyNode
