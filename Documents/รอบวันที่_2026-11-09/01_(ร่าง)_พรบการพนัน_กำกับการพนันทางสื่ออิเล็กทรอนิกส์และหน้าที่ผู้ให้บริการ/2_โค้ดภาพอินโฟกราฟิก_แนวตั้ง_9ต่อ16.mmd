@@ -1,0 +1,37 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:15px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:12px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:11px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:11px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:11px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:11px,font-weight:bold;
+
+    subgraph HEADER ["📢 สรุปกฎหมายไอทีฉบับใหม่ (ร่าง)"]
+        TitleNode["📜 (ร่าง) พ.ร.บ.การพนัน พ.ศ. ....<br/>รับฟังความเห็น 9 พ.ย. – 9 ธ.ค. 2569<br/>ยังไม่มีผลใช้บังคับ"]:::headerClass
+    end
+    subgraph CORE ["💡 สาระสำคัญที่ต้องรู้"]
+        CoreEssence["ยกเลิกกฎหมายพนัน 2478<br/>เพิ่มหมวดพนันทางสื่ออิเล็กทรอนิกส์<br/>และหน้าที่ผู้ให้บริการดิจิทัล"]:::essenceClass
+    end
+    subgraph COMPARISON ["⚖️ เปรียบเทียบจุดเปลี่ยนสำคัญ (เดิม vs ใหม่)"]
+        OldRule["🏛️ พ.ร.บ. 2478<br/>• ไม่มีบทพนันออนไลน์<br/>• บัญชี ก / ข ท้าย พ.ร.บ.<br/>• โทษปรับต่ำ"]:::oldLawClass
+        NewRule["🚀 ร่างใหม่<br/>• ปิดกั้นเว็บ/แอปภายใน 24 ชม.<br/>• รวมสินทรัพย์ดิจิทัล-e-Wallet<br/>• กฎกระทรวง 3 ระดับความเสี่ยง"]:::newLawClass
+    end
+    subgraph STAKEHOLDERS ["👥 ผู้เกี่ยวข้องและหน้าที่ตามกฎหมาย"]
+        TechCompany["🏢 ISP / แพลตฟอร์ม / ระบบชำระเงิน<br/>/ ธุรกิจสินทรัพย์ดิจิทัล"]:::techSide
+        EndUser["👤 ประชาชน / เยาวชนต่ำกว่า 20 ปี"]:::userSide
+    end
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["🚨 เจ้าของพนันออนไลน์: จำคุก 2–10 ปี ปรับสูงสุด 5 ล้าน หรือ 5 เท่ายอดหมุนเวียน<br/>ผู้ให้บริการไม่บล็อก: ปรับ ≤ 500,000 บาท + วันละ ≤ 20,000 บาท<br/>แหล่งอ้างอิง: law.go.th / กรมการปกครอง"]:::penaltyClass
+    end
+
+    TitleNode -->|เปิดรับฟังผ่านระบบกลางทางกฎหมาย| CoreEssence
+    CoreEssence -->|ยกเลิกทั้งฉบับพร้อมบัญชีท้าย| OldRule
+    CoreEssence -->|กำหนดกลไกกำกับดิจิทัลใหม่| NewRule
+    NewRule -->|1. ปิดกั้นตามคำสั่งศาล เก็บและส่งมอบข้อมูลจราจร| TechCompany
+    NewRule -->|2. คุ้มครองเยาวชน จำกัดวงเงิน Self-exclusion| EndUser
+    TechCompany -->|3. ระงับบริการบัญชีและกระเป๋าเงินที่ใช้รับเดิมพัน| EndUser
+    EndUser -->|4. แจ้งเบาะแสเว็บพนันและโฆษณาเถื่อน| TechCompany
+    TechCompany -.->|หากไม่ปิดกั้นตามคำสั่ง| PenaltyNode
+    OldRule -.->|แทนที่อัตราโทษเดิมที่ต่ำ| PenaltyNode

@@ -1,0 +1,41 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:13px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:11px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:11px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:11px;
+
+    CenterLaw["📜 (ร่าง) พ.ร.บ.การพนัน พ.ศ. ....<br/>หมวดการพนันทางสื่ออิเล็กทรอนิกส์<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        CompLaw["พ.ร.บ. คอมพิวเตอร์ฯ<br/>(พ.ศ. 2550 แก้ไข 2560)"]:::otherLaws
+        PDPA["พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล<br/>(PDPA พ.ศ. 2562)"]:::otherLaws
+        TechCrime["พ.ร.ก. อาชญากรรมทางเทคโนโลยี<br/>(พ.ศ. 2568 แก้ไข)"]:::otherLaws
+        AML["พ.ร.บ. ฟอกเงิน 2542 /<br/>พ.ร.ก. สินทรัพย์ดิจิทัล 2561"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        ISP["ผู้ให้บริการอินเทอร์เน็ต / เก็บข้อมูล"]:::techSide
+        Platform["แพลตฟอร์มดิจิทัล / โซเชียล / โฆษณา"]:::techSide
+        Pay["ระบบชำระเงิน / e-Wallet / Exchange"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้งานทั่วไป"]
+        User["ผู้เล่น / ผู้ใช้อินเทอร์เน็ต"]:::citizenSide
+        Youth["เด็กและเยาวชนต่ำกว่า 20 ปี"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        Board["คณะกรรมการนโยบายการพนันแห่งชาติ<br/>/ กรมการปกครอง / ศาล"]:::regulatorSide
+    end
+
+    CenterLaw -->|1. อ้างระยะเวลาเก็บข้อมูลจราจรและการปิดกั้น| CompLaw
+    CenterLaw -->|2. ต้องคุ้มครองข้อมูลผู้ใช้และทะเบียน Self-exclusion| PDPA
+    CenterLaw -->|3. เชื่อมการระงับบัญชีม้าและกระเป๋าเงิน| TechCrime
+    CenterLaw -->|4. ขอข้อมูลการเงินและริบสินทรัพย์ดิจิทัล| AML
+    CenterLaw ==>|5. ปิดกั้นภายใน 24 ชม. และส่งมอบข้อมูลตามคำสั่งศาล| ISP
+    CenterLaw ==>|6. ห้ามให้พื้นที่โฆษณาและระงับบัญชีตัวแทน| Platform
+    CenterLaw ==>|7. ห้ามรับโอนเดิมพัน ส่งข้อมูลทางการเงิน| Pay
+    Platform -->|8. คัดกรองโฆษณาและเนื้อหาชักชวน| User
+    Pay -->|9. ระงับธุรกรรมที่ใช้กระทำผิด| User
+    CenterLaw -->|10. ห้ามเล่นและห้ามขายอุปกรณ์ให้ผู้อายุต่ำกว่า 20 ปี| Youth
+    User -.->|11. คัดค้านคำสั่งปิดกั้นต่อศาล และแจ้งเบาะแส| Board
+    Board -.->|12. ยื่นศาลสั่งปิดกั้น / ออกคำสั่งเร่งด่วน 7 วัน| ISP
+    ISP -.->|13. รายงานการปฏิบัติตามคำสั่ง หากฝ่าฝืนถูกปรับรายวัน| Board
