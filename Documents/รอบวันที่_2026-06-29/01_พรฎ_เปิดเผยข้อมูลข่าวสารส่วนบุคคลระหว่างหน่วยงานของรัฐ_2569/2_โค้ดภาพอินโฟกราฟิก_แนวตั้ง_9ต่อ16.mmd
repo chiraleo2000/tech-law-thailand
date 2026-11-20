@@ -1,0 +1,41 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:22px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:18px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:17px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:17px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:17px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:17px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:17px,font-weight:bold;
+
+    subgraph HEADER ["📢 สรุปกฎหมายไอทีฉบับใหม่"]
+        TitleNode["📜 พ.ร.ฎ. เปิดเผยข้อมูลข่าวสารส่วนบุคคล<br/>ระหว่างหน่วยงานของรัฐ พ.ศ. 2569<br/>ราชกิจจาฯ เล่ม 143 ตอนที่ 37 ก (29 มิ.ย. 69)<br/>บังคับใช้: 30 มิถุนายน 2569"]:::headerClass
+    end
+
+    subgraph CORE ["💡 สาระสำคัญที่ต้องรู้"]
+        CoreEssence["หน่วยงานรัฐมีหน้าที่เปิดเผยข้อมูลส่วนบุคคล<br/>ให้หน่วยงานรัฐอื่นตามคำขอ เพื่อเชื่อมโยงข้อมูล<br/>ให้บริการภาครัฐทางอิเล็กทรอนิกส์ (ม.3)"]:::essenceClass
+    end
+
+    subgraph COMPARISON ["⚖️ เปรียบเทียบจุดเปลี่ยนสำคัญ (เดิม vs ใหม่)"]
+        OldRule["🏛️ เดิม: พ.ร.บ.ข้อมูลข่าวสารฯ ม.24<br/>• ต้องได้ความยินยอมเป็นหนังสือ<br/>• หรือเข้าข้อยกเว้นรายกรณี<br/>• หน่วยงานปฏิเสธการแบ่งปันได้"]:::oldLawClass
+        NewRule["🚀 ใหม่: ข้อยกเว้นตาม ม.24 (9)<br/>• ไม่ต้องขอความยินยอม<br/>• ผู้ถือข้อมูล 'มีหน้าที่' เปิดเผย<br/>• ผู้รับห้ามส่งต่อบุคคลภายนอก<br/>• ต้องรักษาตามมาตรฐานไซเบอร์"]:::newLawClass
+    end
+
+    subgraph STAKEHOLDERS ["👥 ผู้เกี่ยวข้องและหน้าที่ตามกฎหมาย"]
+        TechCompany["🏢 หน่วยงานรัฐ + ผู้พัฒนาระบบ/คลาวด์ภาครัฐ"]:::techSide
+        EndUser["👤 ประชาชน / เจ้าของข้อมูล"]:::userSide
+    end
+
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["🚨 พ.ร.ฎ. ไม่มีโทษในตัว แต่การรั่วไหล/ส่งต่อโดยมิชอบ<br/>ยังมีความรับผิดตาม PDPA วินัย และละเมิดของรัฐ<br/>แหล่งอ้างอิง: ราชกิจจานุเบกษา 114551.pdf"]:::penaltyClass
+    end
+
+    TitleNode -->|ประกาศใช้อย่างเป็นทางการ ม.1–2| CoreEssence
+    CoreEssence -->|เปิดข้อยกเว้นใหม่ตาม ม.24 อนุ 9 โดยไม่แก้ตัว พ.ร.บ.| OldRule
+    CoreEssence -->|กำหนดหน้าที่เปิดเผยและหน้าที่รักษาข้อมูล| NewRule
+    NewRule -->|1. ต้องสร้าง API เชื่อมโยงที่ปลอดภัยและเก็บ log| TechCompany
+    NewRule -->|2. ได้บริการแบบมุ่งเป้า ไม่ต้องยื่นเอกสารซ้ำ| EndUser
+    TechCompany -->|3. ให้บริการและสวัสดิการผ่านระบบดิจิทัล| EndUser
+    EndUser -->|4. ใช้สิทธิตาม PDPA ขอเข้าถึง/ร้องเรียน| TechCompany
+    TechCompany -.->|หากส่งต่อหรือปล่อยข้อมูลรั่วไหล| PenaltyNode
+    OldRule -.->|โทษตามกฎหมายแม่บทยังคงใช้บังคับ| PenaltyNode

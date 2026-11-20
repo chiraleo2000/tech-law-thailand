@@ -1,0 +1,45 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:20px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:17px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:17px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:17px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:17px;
+
+    CenterLaw["📜 พ.ร.ฎ. เปิดเผยข้อมูลข่าวสารส่วนบุคคล<br/>ระหว่างหน่วยงานของรัฐ พ.ศ. 2569<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        OIA["พ.ร.บ.ข้อมูลข่าวสารของราชการ<br/>พ.ศ. 2540 ม.24 (9)"]:::otherLaws
+        PDPA["พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล<br/>(PDPA พ.ศ. 2562)"]:::otherLaws
+        CyberLaw["พ.ร.บ.ไซเบอร์ 2562<br/>+ มาตรฐาน กมช./สกมช."]:::otherLaws
+        DGLaw["พ.ร.บ.รัฐบาลดิจิทัล 2562<br/>+ ระเบียบแบ่งปันข้อมูลดิจิทัล 2569"]:::otherLaws
+    end
+
+    subgraph GROUP_TECH ["🏢 หน่วยงานรัฐและผู้พัฒนาระบบไอที"]
+        Holder["หน่วยงานรัฐผู้ถือข้อมูล"]:::techSide
+        Requester["หน่วยงานรัฐผู้ร้องขอ"]:::techSide
+        Vendor["ผู้รับจ้างพัฒนาระบบ / คลาวด์ / GDX"]:::techSide
+    end
+
+    subgraph GROUP_CITIZEN ["👤 ประชาชน"]
+        User["เจ้าของข้อมูลส่วนบุคคล"]:::citizenSide
+    end
+
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        OICBoard["คณะกรรมการข้อมูลข่าวสารของราชการ"]:::regulatorSide
+        PDPC["สคส. (PDPC)"]:::regulatorSide
+    end
+
+    CenterLaw -->|1. ออกตามอำนาจ ม.24 อนุ 9 สร้างข้อยกเว้นใหม่| OIA
+    CenterLaw -->|2. เป็นฐานกฎหมายรองรับการเปิดเผยโดยไม่ต้องขอความยินยอม| PDPA
+    CenterLaw -->|3. ผูกการรักษาข้อมูลกับมาตรฐานความปลอดภัยไซเบอร์| CyberLaw
+    CenterLaw -->|4. ปลดล็อกข้อมูลส่วนบุคคลให้ใช้ร่วมกับแพลตฟอร์มแบ่งปันข้อมูล| DGLaw
+    CenterLaw ==>|5. หน้าที่เปิดเผยตามคำขอ ม.3 ว.1| Holder
+    CenterLaw ==>|6. หน้าที่รักษาและห้ามส่งต่อ ม.3 ว.2| Requester
+    Holder -->|7. ส่งข้อมูลผ่านการเชื่อมโยงทางอิเล็กทรอนิกส์| Requester
+    Vendor -->|8. จัดทำ API ปลอดภัย เข้ารหัส และเก็บ Audit Log| Holder
+    Requester -->|9. จัดบริการและสวัสดิการแบบมุ่งเป้า| User
+    User -->|10. ใช้สิทธิขอเข้าถึง แก้ไข และร้องเรียน| Requester
+    OICBoard -.->|11. กำหนดหลักเกณฑ์การรักษาข้อมูล ม.3 ว.3| Requester
+    User -.->|12. ร้องเรียนกรณีข้อมูลรั่วไหลหรือใช้เกินวัตถุประสงค์| PDPC
+    PDPC -.->|13. ตรวจสอบและลงโทษทางปกครองตาม PDPA| Requester
