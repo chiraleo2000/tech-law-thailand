@@ -1,0 +1,45 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:13px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:11px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:11px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:11px;
+
+    CenterLaw["📜 (ร่าง) ขมธอ. 25 เวอร์ชัน 1.2<br/>ข้อความอิเล็กทรอนิกส์สำหรับใบประมวลผลการศึกษา<br/>(ศูนย์กลาง: XML + JSON + VC)"]:::centerLaw
+
+    subgraph GROUP_LAWS ["📚 กฎหมายและมาตรฐานที่บูรณาการร่วมกัน"]
+        ETA["พ.ร.บ.ธุรกรรมทางอิเล็กทรอนิกส์<br/>(พ.ศ. 2544)"]:::otherLaws
+        PDPA["พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล<br/>(PDPA พ.ศ. 2562)"]:::otherLaws
+        EGov["พ.ร.บ.การปฏิบัติราชการทางอิเล็กทรอนิกส์<br/>(พ.ศ. 2565)"]:::otherLaws
+        Std["ขมธอ. 11 (PDF/A-3) / ขมธอ. 24 (VC)"]:::otherLaws
+    end
+
+    subgraph GROUP_TECH ["🏢 ผู้ออกและผู้พัฒนาระบบ"]
+        Uni["สถาบันการศึกษา (ผู้ออกใบ)"]:::techSide
+        Dev["ผู้พัฒนาระบบทะเบียน / กระเป๋าเอกสารดิจิทัล"]:::techSide
+    end
+
+    subgraph GROUP_CITIZEN ["👤 ผู้รับและผู้ตรวจสอบ"]
+        Student["ผู้เรียน (ผู้รับใบ)"]:::citizenSide
+        Verifier["ผู้ตรวจสอบ เช่น นายจ้าง"]:::citizenSide
+    end
+
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        ETDA["สพธอ. (ผู้ออกข้อเสนอแนะมาตรฐาน)"]:::regulatorSide
+        PDPC["สคส. (กำกับข้อมูลส่วนบุคคล)"]:::regulatorSide
+    end
+
+    CenterLaw -->|1. ใบดิจิทัลมีผลเป็นข้อมูลอิเล็กทรอนิกส์| ETA
+    CenterLaw -->|2. ข้อมูลผลการเรียนเป็นข้อมูลส่วนบุคคล| PDPA
+    CenterLaw -->|3. รองรับการออกเอกสารราชการแบบดิจิทัล| EGov
+    CenterLaw -->|4. กำหนดวิธีลงนาม PDF/A-3 หรือ VC| Std
+    CenterLaw ==>|5. กำหนดโครงสร้าง XML และ JSON| Uni
+    CenterLaw ==>|6. ให้ JSON Schema และตัวอย่างระบบ| Dev
+    Dev -->|7. พัฒนาระบบส่งออกและลงนาม| Uni
+    Uni -->|8. ออกใบ PDF/A-3 หรือ VC| Student
+    Student -->|9. ยื่นใบเพื่อสมัครงานหรือเรียนต่อ| Verifier
+    Verifier -->|10. ตรวจลายมือชื่อผ่าน API หรือ VC| Uni
+    ETDA -.->|11. เวียนร่างและรับความเห็นถึง 18 ธ.ค. 2569| Dev
+    PDPC -.->|12. ตรวจการคุ้มครองข้อมูลส่วนบุคคล| Uni
+    Student -.->|13. ร้องเรียนหากข้อมูลรั่วไหล| PDPC
