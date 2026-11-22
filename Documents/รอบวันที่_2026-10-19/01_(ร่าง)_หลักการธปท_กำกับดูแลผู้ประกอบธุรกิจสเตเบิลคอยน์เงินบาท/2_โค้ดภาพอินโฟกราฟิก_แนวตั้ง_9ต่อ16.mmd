@@ -1,0 +1,37 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:26px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:23px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:22px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:22px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:22px,font-weight:bold;
+
+    subgraph HEADER ["📢 สรุปเกณฑ์ไอทีฉบับใหม่ (ร่าง)"]
+        TitleNode["📜 (ร่าง) หลักการ ธปท. กำกับ THB Stablecoin<br/>ผู้ออกเหรียญและผู้ให้บริการกระเป๋าเงิน<br/>รับฟัง 19 ต.ค. – 17 พ.ย. 2569 · ยังไม่มีผล"]:::headerClass
+    end
+    subgraph CORE ["💡 สาระสำคัญที่ต้องรู้"]
+        CoreEssence["เหรียญอิงบาท 1:1 หนุนด้วยเงินฝาก 100%<br/>ใช้ได้เฉพาะ wallet ที่ผ่าน KYC · ห้ามจ่ายดอกเบี้ย"]:::essenceClass
+    end
+    subgraph COMPARISON ["⚖️ เปรียบเทียบจุดเปลี่ยนสำคัญ (เดิม vs ใหม่)"]
+        OldRule["🏛️ สภาพเดิม<br/>• ไม่มีกรอบ stablecoin บาท<br/>• e-money ระบบปิด<br/>• ไม่สนับสนุนคริปโตชำระเงิน"]:::oldLawClass
+        NewRule["🚀 ร่างหลักการ<br/>• ใบอนุญาตตาม พ.ร.บ.ระบบการชำระเงิน<br/>• issuer น้อยราย · wallet ไม่จำกัด<br/>• freeze / seize / burn ได้"]:::newLawClass
+    end
+    subgraph STAKEHOLDERS ["👥 ผู้เกี่ยวข้องและหน้าที่ตามกฎหมาย"]
+        TechCompany["🏢 issuer / wallet provider<br/>/ ผู้พัฒนา DLT-smart contract"]:::techSide
+        EndUser["👤 ผู้ถือเหรียญ / ร้านค้า"]:::userSide
+    end
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["🚨 ยังไม่มีโทษ · รอประกาศกระทรวงการคลัง<br/>และหลักเกณฑ์ ธปท. ตาม พ.ร.บ.ระบบการชำระเงิน<br/>แหล่งอ้างอิง: bot.or.th"]:::penaltyClass
+    end
+    %% เส้นเชื่อมโยงพร้อมคำอธิบายกำกับบนเส้น
+    TitleNode -->|เปิดรับฟังความคิดเห็นก่อนเสนอกระทรวงการคลัง| CoreEssence
+    CoreEssence -->|เติมช่องว่างที่ไม่มีกรอบกำกับเดิม| OldRule
+    CoreEssence -->|ตั้งระบบใบอนุญาตและมาตรฐานขั้นต่ำ| NewRule
+    NewRule -->|1. ต้องมีระบบ DLT ปลอดภัยและ on-chain analytics| TechCompany
+    NewRule -->|2. ได้สิทธิไถ่ถอน 1:1 ภายใน 1 วันทำการ| EndUser
+    TechCompany -->|3. ให้บริการเก็บรักษา โอน และรับชำระ| EndUser
+    EndUser -->|4. ร้องเรียนผ่าน wallet provider| TechCompany
+    TechCompany -.->|เมื่อมีประกาศแล้วต้องได้รับอนุญาตก่อนให้บริการ| PenaltyNode
+    OldRule -.->|เปลี่ยนจากไม่มีกรอบเป็นธุรกิจที่ต้องขออนุญาต| PenaltyNode

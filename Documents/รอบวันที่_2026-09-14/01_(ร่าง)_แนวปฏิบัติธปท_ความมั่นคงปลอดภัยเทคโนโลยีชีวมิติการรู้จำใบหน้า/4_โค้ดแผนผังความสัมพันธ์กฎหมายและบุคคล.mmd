@@ -1,0 +1,40 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:20px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:17px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:17px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:17px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:17px;
+
+        CenterLaw["📜 (ร่าง) แนวปฏิบัติ ธปท.<br/>Facial Recognition<br/>(ศูนย์กลาง)"]:::centerLaw
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        PDPA["พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล 2562<br/>ม.26 ข้อมูลชีวภาพ / ม.37"]:::otherLaws
+        DCS["ประกาศ ธปท. Mobile Banking 2568<br/>/ (ร่าง) Digital Channel Security"]:::otherLaws
+        TechCrime["พ.ร.ก.ปราบปรามอาชญากรรม<br/>ทางเทคโนโลยี 2566"]:::otherLaws
+        ETA["พ.ร.บ.ธุรกรรมทางอิเล็กทรอนิกส์<br/>/ มาตรฐาน Digital ID"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        FI["ธนาคาร / e-Money / สินเชื่อ"]:::techSide
+        IdP["ผู้ให้บริการ eKYC / IdP / SaaS"]:::techSide
+        Tester["ผู้ทดสอบเจาะระบบ / ผู้ทดสอบ PAD"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้งานทั่วไป"]
+        User["ผู้ใช้บริการที่สแกนใบหน้า"]:::citizenSide
+        Victim["ผู้ถูกปลอมใบหน้าด้วย Deepfake"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        Regulator["ธนาคารแห่งประเทศไทย<br/>ฝ่ายกำกับความเสี่ยง IT"]:::regulatorSide
+    end
+    %% เส้นเชื่อมโยงพร้อมคำอธิบายกำกับบนเส้น
+    CenterLaw -->|1. คุ้มครองข้อมูลชีวภาพที่อ่อนไหว| PDPA
+    CenterLaw -->|2. กำหนดคุณภาพการสแกนที่เกณฑ์ช่องทางดิจิทัลบังคับ| DCS
+    CenterLaw -->|3. ลดการเปิดบัญชีม้าด้วยใบหน้าปลอม| TechCrime
+    CenterLaw -->|4. สอดรับมาตรฐานพิสูจน์ตัวตนดิจิทัล| ETA
+    CenterLaw ==>|5. ทดสอบ FMR IAPAR และ VA Pentest| FI
+    CenterLaw ==>|6. ห้ามเก็บภาพใบหน้าของผู้ใช้| IdP
+    FI -->|7. ว่าจ้างผู้ทดสอบที่เป็นอิสระต่อกัน| Tester
+    FI -->|8. ให้คำแนะนำและ liveness ขณะสแกน| User
+    IdP -->|9. ตรวจจับ Video Injection และ Replay| User
+    Victim -->|10. แจ้งเหตุสวมรอยและขอยกเลิกข้อมูลอ้างอิง| FI
+    FI -.->|11. รายงานผลทดสอบภายใน 90 วัน| Regulator
+    Regulator -.->|12. สั่งทดสอบเพิ่มเมื่อพบการโจมตีใหม่| FI

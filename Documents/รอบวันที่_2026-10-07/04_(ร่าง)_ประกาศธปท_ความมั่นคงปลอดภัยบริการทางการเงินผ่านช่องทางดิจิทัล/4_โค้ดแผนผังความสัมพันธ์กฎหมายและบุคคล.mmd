@@ -1,0 +1,40 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:20px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:17px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:17px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:17px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:17px;
+
+        CenterLaw["📜 (ร่าง) ประกาศ ธปท.<br/>Digital Channel Security<br/>(ศูนย์กลาง)"]:::centerLaw
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        PDPA["พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล 2562<br/>ข้อมูลชีวมิติ ม.26"]:::otherLaws
+        TechCrime["พ.ร.ก.ปราบปรามอาชญากรรม<br/>ทางเทคโนโลยี 2566"]:::otherLaws
+        CyberLaw["พ.ร.บ.ไซเบอร์ 2562<br/>และ TB-CERT"]:::otherLaws
+        FIBA["พ.ร.บ.ธุรกิจสถาบันการเงิน 2551<br/>/ พ.ร.บ.ระบบการชำระเงิน 2560"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        Bank["ธนาคาร / SFI / e-Money"]:::techSide
+        NonBank["บัตรเครดิต / สินเชื่อส่วนบุคคล<br/>/ สินเชื่อรายย่อย"]:::techSide
+        Vendor["ผู้พัฒนาแอป / eKYC / Passkey"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้งานทั่วไป"]
+        User["ผู้ใช้ Internet / Mobile Banking"]:::citizenSide
+        Victim["ผู้เสียหายจากการสวมรอยทำธุรกรรม"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        Regulator["ธนาคารแห่งประเทศไทย<br/>ฝ่ายกำกับความเสี่ยง IT"]:::regulatorSide
+    end
+    %% เส้นเชื่อมโยงพร้อมคำอธิบายกำกับบนเส้น
+    CenterLaw -->|1. ออกโดยอำนาจตามกฎหมายแม่บท| FIBA
+    CenterLaw -->|2. ข้อมูลใบหน้าต้องคุ้มครองแบบอ่อนไหว| PDPA
+    CenterLaw -->|3. เสริมมาตรการตัดวงจรบัญชีม้าและแอปดูดเงิน| TechCrime
+    CenterLaw -->|4. อ้างรายการ OS เสี่ยงจาก TB-CERT| CyberLaw
+    CenterLaw ==>|5. บังคับ MFA และเลิก SMS OTP| Bank
+    CenterLaw ==>|6. ขยายเกณฑ์ความปลอดภัยแอปมาถึง| NonBank
+    Bank -->|7. จัดหาโซลูชัน Passkey และ PAD| Vendor
+    Bank -->|8. แจ้งเตือนสมัครและธุรกรรมเสี่ยงทันที| User
+    NonBank -->|9. สแกนใบหน้าเมื่อถึงเกณฑ์วงเงิน| User
+    Victim -->|10. ร้องเรียนและขอระงับธุรกรรม| Bank
+    Bank -.->|11. ขอผ่อนผันพร้อมแผนงานรายกรณี| Regulator
+    Regulator -.->|12. ตรวจสอบและสั่งแก้ไขให้เป็นไปตามเกณฑ์| NonBank

@@ -1,0 +1,40 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:20px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:17px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:17px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:17px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:17px;
+
+        CenterLaw["📜 (ร่าง) หลักการ ธปท.<br/>THB Stablecoin<br/>(ศูนย์กลาง)"]:::centerLaw
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        PSA["พ.ร.บ.ระบบการชำระเงิน 2560"]:::otherLaws
+        DA["พ.ร.ก.สินทรัพย์ดิจิทัล 2561<br/>/ (ร่าง) ประกาศ ก.ล.ต. stablecoin"]:::otherLaws
+        AML["พ.ร.บ.ป้องกันและปราบปราม<br/>การฟอกเงิน 2542"]:::otherLaws
+        PDPA["พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล 2562"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        Issuer["ผู้ออกเหรียญ (issuer)"]:::techSide
+        Wallet["ผู้ให้บริการกระเป๋าเงิน<br/>(wallet provider)"]:::techSide
+        Exchange["ศูนย์ซื้อขายสินทรัพย์ดิจิทัล<br/>ที่ ก.ล.ต. อนุญาต"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้งานทั่วไป"]
+        User["ผู้ถือเหรียญ / ร้านค้า"]:::citizenSide
+        Victim["ผู้เสียหายจากธุรกรรมผิดพลาดหรือฉ้อโกง"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        Regulator["ธปท. / กระทรวงการคลัง<br/>/ ก.ล.ต. / ปปง."]:::regulatorSide
+    end
+    %% เส้นเชื่อมโยงพร้อมคำอธิบายกำกับบนเส้น
+    CenterLaw -->|1. ใช้เป็นฐานออกใบอนุญาตธุรกิจชำระเงิน| PSA
+    CenterLaw -->|2. แบ่งงานกับ ก.ล.ต. ด้านการซื้อขายตามราคาตลาด| DA
+    CenterLaw -->|3. บังคับ KYC whitelisting และติดตามธุรกรรม| AML
+    CenterLaw -->|4. คุ้มครองข้อมูล KYC และธุรกรรม| PDPA
+    CenterLaw ==>|5. เงินฝากหนุนหลัง 100% และ freeze seize burn| Issuer
+    CenterLaw ==>|6. แยกเก็บเหรียญลูกค้าและ on-chain analytics| Wallet
+    Issuer -->|7. ร่วมเฝ้าระวังและระงับธุรกรรมต้องสงสัย| Wallet
+    Exchange -->|8. ซื้อขายเหรียญตามราคาตลาด| User
+    Wallet -->|9. ให้บริการเก็บ โอน และรับชำระ 1:1| User
+    Victim -->|10. ร้องเรียนและขอกู้คืนการเข้าถึง| Wallet
+    Issuer -.->|11. เปิดเผยยอดสินทรัพย์หนุนหลังรายวัน| Regulator
+    Regulator -.->|12. คัดเลือก issuer ตรวจสอบ และสั่งยุติได้| Issuer

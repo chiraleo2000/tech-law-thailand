@@ -1,0 +1,37 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:26px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:23px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:22px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:22px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:22px,font-weight:bold;
+
+    subgraph HEADER ["📢 สรุปเกณฑ์ไอทีฉบับใหม่ (ร่าง)"]
+        TitleNode["📜 (ร่าง) แนวปฏิบัติ ธปท.<br/>ความปลอดภัยการสแกนใบหน้า Facial Recognition<br/>รับฟัง 14 ก.ย. – 13 ต.ค. 2569 · ยังไม่ออกใช้"]:::headerClass
+    end
+    subgraph CORE ["💡 สาระสำคัญที่ต้องรู้"]
+        CoreEssence["รับมือ Deepfake และ Video Injection<br/>FMR ≤ 0.01% · IAPAR ≤ 4% ต่อสื่อโจมตี"]:::essenceClass
+    end
+    subgraph COMPARISON ["⚖️ เปรียบเทียบจุดเปลี่ยนสำคัญ (เดิม vs ใหม่)"]
+        OldRule["🏛️ แนวปฏิบัติ 2566<br/>• ชีวมิติทุกประเภท<br/>• FAR ≤ 0.1% / FRR ≤ 3%<br/>• รายงานทุก 6 เดือน"]:::oldLawClass
+        NewRule["🚀 ร่าง 2569<br/>• เฉพาะใบหน้า เกณฑ์ตัวเลขชัด<br/>• ทดสอบ 300,000 ธุรกรรม<br/>• VA 3 เดือน · Pentest ปีละครั้ง"]:::newLawClass
+    end
+    subgraph STAKEHOLDERS ["👥 ผู้เกี่ยวข้องและหน้าที่ตามกฎหมาย"]
+        TechCompany["🏢 ธนาคาร / e-Money / สินเชื่อ<br/>/ ผู้ให้บริการ eKYC-IdP"]:::techSide
+        EndUser["👤 ผู้ใช้บริการที่สแกนใบหน้า"]:::userSide
+    end
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["🚨 ไม่มีโทษใหม่ · รายงานผลทดสอบภายใน 90 วัน<br/>ธปท. สั่งทดสอบเพิ่มรายกรณีได้<br/>แหล่งอ้างอิง: bot.or.th"]:::penaltyClass
+    end
+    %% เส้นเชื่อมโยงพร้อมคำอธิบายกำกับบนเส้น
+    TitleNode -->|เปิดรับฟังความคิดเห็นก่อนออกใช้| CoreEssence
+    CoreEssence -->|จะยกเลิกแนวปฏิบัติชีวมิติปี 2566| OldRule
+    CoreEssence -->|ตั้งเกณฑ์ทดสอบตามมาตรฐานสากล| NewRule
+    NewRule -->|1. ทดสอบ FMR/IAPAR และห้ามผู้รับจ้างเก็บภาพ| TechCompany
+    NewRule -->|2. ได้รับการป้องกันการปลอมใบหน้า| EndUser
+    TechCompany -->|3. แนะนำวิธีสแกนและ liveness แบบสุ่ม| EndUser
+    EndUser -->|4. ใช้ช่องทางยืนยันอื่นเมื่อถูกระงับ| TechCompany
+    TechCompany -.->|หากผลทดสอบเกินเกณฑ์หรือไม่รายงาน| PenaltyNode
+    OldRule -.->|แบบรายงานเดิมยุติเมื่อฉบับใหม่ออก| PenaltyNode
