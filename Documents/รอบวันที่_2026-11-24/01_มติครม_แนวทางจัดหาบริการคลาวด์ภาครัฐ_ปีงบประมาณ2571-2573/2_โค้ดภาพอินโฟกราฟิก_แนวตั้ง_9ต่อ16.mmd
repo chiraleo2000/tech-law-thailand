@@ -1,0 +1,37 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:15px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:12px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:11px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:11px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:11px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:11px,font-weight:bold;
+
+    subgraph HEADER ["📢 สรุปกฎหมายไอทีฉบับใหม่"]
+        TitleNode["📜 แนวทางจัดหาคลาวด์ภาครัฐ ปีงบ 2571–2573 (National Cloud)<br/>สถานะ: ใช้กับการจัดทำคำของบประมาณตั้งแต่ปีงบประมาณ พ.ศ. 2571 เป็นต้นไป (มติ ค"]:::headerClass
+    end
+    subgraph CORE ["💡 สาระสำคัญที่ต้องรู้"]
+        CoreEssence["ครม. เห็นชอบ National Cloud ปีงบ 2571–2573: หน่วยงานรัฐต้องใช้คลาวด์กลาง GDCC ก่อน งบคลาวด์/แม่ข่ายต้องผ่าน ดศ."]:::essenceClass
+    end
+    subgraph COMPARISON ["⚖️ เปรียบเทียบจุดเปลี่ยนสำคัญ (เดิม vs ใหม่)"]
+        OldRule["🏛️ แนวทางปีงบ 2570<br/>• GDCC อันดับแรก<br/>• ยกเว้นเมื่อ GDCC ไม่พอ<br/>• ใช้เฉพาะหน่วยงานที่ขอรับงบ"]:::oldLawClass
+        NewRule["🚀 แนวทางปีงบ 2571–2573<br/>• รวมเครื่องแม่ข่ายด้วย / เสนอผ่าน ดศ. ก่อน<br/>• ต้องตั้งงบโอนย้ายมา GDCC<br/>• มาตรฐาน CSP ตามมติ 2/2567<br/>• NT ให้บริการ GDCC / สดช. จัดหารวมศูนย์"]:::newLawClass
+    end
+    subgraph STAKEHOLDERS ["👥 ผู้เกี่ยวข้องและหน้าที่"]
+        TechCompany["🏢 หน่วยงานรัฐ / CSP / ผู้รับเหมาระบบ"]:::techSide
+        EndUser["👤 ประชาชนผู้ใช้บริการรัฐดิจิทัล"]:::userSide
+    end
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["⚠️ ไม่มีโทษอาญา: ขอบงบคลาวด์นอกแผนบูรณาการ = ไม่ได้รับจัดสรรงบประมาณ<br/>แหล่งอ้างอิง: thaigov.go.th สรุปมติ ครม. 24 พ.ย. 2569"]:::penaltyClass
+    end
+
+    TitleNode -->|"ครม. เห็นชอบ 24 พ.ย. 2569"| CoreEssence
+    CoreEssence -->|"ปรับปรุงจากแนวทางปีงบ 2570"| OldRule
+    CoreEssence -->|"บังคับใช้ตั้งแต่ปีงบ 2571"| NewRule
+    NewRule -->|"1. ใช้ GDCC ก่อน / ตั้งงบโอนย้าย"| TechCompany
+    NewRule -->|"2. บริการรัฐปลอดภัยและไม่ซ้ำซ้อน"| EndUser
+    TechCompany -->|"3. ย้ายบริการขึ้นคลาวด์กลาง"| EndUser
+    EndUser -->|"4. ร้องเรียนเมื่อบริการขัดข้อง"| TechCompany
+    TechCompany -.->|"หากขอบงบนอกแผนบูรณาการ"| PenaltyNode
+    OldRule -.->|"แนวทางเดิมไม่มีกลไกตรวจมาตรฐาน CSP"| PenaltyNode

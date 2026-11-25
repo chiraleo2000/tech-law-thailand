@@ -1,0 +1,37 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:15px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:12px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:11px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:11px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:11px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:11px,font-weight:bold;
+
+    subgraph HEADER ["📢 สรุปกฎหมายไอทีฉบับใหม่"]
+        TitleNode["📜 มาตรฐานกลางแปลงเอกสารราชการเป็นดิจิทัลและเก็บระยะยาว<br/>สถานะ: มีผลตามมติ ครม. 24 พ.ย. 2569 (ใช้กับหน่วยงานของรัฐ) — รายละเอียดคู่มือ"]:::headerClass
+    end
+    subgraph CORE ["💡 สาระสำคัญที่ต้องรู้"]
+        CoreEssence["ครม. เห็นชอบมาตรฐานกลางแปลงเอกสารราชการเป็นอิเล็กทรอนิกส์ + เก็บระยะยาว: ครบตรงต้นฉบับ, Machine Readable, Metadata, ปลอดภัย, ห้ามทำลายต้นฉบับก่อนครบอายุ"]:::essenceClass
+    end
+    subgraph COMPARISON ["⚖️ เปรียบเทียบจุดเปลี่ยนสำคัญ (เดิม vs ใหม่)"]
+        OldRule["🏛️ เดิม<br/>• หลักทั่วไปตามประกาศ คธอ. 2553/2565<br/>• แต่ละหน่วยงานเก็บไม่เหมือนกัน<br/>• ค้นหา/เชื่อมโยงข้ามหน่วยงานยาก"]:::oldLawClass
+        NewRule["🚀 ใหม่ (มติ ครม. 24 พ.ย. 2569)<br/>• PDF/PDF/A + Machine Readable<br/>• Metadata + ทะเบียนคุมการแปลง<br/>• สแกน ≥300 dpi / กล้อง ≥12MP<br/>• ใบรับรองดิจิทัลหน่วยงาน<br/>• คลาวด์ภาครัฐก่อน (Cloud First)"]:::newLawClass
+    end
+    subgraph STAKEHOLDERS ["👥 ผู้เกี่ยวข้องและหน้าที่"]
+        TechCompany["🏢 หน่วยงานรัฐ / ผู้พัฒนาระบบสารบรรณ-ECM"]:::techSide
+        EndUser["👤 ประชาชนผู้ติดต่อราชการ"]:::userSide
+    end
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["⚠️ ไม่มีโทษใหม่: ยังต้องเก็บต้นฉบับ ≥10 ปี ตามระเบียบงานสารบรรณ/จดหมายเหตุ<br/>แหล่งอ้างอิง: คำแถลงรองโฆษกฯ 24 พ.ย. 2569 (มติชน/เดลินิวส์)"]:::penaltyClass
+    end
+
+    TitleNode -->|"ครม. เห็นชอบ 24 พ.ย. 2569"| CoreEssence
+    CoreEssence -->|"เดิมใช้หลักทั่วไปของ คธอ."| OldRule
+    CoreEssence -->|"กำหนดมาตรฐานกลางภาครัฐ"| NewRule
+    NewRule -->|"1. ต้องแปลง+เก็บตามมาตรฐาน"| TechCompany
+    NewRule -->|"2. ลดการขอสำเนาซ้ำ ค้นหาเร็วขึ้น"| EndUser
+    TechCompany -->|"3. ให้บริการด้วยเอกสารดิจิทัล"| EndUser
+    EndUser -->|"4. ขอให้ตรวจสอบเมื่อเอกสารผิด"| TechCompany
+    TechCompany -.->|"หากทำลายต้นฉบับก่อนกำหนด"| PenaltyNode
+    OldRule -.->|"ระเบียบสารบรรณ/จดหมายเหตุยังใช้บังคับ"| PenaltyNode

@@ -1,0 +1,38 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:13px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:11px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:11px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:11px;
+
+    CenterLaw["📜 (ร่าง) เปิดทาง Non-Bank และ ธปท. ให้บริการ e-Withholding Tax<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        RevCode["ประมวลรัษฎากร ม.3 ปัณรส<br/>+ กฎกระทรวง 364 (2563)"]:::otherLaws
+        PSA["พ.ร.บ.ระบบการชำระเงิน 2560"]:::otherLaws
+        Rate["กฎกระทรวง 402 (2569) + คำสั่ง ท.ป. 371/2569"]:::otherLaws
+        PDPA["PDPA 2562 + พ.ร.บ.ธุรกรรมฯ 2544"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจ/หน่วยงานผู้ปฏิบัติ"]
+        NonBank["Non-Bank ผู้ให้บริการโอนเงินอิเล็กทรอนิกส์"]:::techSide
+        BOT["ธปท. (นายทะเบียนพันธบัตร/ผู้จ่ายเงิน)"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้งาน"]
+        Payer["ผู้ประกอบการผู้จ่าย / ผู้รับเงิน"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        Reg["กรมสรรพากร • กระทรวงการคลัง • ธปท. (ผู้กำกับ Non-Bank)"]:::regulatorSide
+    end
+
+    CenterLaw -->|"1. แก้นิยามและเพิ่มช่องทางนำส่ง"| RevCode
+    CenterLaw -->|"2. ใช้ใบอนุญาตโอนเงินอิเล็กทรอนิกส์เป็นเกณฑ์"| PSA
+    CenterLaw -->|"3. อัตราหัก 1% เมื่อนำส่งทางอิเล็กทรอนิกส์"| Rate
+    CenterLaw -->|"4. คุ้มครองข้อมูลผู้รับเงิน/หลักฐานอิเล็กทรอนิกส์"| PDPA
+    CenterLaw ==>|"5. ส่งข้อมูล+เงินภาษี แยกบัญชีเงินรับล่วงหน้า"| NonBank
+    CenterLaw ==>|"6. นำส่ง WHT/VAT ผ่านระบบสรรพากร"| BOT
+    NonBank -->|"7. นำส่งภาษีพร้อมโอน ไม่ต้องเก็บ 50 ทวิ"| Payer
+    Payer -->|"9. ใช้สิทธิ/ร้องขอข้อมูลและแจ้งปัญหา"| NonBank
+    BOT -->|"10. ให้บริการโครงสร้างพื้นฐานรองรับ"| NonBank
+    NonBank -.->|"11. รายงาน/ขออนุมัติตามรอบ"| Reg
+    Reg -.->|"8. อนุญาต ออกประกาศอธิบดี ตรวจสอบ"| NonBank
+    Payer -.->|"12. ร้องเรียนเมื่อถูกละเมิดสิทธิ"| Reg

@@ -1,0 +1,38 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:13px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:11px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:11px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:11px;
+
+    CenterLaw["📜 แนวทางจัดหาคลาวด์ภาครัฐ ปีงบ 2571–2573 (National Cloud)<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        DGLaw["พ.ร.บ.บริหารงานภาครัฐผ่านระบบดิจิทัล 2562<br/>+ นโยบาย Cloud First"]:::otherLaws
+        Cyber["พ.ร.บ.ไซเบอร์ 2562 + มาตรฐานคลาวด์ กมช. 2567"]:::otherLaws
+        PDPA["พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล 2562"]:::otherLaws
+        Proc["พ.ร.บ.จัดซื้อจัดจ้างฯ 2560"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจ/หน่วยงานผู้ปฏิบัติ"]
+        Agency["หน่วยงานของรัฐผู้ขอรับงบประมาณ"]:::techSide
+        CSP["ผู้ให้บริการคลาวด์เอกชน / NT (GDCC)"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้งาน"]
+        User["ประชาชนผู้ใช้บริการภาครัฐ"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        Reg["ดศ./สดช. • สงป. • คณะกรรมการงบบูรณาการ"]:::regulatorSide
+    end
+
+    CenterLaw -->|"1. เป็นเครื่องมืองบประมาณบังคับ Cloud First"| DGLaw
+    CenterLaw -->|"2. คลาวด์ทุกแห่งต้องผ่านมาตรฐานความปลอดภัย"| Cyber
+    CenterLaw -->|"3. ทบทวน DPA เมื่อย้ายข้อมูล"| PDPA
+    CenterLaw -->|"4. จัดหารวมศูนย์ตามกรอบพัสดุ"| Proc
+    CenterLaw ==>|"5. ใช้ GDCC ก่อนและเสนอผ่าน ดศ."| Agency
+    CenterLaw ==>|"6. ผ่านมาตรฐานมติ 2/2567 และเชื่อมระบบกลาง"| CSP
+    Agency -->|"7. ได้รับบริการบนคลาวด์มาตรฐานเดียว"| User
+    User -->|"9. ใช้สิทธิ/ร้องขอข้อมูลและแจ้งปัญหา"| Agency
+    CSP -->|"10. ให้บริการโครงสร้างพื้นฐานรองรับ"| Agency
+    Agency -.->|"11. รายงาน/ขออนุมัติตามรอบ"| Reg
+    Reg -.->|"8. พิจารณาจัดสรรงบ/อนุมัติยกเว้น"| Agency
+    User -.->|"12. ร้องเรียนเมื่อถูกละเมิดสิทธิ"| Reg
