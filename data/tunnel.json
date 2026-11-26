@@ -1,0 +1,11 @@
+﻿{
+    "base":  "https://ai-pc-dev-rag.ngrok-free.app",
+    "mcp":  "https://ai-pc-dev-rag.ngrok-free.app/8791/mcp",
+    "mcp_alias":  "https://ai-pc-dev-rag.ngrok-free.app/tech-law/mcp",
+    "files":  "https://ai-pc-dev-rag.ngrok-free.app/files/tech-law/",
+    "catalog":  "https://ai-pc-dev-rag.ngrok-free.app/",
+    "llm":  "https://ai-pc-dev-rag.ngrok-free.app/1234/v1/chat/completions",
+    "model":  "google/gemma-4-e2b",
+    "updated_at":  "2026-11-26T06:43:21.3804256Z",
+    "note":  "MCP=tech-law archive tools; shared ngrok catalog at / ; files via /files/tech-law/"
+}
