@@ -1,0 +1,43 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:13px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:11px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:11px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:11px;
+
+    CenterLaw["📜 (ร่าง) แนวปฏิบัติ CSPA<br/>NCSA SP 500-2 v1.0<br/>(ศูนย์กลาง — สถานะร่าง)"]:::centerLaw
+
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        Cyber["พ.ร.บ.ไซเบอร์ 2562<br/>+ มาตรฐานคลาวด์ กมช. 2567"]:::otherLaws
+        PDPA["พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล 2562"]:::otherLaws
+        CompLaw["พ.ร.บ.คอมพิวเตอร์ฯ 2550<br/>(ข้อมูลจราจร มาตรา 26)"]:::otherLaws
+        Cabinet["มติ ครม. 24 พ.ย. 2569<br/>คลาวด์ภาครัฐ GDCC"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        TechDev["หน่วยงานผู้ใช้บริการคลาวด์ (CSC)"]:::techSide
+        TechInfra["ผู้ให้บริการคลาวด์ (CSP) / ซัพพลายเออร์"]:::techSide
+        AIteam["ทีม DevSecOps / AI"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้งานทั่วไป"]
+        User["ประชาชน / เจ้าของข้อมูล"]:::citizenSide
+        Victim["ผู้ได้รับผลกระทบจากเหตุไซเบอร์"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        NCSA["สกมช. / คชซ. (NOCSET TF501)"]:::regulatorSide
+        Regulator["หน่วยงานควบคุมหรือกำกับดูแล"]:::regulatorSide
+    end
+
+    CenterLaw -->|"1. อาศัยอำนาจ ม.36 ว.1(1) + ม.22 ว.1(11) เสริมมาตรฐานคลาวด์"| Cyber
+    CenterLaw -->|"2. สัญญาผู้ประมวลผลและที่ตั้งข้อมูล"| PDPA
+    CenterLaw -->|"3. ป้องกัน Log และซิงก์เวลา"| CompLaw
+    CenterLaw -->|"4. ใช้ประเมินระบบที่ย้ายขึ้น GDCC"| Cabinet
+    CenterLaw ==>|"5. แบบประเมินตนเอง 45 ข้อ 3 ระดับ"| TechDev
+    CenterLaw ==>|"6. สิทธิตรวจสอบ/หน้าที่ตอบสนองเหตุในสัญญา"| TechInfra
+    CenterLaw ==>|"7. IaC CI/CD SCA และความปลอดภัย AI"| AIteam
+    TechDev -->|"8. ปกป้องข้อมูลด้วยการเข้ารหัสและบริหารกุญแจ"| User
+    TechDev -->|"9. ตอบสนองเหตุตามบทบาทที่กำหนด"| Victim
+    TechInfra -->|"10. ส่งหลักฐาน Log/การตั้งค่าให้ลูกค้า"| TechDev
+    TechDev -.->|"11. ใช้ผลประเมินเป็นหลักฐานความพร้อม"| Regulator
+    NCSA -.->|"12. รับฟังความเห็นถึง 23 ธ.ค. แล้วออกฉบับจริง"| CenterLaw
+    Victim -.->|"13. ร้องเรียน/แจ้งเหตุภัยคุกคาม"| Regulator

@@ -1,0 +1,37 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:15px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:12px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:11px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:11px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:11px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:11px,font-weight:bold;
+
+    subgraph HEADER ["📢 สรุปกฎหมายไอทีฉบับใหม่ (สถานะร่าง)"]
+        TitleNode["📜 (ร่าง) พ.ร.บ.เศรษฐกิจแพลตฟอร์มดิจิทัล พ.ศ. ....<br/>สถานะ: ร่าง เปิดรับฟัง 16 พ.ย.–16 ธ.ค. 2569 (ยังไม่มีผล)"]:::headerClass
+    end
+    subgraph CORE ["💡 สาระสำคัญที่ต้องรู้"]
+        CoreEssence["ยกระดับ พ.ร.ฎ. DPS 2565 เป็น พ.ร.บ. 91 มาตรา ตั้งคณะกรรมการ/สำนักงานใหม่ใน สป.ดศ.<br/>Safe Harbor + ปรับตามรายได้ทั่วโลก"]:::essenceClass
+    end
+    subgraph COMPARISON ["⚖️ เปรียบเทียบจุดเปลี่ยนสำคัญ (เดิม vs ใหม่)"]
+        OldRule["🏛️ พ.ร.ฎ. DPS 2565<br/>• แจ้ง ETDA ก่อนให้บริการ<br/>• ไม่มี Safe Harbor เฉพาะ<br/>• โทษตามกฎหมายแม่ วงเงินคงที่"]:::oldLawClass
+        NewRule["🚀 ร่าง พ.ร.บ. ใหม่<br/>• สื่อกลาง / แพลตฟอร์ม / มีนัยสำคัญ<br/>• ตัวแทนในไทยไม่จำกัดความรับผิด<br/>• รายงานภายใน 60 วัน<br/>• ห้ามรีวิวปลอม สินค้าไม่ได้มาตรฐาน"]:::newLawClass
+    end
+    subgraph STAKEHOLDERS ["👥 ผู้เกี่ยวข้องและหน้าที่"]
+        TechCompany["🏢 แพลตฟอร์มไทย/ต่างชาติ ผู้ขายออนไลน์"]:::techSide
+        EndUser["👤 ผู้ใช้ / ผู้บริโภคออนไลน์"]:::userSide
+    end
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["🚨 ปรับเป็นพินัยไม่เกิน 0.03–0.3% รายได้ทั่วโลก (ไม่ทราบรายได้ ≤500 ล้านบาท)<br/>ไม่แจ้ง/ฝ่าฝืนคำสั่งระงับ: จำคุก ≤3 ปี หรือปรับ ≤300,000 บาท<br/>แหล่งอ้างอิง: law.go.th (รับฟังความคิดเห็น)"]:::penaltyClass
+    end
+
+    TitleNode -->|"สป.ดศ. เปิดรับฟัง 16 พ.ย. 2569"| CoreEssence
+    CoreEssence -->|"บทเฉพาะกาลยกเลิก พ.ร.ฎ. DPS 2565"| OldRule
+    CoreEssence -->|"ใช้บังคับ 240 วันหลังประกาศ (ถ้าผ่าน)"| NewRule
+    NewRule -->|"1. แจ้ง รายงาน 60 วัน ตั้งตัวแทนในไทย"| TechCompany
+    NewRule -->|"2. ช่องทางร้องเรียนกลาง สิทธิเรียกค่าเสียหาย"| EndUser
+    TechCompany -->|"3. ระงับเนื้อหาอันตราย คัดสินค้าผิดกฎหมาย"| EndUser
+    EndUser -->|"4. แจ้งเหตุ/ฟ้องเมื่อเสียหาย"| TechCompany
+    TechCompany -.->|"หากไม่มีมาตรการตามสมควร โทษเพิ่มสองเท่า"| PenaltyNode
+    OldRule -.->|"แทนโทษวงเงินคงที่ด้วยปรับตามรายได้ทั่วโลก"| PenaltyNode

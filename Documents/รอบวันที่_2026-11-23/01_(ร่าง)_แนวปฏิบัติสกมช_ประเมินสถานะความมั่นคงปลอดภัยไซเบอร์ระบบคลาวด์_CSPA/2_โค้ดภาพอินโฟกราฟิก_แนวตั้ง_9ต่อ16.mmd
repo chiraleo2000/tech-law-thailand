@@ -1,0 +1,37 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:15px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:12px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:11px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:11px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:11px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:11px,font-weight:bold;
+
+    subgraph HEADER ["📢 สรุปกฎหมายไอทีฉบับใหม่ (สถานะร่าง)"]
+        TitleNode["📜 (ร่าง) แนวปฏิบัติประเมิน Cloud Security Posture Assessment<br/>NCSA SP 500-2 v1.0 · รับฟัง 23 พ.ย.–23 ธ.ค. 2569"]:::headerClass
+    end
+    subgraph CORE ["💡 สาระสำคัญที่ต้องรู้"]
+        CoreEssence["Checklist 45 ข้อ 5 หมวด ระดับการดำเนินงาน 3 ระดับ<br/>ให้ผู้ใช้บริการคลาวด์ประเมินตนเอง (ไม่ใช่การรับรอง)"]:::essenceClass
+    end
+    subgraph COMPARISON ["⚖️ เปรียบเทียบจุดเปลี่ยนสำคัญ (เดิม vs ใหม่)"]
+        OldRule["🏛️ ชุดมาตรฐานคลาวด์เดิม<br/>• ประกาศ กมช. มาตรฐานคลาวด์ 2567<br/>• Self-Assessment CSC v1.0<br/>• ยังไม่มีแบบวัดระดับ Posture"]:::oldLawClass
+        NewRule["🚀 ร่าง CSPA ใหม่<br/>• DevSecOps: IaC / CI/CD / SCA<br/>• SOC + Log กันแก้ไข + ซิงก์เวลา<br/>• Secrets / CSPM / แบ่งส่วนเครือข่าย<br/>• AI: Poisoning / Model Theft / DoS"]:::newLawClass
+    end
+    subgraph STAKEHOLDERS ["👥 ผู้เกี่ยวข้องและหน้าที่"]
+        TechCompany["🏢 หน่วยงานผู้ใช้คลาวด์ / CSP / ทีม DevSecOps"]:::techSide
+        EndUser["👤 ประชาชนเจ้าของข้อมูลในระบบคลาวด์"]:::userSide
+    end
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["⚠️ ไม่มีโทษใหม่: แนวปฏิบัติสมัครใจ<br/>แต่ CII/หน่วยงานรัฐยังต้องทำตามมาตรฐานคลาวด์ 2567 ภายใต้ พ.ร.บ.ไซเบอร์ 2562<br/>แหล่งอ้างอิง: law.go.th / ncsa.or.th"]:::penaltyClass
+    end
+
+    TitleNode -->|"สกมช. + NOCSET TF501 เปิดรับฟัง"| CoreEssence
+    CoreEssence -->|"เสริม ไม่ยกเลิกมาตรฐานเดิม"| OldRule
+    CoreEssence -->|"เพิ่มมิติ Maturity และ AI Security"| NewRule
+    NewRule -->|"1. ประเมินตนเอง 45 ข้อ หาช่องว่าง"| TechCompany
+    NewRule -->|"2. ข้อมูลบนคลาวด์ได้รับการปกป้องดีขึ้น"| EndUser
+    TechCompany -->|"3. แก้ Misconfiguration และป้องกัน Log"| EndUser
+    EndUser -->|"4. ส่งความเห็น/แจ้งเหตุผิดปกติ"| TechCompany
+    TechCompany -.->|"หากไม่ถึงมาตรฐานคลาวด์ 2567 (CII/รัฐ)"| PenaltyNode
+    OldRule -.->|"กลไกบังคับยังอยู่ที่ พ.ร.บ.ไซเบอร์"| PenaltyNode

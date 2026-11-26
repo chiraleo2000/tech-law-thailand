@@ -1,0 +1,43 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:13px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:11px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:11px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:11px;
+
+    CenterLaw["📜 (ร่าง) พ.ร.บ.เศรษฐกิจแพลตฟอร์มดิจิทัล<br/>91 มาตรา 9 หมวด<br/>(ศูนย์กลาง — สถานะร่าง)"]:::centerLaw
+
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        ETA["พ.ร.บ.ธุรกรรมทางอิเล็กทรอนิกส์ 2544<br/>+ พ.ร.ฎ. DPS 2565 (ถูกยกเลิก)"]:::otherLaws
+        CompLaw["พ.ร.บ.คอมพิวเตอร์ฯ 2550<br/>+ พ.ร.ก.อาชญากรรมทางเทคโนโลยี"]:::otherLaws
+        PDPA["พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล 2562"]:::otherLaws
+        TCCT["พ.ร.บ.การแข่งขันทางการค้า 2560<br/>+ พ.ร.บ.คุ้มครองผู้บริโภค"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        TechDev["แพลตฟอร์มตลาดสินค้า / โซเชียล / เรียกรถ"]:::techSide
+        TechInfra["ผู้ให้บริการสื่อกลาง (ท่อรับส่ง แคช โฮสติ้ง)"]:::techSide
+        Foreign["แพลตฟอร์มต่างประเทศ + ตัวแทนในไทย"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้งานทั่วไป"]
+        User["ผู้ใช้ / ผู้บริโภค"]:::citizenSide
+        Seller["ผู้ขายรายย่อย / SMEs"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        Board["คณะกรรมการเศรษฐกิจแพลตฟอร์มดิจิทัล<br/>(ปลัด ดศ. ประธาน)"]:::regulatorSide
+        Office["สำนักงานคณะกรรมการฯ (สป.ดศ.)<br/>ETDA ทำแทนชั่วคราว"]:::regulatorSide
+    end
+
+    CenterLaw -->|"1. ยกเลิก พ.ร.ฎ. DPS และแยกออกจากกรอบธุรกรรมฯ"| ETA
+    CenterLaw -->|"2. Safe Harbor ซ้อนหน้าที่ผู้ให้บริการและการระงับเนื้อหา"| CompLaw
+    CenterLaw -->|"3. รายงานข้อมูล/เข้าถึงระบบต้องมีฐานทางกฎหมาย"| PDPA
+    CenterLaw -->|"4. แพลตฟอร์มมีนัยสำคัญตัดกับกฎหมายแข่งขัน/ผู้บริโภค"| TCCT
+    CenterLaw ==>|"5. หน้าที่หมวด 4–6 ห้ามรีวิวปลอม"| TechDev
+    CenterLaw ==>|"6. คุ้มครองตามเงื่อนไข Safe Harbor"| TechInfra
+    CenterLaw ==>|"7. บังคับใช้ข้ามแดน ตั้งตัวแทนไม่จำกัดความรับผิด"| Foreign
+    TechDev -->|"8. ช่องทางร้องเรียน ระงับเนื้อหาอันตราย"| User
+    TechDev -->|"9. ข้อตกลงต้องเป็นไปตามเกณฑ์คณะกรรมการ"| Seller
+    User -.->|"10. ร้องเรียนช่องทางกลาง / แจ้งเบาะแส"| Office
+    Board -->|"11. กำหนดนโยบายและกำกับการทำงาน"| Office
+    Office -.->|"12. เรียกเอกสาร เข้าถึงระบบ สั่งระงับชั่วคราว ปรับเป็นพินัย"| TechDev
+    TechDev -.->|"13. แจ้งประกอบธุรกิจ รายงานภายใน 60 วัน/รายปี"| Office
