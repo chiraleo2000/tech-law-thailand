@@ -1,0 +1,40 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:13px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:11px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:11px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:11px;
+
+    CenterLaw["📜 (ร่าง) ประกาศ ก.ล.ต. 3 ฉบับ (อนจ. 85/2569)<br/>คุณสมบัติผู้รับฝากสินทรัพย์ดิจิทัลต่างประเทศของกองทุน<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        L1["พ.ร.บ.หลักทรัพย์และตลาดหลักทรัพย์ 2535<br/>(ม.16/6 · 117 · 133 · 137)"]:::otherLaws
+        L2["พ.ร.ก.ธุรกิจสินทรัพย์ดิจิทัล 2561<br/>+ กธ. 19/2561 ภาคผนวก 6 / เกณฑ์ crypto ETF 2569"]:::otherLaws
+        L3["พ.ร.บ.ไซเบอร์ 2562<br/>(ตลาดทุน = CII · third-party risk)"]:::otherLaws
+        L4["PDPA 2562 ม.28–29 (โอนข้อมูลข้ามพรมแดน)<br/>+ พ.ร.บ.ฟอกเงิน 2542 / Travel Rule"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        TechDev["บลจ. / ผู้จัดการกองทุนส่วนบุคคล"]:::techSide
+        TechInfra["ผู้ดูแลผลประโยชน์ MF · ผู้รับฝากทรัพย์สิน PF<br/>· DA custodian ต่างประเทศ (wallet/MPC/multisig)"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้งาน"]
+        User["ผู้ลงทุนกองทุนรวม / กองทุนส่วนบุคคลที่ลงทุนคริปโท"]:::citizenSide
+        Victim["ผู้ลงทุนที่เสี่ยงเสียหายจาก custodian ล้มละลาย/ถูกเจาะระบบ"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        Regulator["ก.ล.ต. / คณะกรรมการกำกับตลาดทุน · หน่วยงานกำกับต่างประเทศ (IOSCO MMoU Signatory A)"]:::regulatorSide
+    end
+
+    CenterLaw -->|"1. ออกตามมาตรา 16/6, 117, 133, 137"| L1
+    CenterLaw -->|"2. คงคุณสมบัติ 12 ข้อ + ยกระดับเท่า crypto ETF"| L2
+    CenterLaw -->|"3. ผูกมาตรการ cybersecurity ของ custodian"| L3
+    CenterLaw -->|"4. โอนข้อมูล/สินทรัพย์ไปต่างประเทศต้องมีมาตรฐาน"| L4
+    CenterLaw ==>|"5. คัดเลือก custodian ตามเงื่อนไข 2 ชั้น (ทน.)"| TechDev
+    CenterLaw ==>|"6. ระบบงานคัดเลือก/ติดตามตัวแทนเก็บรักษา (สธ./สน.)"| TechInfra
+    TechDev -->|"7. บริหารกองทุนด้วย custodian ที่กำกับเข้มงวด"| User
+    TechInfra -->|"8. แยกกระเป๋า + ยืนยันการโอน ≥ 2 คน"| Victim
+    User -->|"9. ส่งความเห็นต่อร่างถึง 27 ธ.ค. 2569"| TechDev
+    Victim -->|"10. เรียกร้องให้ย้ายทรัพย์สินออกจาก custodian ไม่ผ่านเกณฑ์"| TechDev
+    TechDev -.->|"11. ขออนุมัติจัดตั้ง/รายงานการลงทุนต่อ ก.ล.ต."| Regulator
+    Regulator -.->|"12. ประกาศรายชื่อประเทศ + สภาวการณ์ crypto ETF"| TechInfra
+    Victim -.->|"13. ร้องเรียนต่อ ก.ล.ต. (SEC Complaint Center 1207)"| Regulator
