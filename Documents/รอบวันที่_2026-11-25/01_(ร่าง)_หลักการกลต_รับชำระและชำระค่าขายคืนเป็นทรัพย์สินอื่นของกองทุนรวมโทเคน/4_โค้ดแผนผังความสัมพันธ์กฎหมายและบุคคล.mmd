@@ -1,0 +1,40 @@
+%% โค้ดต้นฉบับ: 4_โค้ดแผนผังความสัมพันธ์กฎหมายและบุคคล.mmd
+flowchart LR
+    classDef centerLaw fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:13px,font-weight:bold;
+    classDef otherLaws fill:#F3F4F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:11px;
+    classDef techSide fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:11px;
+    classDef citizenSide fill:#F0FDF4,stroke:#16A34A,stroke-width:2px,color:#166534,font-size:11px;
+    classDef regulatorSide fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,color:#991B1B,font-size:11px;
+
+    CenterLaw["📜 (ร่าง) หลักการ ก.ล.ต. อนจ. 84/2569<br/>in-kind สำหรับกองทุนรวมโทเคน (tokenized fund)<br/>(ศูนย์กลางการบังคับใช้)"]:::centerLaw
+    subgraph GROUP_LAWS ["📚 กฎหมายอื่นที่บูรณาการร่วมกัน"]
+        L1["พ.ร.บ.หลักทรัพย์และตลาดหลักทรัพย์ 2535<br/>+ ทน. 3/2556 · ทน. 11/2564 · สน. 9/2564"]:::otherLaws
+        L2["พ.ร.ก.ธุรกิจสินทรัพย์ดิจิทัล 2561<br/>(กรณีทรัพย์สินเป็นโทเคน)"]:::otherLaws
+        L3["พ.ร.บ.ธุรกรรมทางอิเล็กทรอนิกส์ 2544<br/>+ พ.ร.บ.ไซเบอร์ 2562"]:::otherLaws
+        L4["PDPA 2562 + ป.พ.พ.<br/>(ข้อมูลผู้ลงทุน · สัญญา บลจ.–LBDU)"]:::otherLaws
+    end
+    subgraph GROUP_TECH ["🏢 ภาคธุรกิจและผู้พัฒนาระบบไอที"]
+        TechDev["บลจ. (ผู้จัดการ tokenized fund)"]:::techSide
+        TechInfra["LBDU ผู้ดูแลสภาพคล่อง<br/>+ ผู้ให้บริการระบบ blockchain/settlement"]:::techSide
+    end
+    subgraph GROUP_CITIZEN ["👤 ประชาชนและผู้ใช้งาน"]
+        User["ผู้ลงทุน tokenized fund"]:::citizenSide
+        Victim["ผู้ลงทุนที่เสี่ยงเสียหายจาก settlement failure"]:::citizenSide
+    end
+    subgraph GROUP_REGULATOR ["🏛️ หน่วยงานกำกับดูแล"]
+        Regulator["ก.ล.ต. / คณะกรรมการกำกับตลาดทุน"]:::regulatorSide
+    end
+
+    CenterLaw -->|"1. แก้เกณฑ์ pay-in-cash และ redemption-in-kind"| L1
+    CenterLaw -->|"2. ทรัพย์สินโทเคนต้องเข้ากรอบผู้ให้บริการ DA"| L2
+    CenterLaw -->|"3. บันทึกการโอนอิเล็กทรอนิกส์ + ความเสี่ยงไซเบอร์"| L3
+    CenterLaw -->|"4. คุ้มครองข้อมูลและกำหนดความรับผิดตามสัญญา"| L4
+    CenterLaw ==>|"5. กำหนดขั้นตอน in-kind ในโครงการ + fiduciary duty"| TechDev
+    CenterLaw ==>|"6. LBDU เสนอราคาต่อเนื่อง + ประกาศชื่อกองทุน"| TechInfra
+    TechDev -->|"7. เปิดเผย settlement risk ในหนังสือชี้ชวน"| User
+    TechInfra -->|"8. ส่งมอบหน่วย/เงินภายใน T0"| User
+    User -->|"9. ส่งความเห็นต่อหลักการถึง 11 ธ.ค. 2569"| TechDev
+    Victim -->|"10. เรียกร้องตามสัญญาเมื่อส่งมอบไม่สำเร็จ"| TechInfra
+    TechDev -.->|"11. ขออนุมัติจัดตั้ง/แก้ไขโครงการ"| Regulator
+    Regulator -.->|"12. ออกร่างประกาศฉบับจริง (คาดไตรมาส 2/2570)"| TechDev
+    Victim -.->|"13. ร้องเรียนต่อ ก.ล.ต. (1207)"| Regulator

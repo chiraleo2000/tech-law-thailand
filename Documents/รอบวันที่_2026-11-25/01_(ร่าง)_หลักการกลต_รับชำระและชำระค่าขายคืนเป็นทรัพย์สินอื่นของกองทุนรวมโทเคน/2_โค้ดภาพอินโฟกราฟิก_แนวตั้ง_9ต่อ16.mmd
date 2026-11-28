@@ -1,0 +1,37 @@
+%% โค้ดต้นฉบับ: 2_โค้ดภาพอินโฟกราฟิก_แนวตั้ง_9ต่อ16.mmd
+flowchart TD
+    classDef headerClass fill:#0B2545,stroke:#FF6600,stroke-width:3px,color:#FFFFFF,font-size:26px,font-weight:bold;
+    classDef essenceClass fill:#FFF5EB,stroke:#FF6600,stroke-width:2px,color:#111827,font-size:23px;
+    classDef oldLawClass fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#4B5563,font-size:22px;
+    classDef newLawClass fill:#EEF2F6,stroke:#0B2545,stroke-width:2px,color:#0B2545,font-size:22px;
+    classDef techSide fill:#0B2545,stroke:#0B2545,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef userSide fill:#FF6600,stroke:#FF6600,stroke-width:2px,color:#FFFFFF,font-size:22px;
+    classDef penaltyClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-size:22px,font-weight:bold;
+
+    subgraph HEADER ["📢 สรุปกฎหมายไอทีฉบับใหม่ (ร่าง)"]
+        TitleNode["📜 (ร่าง) หลักการ ก.ล.ต. ธุรกรรม in-kind<br/>ของกองทุนรวมโทเคน (tokenized fund) · อนจ. 84/2569<br/>รับฟังความเห็นถึง 11 ธ.ค. 2569 · ยังไม่มีผล"]:::headerClass
+    end
+    subgraph CORE ["💡 สาระสำคัญที่ต้องรู้"]
+        CoreEssence["tokenized fund ที่ซื้อขายได้ใน T0 รับชำระค่าซื้อ/ชำระค่าขายคืน<br/>เป็นหลักทรัพย์หรือทรัพย์สินอื่นแทนเงิน กับ LBDU ที่ดูแลสภาพคล่อง"]:::essenceClass
+    end
+    subgraph COMPARISON ["⚖️ เปรียบเทียบจุดเปลี่ยนสำคัญ (เดิม vs ใหม่)"]
+        OldRule["🏛️ เดิม (ทน. 3/2556 · ทน. 11/2564 · สน. 9/2564)<br/>• รับชำระค่าซื้อเป็นเงินสดเท่านั้น<br/>• redemption-in-kind เฉพาะ 4 กรณี<br/>• tokenized fund T0 ได้แล้ว (1 เม.ย. 2569)"]:::oldLawClass
+        NewRule["🚀 ใหม่ (ร่างหลักการ)<br/>• in-kind ได้ทั้งขาซื้อและขาขายคืน<br/>• เฉพาะกองทุนรวมเปิด + LBDU ≥ 1 ราย<br/>• LBDU เสนอราคาต่อเนื่อง/ประกาศชื่อกองทุน<br/>• คาดมีผลไตรมาส 2/2570"]:::newLawClass
+    end
+    subgraph STAKEHOLDERS ["👥 ผู้เกี่ยวข้องและหน้าที่"]
+        TechCompany["🏢 บลจ. / LBDU (นายหน้า ค้า จัดจำหน่ายหน่วยลงทุน)<br/>+ ระบบ blockchain ของกองทุน"]:::techSide
+        EndUser["👤 ผู้ลงทุน tokenized fund"]:::userSide
+    end
+    subgraph FOOTER ["⚠️ บทกำหนดโทษและการบังคับใช้"]
+        PenaltyNode["🚨 ไม่มีโทษใหม่: ใช้บทบัญญัติเดิมตาม พ.ร.บ.หลักทรัพย์ฯ 2535<br/>ไม่เพิ่มระบบอนุญาต/ดุลพินิจ<br/>แหล่งอ้างอิง: sec.or.th (อนจ. 84/2569)"]:::penaltyClass
+    end
+
+    TitleNode -->|"คณะกรรมการกำกับตลาดทุนเห็นชอบหลักการ 17 พ.ย. 2569"| CoreEssence
+    CoreEssence -->|"ผ่อนข้อจำกัด pay-in-cash เดิม"| OldRule
+    CoreEssence -->|"เปิดธุรกรรม in-kind ภายใต้เงื่อนไข"| NewRule
+    NewRule -->|"1. ระบุ LBDU ในโครงการ + เชื่อมระบบ in-kind"| TechCompany
+    NewRule -->|"2. รับหน่วย/รับเงินขายคืนได้ในวันเดียว (T0)"| EndUser
+    TechCompany -->|"3. เปิดเผย settlement risk และข้อมูล LBDU"| EndUser
+    EndUser -->|"4. ศึกษาเงื่อนไข T0 / ส่งความเห็นถึง 11 ธ.ค."| TechCompany
+    TechCompany -.->|"หากทำ in-kind นอกเงื่อนไขโครงการ"| PenaltyNode
+    OldRule -.->|"คงบทลงโทษเดิมตาม พ.ร.บ.หลักทรัพย์ฯ"| PenaltyNode
